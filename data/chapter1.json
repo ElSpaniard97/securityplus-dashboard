@@ -1,302 +1,127 @@
 [
   {
     "Acronym": "",
-    "Name": "Control TypesPreventive-Block access",
-    "Description": "Deterrent - Discourage intrusion attempt Detective - Identify and warn Corrective - Apply control after event has been detected Compensating - Control using other means Directive - Direct a subject towards security compliance CIA TriadCombination of principles Confidentiality - prevent disclosure Integrity - Messages can't be modified Availability - System must be up and running ConfidentialityCertain information should only be know to certain people Encryption - encode messages Access controls - restrict access to resources Two - factor authentication Ex: Encryption1.Access Controls2.Two - factor authentication3.IntegrityData is stored and transferred as intended Ex: Hashing - map of data of an arbitrary length to data of a fixed length1.Digital signatures - mathematical scheme to verify the integrity of data2.Certificates - combine with a digital signature to verify an individual 3.Non - repudiation - provides proof of integrity4.AvailabilityInformation is accessible to authorized usersEX. Redundancy - build services that will always be available 1.Fault tolerance - system will continue to run, even when a failure occurs2.Patching - stability, close security holes3.Non - RepudiationYou can't deny what you've said Proof of integrity Proof of origin Ex: Sign a contract1.Proof of IntegrityVerify data does not change Hash Used in cryptography Represent data as a short string of text If data changes, the hash changes Doesn't necessarily associate data with an individual Ex: Proof of OriginProves the message was not changed - Integrity Prove the source of the message - authentication Make sure the signature isn't fake - Non - repudiation",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "EX.",
-    "Name": "EX. Private Key -Sign",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Technical Controls",
+    "Description": "Implemented using technology or systems. Examples: firewalls, antivirus, intrusion detection, access controls."
   },
   {
     "Acronym": "",
-    "Name": "Public Key -Verify",
-    "Description": "AAA frameworkIdentification - username Authentication - Password and other authentication factors Authorization - determine access to resources based on role Accounting - Record login time, data sent and received and logout time Authenticating PeopleEnter username and password1.Goes to VPN/Firewall2.Checks identification via AAA Server3.If approved, goes back to VPN/Firewall4.Then Goes to Internal File Server5. Authenticating SystemsUse signed certificate on the device",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "CA",
-    "Name": "Certificate AuthenticationCertificate Authority (CA)",
-    "Description": "Most organizations maintain their own CAs Process:Organization creates a certificate for a device1.Digitally signs the certificate with the organization's CA2.Certificate can now be included on a device as an authentication factor3.CA's digital signature is used to validate the certificate4.Certificate Based Authentication Authorization ModelsUsers and services > data and applications Define by roles, organizations, attributes, etc… AbstractionReduce complexity Create a clear relationship between the user and the resource Administration is streamlined Easy to understand the authorizations Support any number of users or resources Ex: Gap AnalysisWhere you are > Where you want to be Can take a long time Can take a lot of people Green = close to goal Yellow = needs work Red = needs extensive work BaselineInternal set of goals Some organizations should use formal standards Use to evaluate people and processes Ex: NIST Special Publication 800 - 171 Revision 2, Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations1.ISO/IEC 27001, Information security management systems2.Compare and ContrastCompare - evaluate existing systems Identify weaknesses Detailed analysis Analysis and ReportFinal comparison - detailed baseline Path to goals Create gap analysis report Zero TrustHolistic approach to network security Covers every device, every process, every person Everything must be verified Nothing is inherently trusted Planes of OperationSplit the network into functional planes Applies to physical, virtual and cloud components Data PlaneProcess the frames, packets and network data Processing, forwarding, trunking, encrypting, NAT Control PlaneManages the actions of the data plane Define policies and rules Determine how packets should be forwarded Routing tables, session tables, NAT tables",
-    "Devices_Layer": ""
+    "Name": "Managerial Controls",
+    "Description": "Administrative measures that define security design and policy. Examples: security policies, risk assessments, standard operating procedures."
   },
   {
     "Acronym": "",
-    "Name": "Adaptive IdentityControlling Trust",
-    "Description": "Examines identity of individual based of what they tells us and other information gather about this authentication process",
-    "Devices_Layer": ""
+    "Name": "Operational Controls",
+    "Description": "Implemented and executed by people. Examples: security awareness training, incident response procedures, background checks."
   },
   {
     "Acronym": "",
-    "Name": "Threat Scope ReductionControlling Trust",
-    "Description": "Decrease the number of possible entry points Policy Driven Access ControlCombine the adaptive identity with a predefined set of rules Security ZonesWhere are you coming from and where are you going",
-    "Devices_Layer": ""
+    "Name": "Physical Controls",
+    "Description": "Restrict physical access to systems and facilities. Examples: fences, locks, badge readers, guard stations."
   },
   {
     "Acronym": "",
-    "Name": "Trusted > Untrusted",
-    "Description": "Internal network > External network",
-    "Devices_Layer": ""
+    "Name": "Control Types",
+    "Description": "Preventive – stop unwanted activity (firewalls, locks). Deterrent – discourage attempts (signs, guards). Detective – identify and alert (CCTV, IDS). Corrective – fix issues (restore backups). Compensating – alternate protection. Directive – enforce behavior (policies, signage)."
+  },
+  {
+    "Acronym": "CIA",
+    "Name": "CIA Triad",
+    "Description": "Confidentiality – prevent unauthorized access (encryption, access control). Integrity – ensure accuracy (hashing, checksums). Availability – ensure access (redundancy, backups)."
   },
   {
     "Acronym": "",
-    "Name": "Policy Enforcement PointSubjects and systems",
-    "Description": "End users, applications, non - human entities",
-    "Devices_Layer": ""
+    "Name": "Non-Repudiation and Integrity Proofs",
+    "Description": "Non-repudiation prevents denial of actions (digital signatures, logs). Proof of Integrity verifies data unchanged (hashing). Proof of Origin confirms sender identity (authentication, signatures)."
+  },
+  {
+    "Acronym": "AAA",
+    "Name": "AAA Framework",
+    "Description": "Identification – claim identity (username). Authentication – verify identity (password, MFA). Authorization – define access. Accounting – logs user actions."
   },
   {
     "Acronym": "",
-    "Name": "Gatekeeper",
-    "Description": "Allow, monitor, and terminate connections Can consist of multiple components working together Policy Decision PointEvaluates each access decision based on policy and other information sources Grant, deny or revoke",
-    "Devices_Layer": ""
+    "Name": "Authentication Flow",
+    "Description": "User enters credentials. Firewall or VPN forwards to AAA server. Server validates credentials. Access granted if approved."
   },
   {
     "Acronym": "",
-    "Name": "Policy AdministratorCommunicates with the Policy Enforcement Point",
-    "Description": "Generates access tokens or credentials Tells the PEP to allow or disallow access Policy EngineEvaluates each access decision based on policy and other information sources Grant, deny or revoke",
-    "Devices_Layer": ""
+    "Name": "Certificate-Based Authentication",
+    "Description": "Uses digital certificates issued by a Certificate Authority (CA). Verifies identity using public-key cryptography. Used in VPNs, Wi-Fi, secure email."
   },
   {
     "Acronym": "",
-    "Name": "Zero Trust Across Planes",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Authorization Models",
+    "Description": "Define how access is granted. RBAC (Role-Based), ABAC (Attribute-Based), MAC/DAC. Abstraction groups permissions to simplify management."
   },
   {
     "Acronym": "",
-    "Name": "Barricades/BollardsPrevent access",
-    "Description": "Channel people through a specific access point Identify safety concerns Access Control VestibulesAllow or control access to an area FenceBuild a perimeter CCTVClosed circuit television Video surveillance",
-    "Devices_Layer": ""
+    "Name": "Security Assessments",
+    "Description": "Gap Analysis – compare current vs desired state. Baseline – define standard configuration. Reporting – identify weaknesses and improvements."
   },
   {
     "Acronym": "",
-    "Name": "Guards and Access BadgesPhysical protection",
-    "Description": "Validates identification",
-    "Devices_Layer": ""
+    "Name": "Zero Trust Architecture",
+    "Description": "Principle: never trust, always verify. Includes data/control planes, adaptive identity, policy enforcement points, and threat scope reduction."
   },
   {
     "Acronym": "",
-    "Name": "Two-person integrity/control",
-    "Description": "Access badge - ID badge HoneypotsAttract bad guys and trap Attacker is probably a machine Virtual world to explore HoneynetsBuild a larger deception network HoneyfilesFiles with fake information Bait for the honeynet Alert is sent if the file is accessed HoneytokensTrack the malicious actors Add some traceable data to the honeynet If the data is stolen, you'll know where it came from Ex: API Credentials - does not actually provide access Fake email addresses Database records, browser cookies Change ManagementFormal process for managing change Avoid downtime, confusion, and mistakes Process:Complete the request forms1.Determine the purpose of the change2.Identify the scope of the change3.Schedule a date and time of the change4.Determine affected systems and the impact 5.Analyze the risk associated with the change6.Get approval from the change control board7.Get end - user acceptance after the change is complete8.OwnershipIndividual or entity needs to make the change Manage the process Do not perform the actually change StakeholdersImpacted by change Impact AnalysisDetermine the risk value Risk can be minor or far - reaching Also consider if a change is not made",
-    "Devices_Layer": ""
+    "Name": "Physical Security Controls",
+    "Description": "Barricades, fences, bollards, CCTV, guards, badges, and access vestibules restrict or monitor access."
   },
   {
     "Acronym": "",
-    "Name": "Sandbox Testing environment",
-    "Description": "No connection to the real world or production system Technological safe space Backout PlanMove everything back before change Always have backups Maintenance WindowWhen change is going to happen Maintenance hours SOPStandard Operating ProcedureChange management is critical Process must be well documented Allow ListNothing runs unless it's approved Very restrictive Deny ListNothing on the \"bad list\" can be executed",
-    "Devices_Layer": ""
+    "Name": "Deception and Detection Tools",
+    "Description": "Honeypots, honeynets, honeyfiles, and honeytokens attract attackers or detect misuse."
   },
   {
     "Acronym": "",
-    "Name": "Anti-virus",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Change Management",
+    "Description": "Structured process for managing IT changes. Includes ownership, stakeholders, impact analysis, sandbox testing, backout plan, and documentation."
   },
   {
     "Acronym": "",
-    "Name": "Anti-malware",
-    "Description": "Restricted activitiesChange control approval is very specific DowntimeScheduled during non - production hours If possible, prevent any downtime Secondary system, upgrade primary, then switch back RestartImplement the new configuration Ex: Reboot OS, power cycle the switch, bounce the service",
-    "Devices_Layer": ""
+    "Name": "Software and System Controls",
+    "Description": "Allow list – approved applications only. Deny list – block malicious software. Maintain redundancy and isolate legacy systems."
+  },
+  {
+    "Acronym": "PKI",
+    "Name": "Public Key Infrastructure",
+    "Description": "Framework for managing certificates and encryption keys. Supports symmetric/asymmetric encryption and key escrow."
   },
   {
     "Acronym": "",
-    "Name": "Services",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Encryption Practices",
+    "Description": "Data at rest – BitLocker, FileVault. Data in transit – TLS, VPN. Data in use – secure memory. Use AES/RSA/ECC with strong key management."
   },
   {
     "Acronym": "",
-    "Name": "Application",
-    "Description": "Legacy ApplicationsNo supported by developer You are the support team Create specific processes and procedures DependenciesService A must be complete before service B can be complete Modifying one component may require changing or restarting other components Dependencies may occur across software DocumentationRequired with the change management process Update diagrams",
-    "Devices_Layer": ""
+    "Name": "Cryptographic Hardware",
+    "Description": "TPM, HSM, KMS, and Secure Enclave manage encryption keys securely and isolate sensitive operations."
   },
   {
     "Acronym": "",
-    "Name": "Update policies/procedures",
-    "Description": "Version ControlTrack changes to a file or configuration data over time Easily revert to a previous setting Router configurations",
-    "Devices_Layer": ""
+    "Name": "Data Obfuscation and Privacy",
+    "Description": "Obfuscation hides intent. Steganography hides data in media. Tokenization replaces sensitive data. Data masking hides parts of data."
+  },
+  {
+    "Acronym": "SHA-256",
+    "Name": "Hashing and Digital Signatures",
+    "Description": "Hashing verifies integrity. SHA-256 is secure. MD5/SHA-1 are obsolete. Digital signatures verify authenticity and non-repudiation."
   },
   {
     "Acronym": "",
-    "Name": "Windows OS updates",
-    "Description": "Application registry entries PKIPublic Key InfrastructurePolicies, procedures, hardware, software, people Digital certificates: create, distribute, manage, store, revoke",
-    "Devices_Layer": ""
+    "Name": "Blockchain",
+    "Description": "Immutable distributed ledger linking transactions with hashes. Used for secure tracking and verification."
   },
   {
     "Acronym": "",
-    "Name": "Tied with Certificate Authority",
-    "Description": "Symmetric EncryptionA single, shared key Encrypt with the key Decrypt with the same key Secret key algorithm Doesn't scale very well Very fast to use Often combined with asymmetric encryption Asymmetric EncryptionPublic key cryptography",
-    "Devices_Layer": ""
+    "Name": "Digital Certificates and Trust",
+    "Description": "X.509 certificates bind keys to identities. Managed by Certificate Authorities (CAs). Includes CSRs, SANs, and wildcard certificates."
   },
   {
-    "Acronym": "",
-    "Name": "Two (or more) mathematically related keys",
-    "Description": "Private Key - One person has key Public Key - anyone can see this key Private key is the only key that can decrypt data encrypted with the public key Public key can encrypt but not decrypt Can't derive the private key from the public key Key GenerationBuild both the public and private key at the same time Lots of randomization Large prime numbers Lots and lots of math Key EscrowSomeone else holds your decryption keys Your private keys are in the hands of a 3rd party Maybe within your organization Encrypting Stored DataProtect data on storage devices",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "SSD,",
-    "Name": "SSD, HDD, USB, cloud storage",
-    "Description": "Data at rest",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Full-disk and partition/volume encryption",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Bitlocker, FileVault",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "EFSEncryption File SystemFile encryption",
-    "Description": "Database EncryptionProtecting stored data and transmission of that data Transparent EncryptionEncrypt all database information with a symmetric key Record - Level EncryptionEncrypt individual columns Use separate symmetric keys for each column Ex: Only SSN is encrypted Transport EncryptionProtect data traversing the network Encrypting in the application",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "EX.",
-    "Name": "EX. VPNHTTPS",
-    "Description": "Encryption AlgorithmsFormula used during encryption and decryption Both sides decide on the algorithm before encrypting the data Hidden from user Cannot encrypt with DES and decrypt with AES, must be the same Cryptographic KeysKey determines output Encrypting data Hash value Digital signature Keep keys private Key LengthsLarger keys more secure Prevent brute - force attacks Attackers can try every possible key combination Symmetric encryption - 128 bit or larger Asymmetric Encryption - Complex calculation of prime numbers, larger than symmetric encryption Key StretchingMake a weak key stronger by performing multiple processes Brute force attacks would require reversing each of those hashes Ex: Hash the Password 1.Hash the hash of the password2.And continue3.In - band key exchangeIts sent on the network Protect the key with additional encryption Use asymmetric encryption to deliver a symmetric key Out - of - band key exchangeNot sent over network",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "EX.Telephone",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Courier",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "In-person",
-    "Description": "Real - time encryption/decryptionShare a symmetric session key using asymmetric encryption Implement session keys carefully",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Need to be changed often (ephemeral keys)",
-    "Description": "Need to be unpredictable Ex: Client encrypts a random (symmetric) key with a server's public key1.Server decrypts this shared key and uses it to encrypt data2.This is the session key3.Public Key CryptographyUse public and private key cryptography to create a symmetric key TPMTrusted Platform ModuleSpecification for cryptographic functions Cryptography hardware on a device Cryptographic processor - random number of generator, key generators Persistent memory - Unique keys burned in during manufacturing Versatile memory - storage keys, hardware configuration information Password protected HSMHardware Security ModuleUsed in large environments Clusters, redundant power Securely store thousands of cryptographic keys High - end cryptographic hardware Plug - in card or separate hardware device Key backup - secure storage in hardware Cryptographic accelerators - offload that CPU overhead from other devices",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Key Management SystemOn-premises or cloud-based",
-    "Description": "Manage all keys from a centralized manager Separate the encryption keys form the data All key management from one console Create keys for a specific service or cloud provider Associate keys with specific users Rotate keys on regular intervals Log key use and important events Secure EnclaveOften implemented as a hardware processor Isolated from the main processor Provides extensive security features Has its own boot ROM Monitors the system boot process True random number generator Real - time memory encryption Root cryptographic keys Performs AES encryption in hardware ObfuscationThe process of making something unclear Difficult to understand Hide information in plain sight SteganographyGreek for \"concealed writing Security through obscurity Hidden in a image Invisible watermarks Yellow dots on printers Network Based - SteganographyEmbed messages in TCP packets Audio - SteganographyModify the digital audio file Interlace a secret message within the audio Video - SteganographyA sequence of images Manage the signal to noise ratio Potentially transfer much more information TokenizationReplace sensitive data with a non - sensitive placeholder Common with credit card processing Use temporary token during payment Attacker capturing the card numbers can't use them later This isn't encryption or hashing The original token aren't mathematically related Ex: ",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Data MaskingData obfuscation",
-    "Description": "Hide some of the original data",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Protects PII",
-    "Description": "May only be hidden from view The data may still be intact in storage Control the view based on permissions HashesRepresent data as a short string of text A message digest, a fingerprint One - way trip Impossible to recover the original message from the digest",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Used to store passwords/confidentiality",
-    "Description": "Verify a download document is the same as the original Can be a digital signature Authentication, non - repudiation, and integrity",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "SHA256",
-    "Name": "SHA256 Hash256 bits",
-    "Description": "64 hexadecimal characters One change in text, changes hash completely Ex. CollisionDifferent inputs should never create the same hash If they do, it's a collision MD5 has a collision problem MD5 not recommended Practical HashingVerify a downloaded file Hashes may be provided on the download site Compare the downloaded file hash with the posted hash value Password StorageInstead of storing the password, store a salted hash Compare hashes during the authentication process Nobody ever knows your actual password SaltRandom data added to a password when hashing Every user gets their own random salt Stored with password Rainbow TableWon't work with salted hashes Additional random value added to the original password This slows things down the brute force process It doesn't completely stop the reverse engineering Salting the HashEach user gets a different random hash Same password creates a different hash Digital SignaturesProve the message as not changed - Integrity Prove the source of the message - Authentication Make sure the signature isn't fake - Non - Repudiation Sign with the private key Verify with the public key",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Creating A Digital Signature",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Verify A Digital Signature",
-    "Description": "BlockchainDistributed ledger Keep track of transactions Everyone on the blockchain network maintains the ledger Records and replicates to anyone and everyone Many practical applications",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "EX.",
-    "Name": "EX. Payment processing",
-    "Description": "Digital identification Supply chain monitoring Digital voting Blockchain ProcessTransaction requested1.Could be any digital transaction - Transaction sent to every computer (or node) in a decentralized network to be verified2.Verified transaction is added to a new block of data containing other recently verified transactions3.A secure code (hash) is calculated from the previous blocks of transaction data in the Blockchain4.The hash is added to the new block of verified transactions5.The block is added to the end of the blockchain, which is then updated to all nodes in the network security 6.Transaction is complete7.If any blocks are altered, its hash and all following hashes in the chain are automatically recalculated The altered chain will no longer match the chains stored by the rest of the network, and will be rejected",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Digital CertificatesPublic Key Certificate",
-    "Description": "Binds a public key with a digital signature Adds trust PKI uses Certificate Authorities for additional trust Web of Trust adds other users for additional trust Certificate creation can be built into the OS",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Part of Windows Domain services",
-    "Description": "Certificate DetailsX.509 - standard format Serial number",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Version",
-    "Description": "Signature algorithm",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Issuer",
-    "Description": "Name of the cert holder Public key",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Extensions",
-    "Description": "And more… Root of TrustFoundational characteristics Usually third party software or device that tells you it is okay to trust something Inherently trusted component Hardware, software, firmware or other components",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Hardware Security Module (HSM), Secure Enclave, Certificate Authority",
-    "Description": "Certificate AuthoritiesCA has digitally signed the website certificate You trust the CA, therefore you trust the website Real - time verification Third - Party Certificate Authorities Built - in to your browser Purchase your web site certificate It will be trusted by everyone's browser CA is responsible for vetting the request They will confirm the certificate owner Additional verification information may be required by the CA Certificate Signing RequestsCreate a key pair1.Send the public key to the CA to be signed (CSR)2.The CA validates the request - confirms DNS emails and website ownership3.CA digitally signs the cert - returns to the applicant4. Private Certificate AuthoritiesYou are your own CA Build it in - house Your devices must trust the internal CA Needed for medium - to - large organizations Implement as part of your overall computing strategy",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Windows Certificate Services, OpenCA",
-    "Description": "Self - signed CertificateInternal certificates don't need to be signed by a public CA Your company is the only one going to use it No need to purchase trust for devices that already trust you Build your own CA Issue your own certificates signed by your own CA",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Install the CA certificate/trusted chain on all devices",
-    "Description": "They'll now trust any certificates signed by your internal CA Works exactly like a certificate you purchased SANSubject Alternative NameExtension to an X.509 certificate Lists additional identification information Allows a certificate to support many different domains Wildcard DomainCertificates are based on the name of the serverWill apply to all server names in a domainCRLCertificate Revocation ListKey RevocationMaintained by the CACan contain many revocations in a large fileMany different reasons OCSP StaplingOnline Certificate Status ProtocolProvides scalability for OCSP checks The CA is responsible for responding to all client OCSP requests This may not scale well Instead, have the certificate holder verify their own status Status information is stored on the certificate holder's server",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "OCSP",
-    "Name": "OCSP status is \"stapled\" into the SSL/TLS handshake",
-    "Description": "Digitally signed by the CA Getting Revocation details to the BrowserOCSP Browser can check certificate revocation Messages usually sent to an OCSP responder via HTTP Easy to support over internet links More efficient than downloading a CRL",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Not all browsers/apps support OCSP",
-    "Description": "Early internet explorer versions did not support OCSP Some support OCSP, but don't bother checking Stopping Point:Encryption Data - Time: - Chapter 1Wednesday, July 16, 20252:16 PM AcronymNameDescriptionDevices/LayerTechnical Controls Controls implemented using systems Operating system controls Firewalls, anti - virus Managerial ControlsAdministrative controls associated with security design and implementation Security policies, standard operating procedures Operational ControlsControls implemented by people instead of systems Security guards, awareness program Physical ControlsLimit physical access Guard shack Fences, locks Badge readers",
-    "Devices_Layer": ""
+    "Acronym": "OCSP / CRL",
+    "Name": "Certificate Revocation",
+    "Description": "CRL lists revoked certs. OCSP checks validity in real time. OCSP stapling improves performance."
   }
 ]
