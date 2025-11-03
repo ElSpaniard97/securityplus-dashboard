@@ -17,6 +17,7 @@
         <a href="index.html">Overview</a>
         <a href="chapters.html">Chapters</a>
         <a href="flashcards.html">Flashcards</a>
+        <a href="search.html">Search</a>
       </nav>
     </div>
 
@@ -119,7 +120,6 @@
       knowBtn.disabled = false;
     });
     dontBtn.addEventListener('click', () => {
-      // push current card back later in the deck
       if(i < CARDS.length){ CARDS.push(CARDS[i]); }
       i++;
       showCard();
