@@ -65,7 +65,6 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Chapter</th>
               <th>Acronym</th>
               <th>Name</th>
               <th>Description</th>
@@ -90,7 +89,7 @@
       window.location.href = "login.html";
     });
 
-    // --- Override default storage keys to include user namespace ---
+    // Override key namespace per user
     window.storageKeyForItem = function(name){
       return `securityplus_${user}_studied::${name}`;
     };
