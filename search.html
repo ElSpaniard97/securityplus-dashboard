@@ -7,22 +7,48 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <script>
+    // Login check
+    const currentUser = localStorage.getItem("securityplus_user");
+    if(!currentUser){
+      window.location.href = "login.html";
+    }
+  </script>
+
   <aside class="sidebar">
     <div class="brand">
       <div class="logo">
-        <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#eaf0fa"/><path d="M4 20a8 8 0 0 1 16 0" fill="#eaf0fa"/></svg>
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <circle cx="12" cy="8" r="4" fill="#eaf0fa"/>
+          <path d="M4 20a8 8 0 0 1 16 0" fill="#eaf0fa"/>
+        </svg>
       </div>
       <h1>Security+ Dashboard</h1>
     </div>
+
     <div class="profile">
-      <div class="name">Ezekiel Correa</div>
+      <div class="name" id="userName"></div>
       <div class="role">Security+ Candidate</div>
+      <button class="btn" id="logoutBtn" style="margin-top:8px;width:100%;justify-content:center;">Logout</button>
     </div>
+
     <nav class="nav">
-      <a href="index.html"><svg viewBox="0 0 24 24"><path d="M12 3l9 7h-3v9h-5v-6H11v6H6v-9H3z"/></svg>Overview</a>
-      <a href="chapters.html"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>Chapters</a>
-      <a href="flashcards.html"><svg viewBox="0 0 24 24"><path d="M4 6h12a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2z"/><path d="M8 4h12a2 2 0 0 1 2 2v10h-2V6H8z"/></svg>Flashcards</a>
-      <a class="active" href="search.html"><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35"/><circle cx="10" cy="10" r="7" stroke="#eaf0fa" stroke-width="2" fill="none"/></svg>Search</a>
+      <a href="index.html">
+        <svg viewBox="0 0 24 24"><path d="M12 3l9 7h-3v9h-5v-6H11v6H6v-9H3z"/></svg>
+        Overview
+      </a>
+      <a href="chapters.html">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>
+        Chapters
+      </a>
+      <a href="flashcards.html">
+        <svg viewBox="0 0 24 24"><path d="M4 6h12a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2z"/><path d="M8 4h12a2 2 0 0 1 2 2v10h-2V6H8z"/></svg>
+        Flashcards
+      </a>
+      <a class="active" href="search.html">
+        <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35"/><circle cx="10" cy="10" r="7" stroke="#eaf0fa" stroke-width="2" fill="none"/></svg>
+        Search
+      </a>
     </nav>
   </aside>
 
@@ -36,7 +62,11 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Chapter</th><th>Acronym</th><th>Name</th><th>Description</th><th>Study</th>
+              <th>Chapter</th>
+              <th>Acronym</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Study</th>
             </tr>
           </thead>
           <tbody id="searchResults"></tbody>
@@ -48,17 +78,33 @@
   <script type="module">
     import { loadAllData, filterItems, renderItemsTable } from './script.js';
 
+    const user = localStorage.getItem("securityplus_user") || "Guest";
+    document.getElementById("userName").textContent = user;
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("securityplus_user");
+      window.location.href = "login.html";
+    });
+
+    // Override local storage key to isolate per-user data
+    window.storageKeyForItem = function(name){
+      return `securityplus_${user}_studied::${name}`;
+    };
+
     let ALL_ITEMS = [];
 
     (async function init(){
       ALL_ITEMS = await loadAllData();
       const input = document.getElementById('search');
       const tbody = document.getElementById('searchResults');
+
       const render = () => {
         const q = input.value;
         const list = filterItems(ALL_ITEMS, q, 0).slice(0, 150);
         renderItemsTable(tbody, list);
       };
+
       input.addEventListener('input', render);
       render();
     })();
