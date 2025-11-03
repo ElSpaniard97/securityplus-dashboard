@@ -68,7 +68,7 @@ Copy code
 
 ### 1. Clone the repository
 ```bash
-git clone (https://elspaniard97.github.io/securityplus-dashboard/)
+git clone https://elspaniard97.github.io/securityplus-dashboard/
 cd securityplus-dashboard
 2. Run locally
 Use VS Code Live Server or any local web server to test:
