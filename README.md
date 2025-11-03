@@ -1,6 +1,7 @@
 # 🧠 Security+ Study Dashboard
 
 A modern, multi-user web dashboard for studying **CompTIA Security+** using dynamic data, progress tracking, and flashcards — built with HTML, CSS, and JavaScript, and fully deployable on **GitHub Pages**.
+Visit https://elspaniard97.github.io/securityplus-dashboard/
 
 ---
 
