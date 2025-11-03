@@ -1,13 +1,15 @@
-// Shared logic for the Security+ Dashboard
-const CHAPTER_FILES = [
-  'data/chapter1.json',
-  'data/chapter2.json',
-  'data/chapter3.json',
-  'data/chapter4.json',
-  'data/chapter5.json'
-];
+// =====================================================
+// Security+ Dashboard Script
+// Supports per-user tracking, flashcards, chapters, search
+// =====================================================
 
-const CHAPTER_TITLES = {
+// --- Global user isolation ---
+export const USER = localStorage.getItem("securityplus_user") || "Guest";
+export const STUDIED_PREFIX = `securityplus_${USER}_studied::`;
+export const REVIEW_PREFIX  = `securityplus_${USER}_review_cards`;
+
+// --- Chapter Titles (edit if you add/remove chapters) ---
+export const CHAPTER_TITLES = {
   1: "Chapter 1",
   2: "Chapter 2",
   3: "Chapter 3",
@@ -15,167 +17,140 @@ const CHAPTER_TITLES = {
   5: "Chapter 5"
 };
 
-function getStored(key, fallback){
-  try{ return JSON.parse(localStorage.getItem(key)) ?? fallback } catch(e){ return fallback }
-}
-function setStored(key, val){
-  localStorage.setItem(key, JSON.stringify(val));
-}
-
-function storageKeyForItem(name){
-  return `studied::${name}`;
-}
-
-function markStudied(name, value){
-  setStored(storageKeyForItem(name), !!value);
-}
-
-function isStudied(name){
-  return !!getStored(storageKeyForItem(name), false);
-}
-
-async function fetchJson(url){
-  const res = await fetch(url);
-  if(!res.ok) throw new Error('Failed to load ' + url);
-  return res.json();
-}
-
-async function loadAllData(){
-  const all = [];
-  for(let i=0; i<CHAPTER_FILES.length; i++){
+// =====================================================
+// Load and parse all JSON chapter files
+// =====================================================
+export async function loadAllData(){
+  const chapters = [1,2,3,4,5];
+  const data = [];
+  for(const ch of chapters){
     try{
-      const arr = await fetchJson(CHAPTER_FILES[i]);
-      const chapterNum = i+1;
-      arr.forEach(obj => {
-        all.push({
-          Chapter: chapterNum,
-          Acronym: obj.Acronym || "",
-          Name: obj.Name || "",
-          Description: obj.Description || "",
-          Devices_Layer: obj.Devices_Layer || ""
-        });
-      });
-    }catch(e){
-      console.error(e);
+      const res = await fetch(`data/chapter${ch}.json`);
+      const arr = await res.json();
+      arr.forEach(x => x.Chapter = ch);
+      data.push(...arr);
+    } catch(e){
+      console.error("Error loading chapter "+ch, e);
     }
   }
-  return all;
+  return data;
 }
 
-function filterItems(items, query="", chapter=0){
-  const q = (query||"").toLowerCase().trim();
-  return items.filter(it => {
-    const inChapter = chapter ? (it.Chapter === chapter) : true;
-    if(!q) return inChapter;
-    const hay = (it.Acronym + " " + it.Name + " " + it.Description).toLowerCase();
-    return inChapter && hay.includes(q);
-  });
+// =====================================================
+// Data Filtering and Table Rendering
+// =====================================================
+export function filterItems(all, query, chapter){
+  const q = query.toLowerCase();
+  return all.filter(it =>
+    (chapter === 0 || it.Chapter === chapter) &&
+    (it.Acronym?.toLowerCase().includes(q) ||
+     it.Name?.toLowerCase().includes(q) ||
+     it.Description?.toLowerCase().includes(q))
+  );
 }
 
-function renderItemsTable(tbody, items){
-  let html = "";
+export function renderItemsTable(tbody, items){
+  tbody.innerHTML = "";
   for(const it of items){
-    const studied = isStudied(it.Name);
-    html += `
-      <tr>
-        <td style="width:90px"><span class="tag">Ch ${it.Chapter}</span></td>
-        <td><strong>${escapeHtml(it.Acronym || "-")}</strong></td>
-        <td>${escapeHtml(it.Name)}</td>
-        <td>${escapeHtml(it.Description)}</td>
-        <td style="width:120px">
-          <label style="display:flex;align-items:center;gap:8px">
-            <input type="checkbox" ${studied ? "checked":""} data-name="${escapeHtml(it.Name)}" class="study-toggle">
-            <span class="small">${studied ? "Studied" : "Mark studied"}</span>
-          </label>
-        </td>
-      </tr>
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${it.Chapter}</td>
+      <td>${it.Acronym || ""}</td>
+      <td>${it.Name || ""}</td>
+      <td>${it.Description || ""}</td>
+      <td><input type="checkbox" ${isStudied(it.Name) ? "checked" : ""}></td>
     `;
-  }
-  tbody.innerHTML = html;
-  // bind toggles
-  tbody.querySelectorAll(".study-toggle").forEach(cb => {
-    cb.addEventListener("change", e => {
-      const name = e.target.getAttribute("data-name");
-      markStudied(name, e.target.checked);
-      e.target.nextElementSibling.textContent = e.target.checked ? "Studied" : "Mark studied";
+    const checkbox = tr.querySelector("input");
+    checkbox.addEventListener("change", e => {
+      setStudied(it.Name, e.target.checked);
     });
-  });
-}
-
-function escapeHtml(s){
-  return (s||"").replace(/[&<>'"]/g, c => ({
-    "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;", '"':"&quot;"
-  }[c]));
-}
-
-// ---- Charts (Chart.js) ----
-function summarizeByChapter(items){
-  const counts = {1:0,2:0,3:0,4:0,5:0};
-  const studiedCounts = {1:0,2:0,3:0,4:0,5:0};
-  for(const it of items){
-    counts[it.Chapter]++;
-    if(isStudied(it.Name)) studiedCounts[it.Chapter]++;
+    tbody.appendChild(tr);
   }
-  return {counts, studiedCounts};
 }
 
-function buildProgressChart(ctx, summary){
-  const labels = Object.keys(summary.counts).map(n => "Ch " + n);
-  const total = Object.values(summary.counts);
-  const studied = Object.values(summary.studiedCounts);
-  return new Chart(ctx, {
-    type: 'bar',
+// =====================================================
+// Studied Item Storage Helpers
+// =====================================================
+export function storageKeyForItem(name){
+  return `${STUDIED_PREFIX}${name}`;
+}
+
+export function isStudied(name){
+  return localStorage.getItem(storageKeyForItem(name)) === "true";
+}
+
+export function setStudied(name, val){
+  localStorage.setItem(storageKeyForItem(name), val ? "true" : "false");
+}
+
+// =====================================================
+// Flashcards
+// =====================================================
+export function createFlashcards(items, mode="acronym"){
+  const cards = [];
+  for(const it of items){
+    const question = mode === "definition"
+      ? (it.Description || "")
+      : (it.Acronym || it.Name || "");
+    const answer = mode === "definition"
+      ? (it.Name || it.Acronym || "")
+      : (it.Description || "");
+    cards.push({
+      key: it.Name,
+      question,
+      answer,
+      Name: it.Name,
+      Chapter: it.Chapter
+    });
+  }
+  // Shuffle for randomness
+  return cards.sort(() => Math.random() - 0.5);
+}
+
+// =====================================================
+// Dashboard Analytics
+// =====================================================
+export function summarizeByChapter(all){
+  const map = {};
+  for(const it of all){
+    const ch = it.Chapter;
+    if(!map[ch]) map[ch] = { total: 0, studied: 0 };
+    map[ch].total++;
+    if(isStudied(it.Name)) map[ch].studied++;
+  }
+  return Object.keys(map).map(ch => ({
+    chapter: ch,
+    studied: map[ch].studied,
+    total: map[ch].total
+  }));
+}
+
+export function buildProgressChart(ctx, summary){
+  const labels = summary.map(x => `Ch ${x.chapter}`);
+  const studied = summary.map(x => x.studied);
+  const total = summary.map(x => x.total);
+
+  new Chart(ctx, {
+    type: "bar",
     data: {
       labels,
       datasets: [
-        { label: 'Total terms', data: total },
-        { label: 'Studied', data: studied }
+        {
+          label: "Studied",
+          data: studied,
+          backgroundColor: "#fca311"
+        },
+        {
+          label: "Total",
+          data: total,
+          backgroundColor: "#e5e7eb"
+        }
       ]
     },
     options: {
       responsive: true,
-      plugins: {
-        legend: { labels: { color: '#e6edf3' } }
-      },
-      scales: {
-        x: { ticks: { color: '#9fb0c0' }, grid: { color: '#223043' } },
-        y: { ticks: { color: '#9fb0c0' }, grid: { color: '#223043' } }
-      }
+      plugins: { legend: { position: "bottom" } },
+      scales: { y: { beginAtZero: true } }
     }
   });
 }
-
-// ---- Flashcards ----
-function shuffle(array){
-  for(let i=array.length-1;i>0;i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [array[i],array[j]]=[array[j],array[i]];
-  }
-  return array;
-}
-
-function createFlashcards(items, mode='acronym'){
-  // mode: 'acronym' => question = Acronym/Name, answer = Description
-  //       'definition' => question = Description, answer = Name
-  const cards = items.map(it => {
-    const q = (mode === 'definition')
-      ? (it.Description || it.Name)
-      : (it.Acronym || it.Name);
-    const a = (mode === 'definition')
-      ? (it.Name || it.Acronym)
-      : (it.Description || it.Name);
-    return {
-      Chapter: it.Chapter,
-      question: q,
-      answer: a,
-      key: it.Name
-    };
-  });
-  return shuffle(cards);
-}
-
-export {
-  loadAllData, filterItems, renderItemsTable,
-  summarizeByChapter, buildProgressChart,
-  createFlashcards, CHAPTER_TITLES
-};
