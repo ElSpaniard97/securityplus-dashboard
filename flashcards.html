@@ -5,6 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Security+ Flashcards</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- Flip animation --- */
+    .flip-container {
+      perspective: 1000px;
+      width: 100%;
+      height: 250px;
+      cursor: pointer;
+    }
+    .flipper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .flip-container.flipped .flipper {
+      transform: rotateY(180deg);
+    }
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: #fff;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .back {
+      transform: rotateY(180deg);
+    }
+  </style>
 </head>
 <body>
   <aside class="sidebar">
@@ -31,17 +69,25 @@
 
     <div class="grid">
       <div class="col-8">
-        <div class="card" id="card" style="min-height:240px; display:flex; flex-direction:column; justify-content:center">
-          <div class="small">Question</div>
-          <h2 id="q" style="margin:6px 0 10px"></h2>
-          <div id="a" class="small" style="display:none; opacity:.9"></div>
-          <div style="display:flex; gap:8px; margin-top:12px">
-            <button class="btn" id="reveal">Reveal</button>
-            <button class="btn primary" id="know" disabled>I knew this</button>
-            <button class="btn" id="dont">I need practice</button>
+        <div class="flip-container" id="flipContainer">
+          <div class="flipper">
+            <div class="front">
+              <div class="small">Question</div>
+              <h2 id="q"></h2>
+            </div>
+            <div class="back">
+              <div class="small">Answer</div>
+              <h2 id="a"></h2>
+            </div>
           </div>
         </div>
+
+        <div style="display:flex; gap:8px; margin-top:18px">
+          <button class="btn primary" id="know" disabled>I knew this</button>
+          <button class="btn" id="dont">I need practice</button>
+        </div>
       </div>
+
       <div class="col-4">
         <div class="card">
           <h3 class="section-title">Settings</h3>
@@ -77,10 +123,10 @@
     let CARDS = [];
     let i = 0;
 
+    const flipContainer = document.getElementById('flipContainer');
     const qEl = document.getElementById('q');
     const aEl = document.getElementById('a');
     const stats = document.getElementById('stats');
-    const revealBtn = document.getElementById('reveal');
     const knowBtn = document.getElementById('know');
     const dontBtn = document.getElementById('dont');
     const chSel = document.getElementById('ch');
@@ -90,19 +136,17 @@
     function updateStats(){ stats.textContent = `${Math.min(i+1, CARDS.length)} / ${CARDS.length}`; }
 
     function showCard(){
+      flipContainer.classList.remove('flipped');
       if(i >= CARDS.length){
         qEl.textContent = "Session complete.";
-        aEl.style.display = "none";
+        aEl.textContent = "";
         knowBtn.disabled = true;
-        revealBtn.disabled = true;
         return;
       }
       const card = CARDS[i];
       qEl.textContent = card.question;
       aEl.textContent = card.answer;
-      aEl.style.display = "none";
       knowBtn.disabled = true;
-      revealBtn.disabled = false;
       updateStats();
     }
 
@@ -116,20 +160,36 @@
       showCard();
     }
 
-    revealBtn.addEventListener('click', () => { aEl.style.display = "block"; knowBtn.disabled = false; });
-    dontBtn.addEventListener('click', () => { if(i < CARDS.length){ CARDS.push(CARDS[i]); } i++; showCard(); });
-    knowBtn.addEventListener('click', () => { i++; showCard(); });
+    flipContainer.addEventListener('click', () => {
+      flipContainer.classList.toggle('flipped');
+      knowBtn.disabled = false;
+    });
+
+    dontBtn.addEventListener('click', () => {
+      if(i < CARDS.length){ CARDS.push(CARDS[i]); }
+      i++;
+      showCard();
+    });
+
+    knowBtn.addEventListener('click', () => {
+      i++;
+      showCard();
+    });
+
     startBtn.addEventListener('click', start);
 
     document.addEventListener('keydown', (e) => {
       if(e.code === 'Space'){
-        if(aEl.style.display === 'none'){ aEl.style.display = 'block'; knowBtn.disabled = false; }
-        else { i++; showCard(); }
+        flipContainer.classList.toggle('flipped');
+        knowBtn.disabled = false;
         e.preventDefault();
       }
     });
 
-    (async function init(){ ALL = await loadAllData(); start(); })();
+    (async function init(){
+      ALL = await loadAllData();
+      start();
+    })();
   </script>
 </body>
 </html>
