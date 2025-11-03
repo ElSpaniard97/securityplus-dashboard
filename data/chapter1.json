@@ -37,7 +37,7 @@
   {
     "Acronym": "AAA",
     "Name": "AAA Framework",
-    "Description": "Identification – claim identity (username). Authentication – verify identity (password, MFA). Authorization – define access. Accounting – logs user actions."
+    "Description": "Authentication – verify identity (password, MFA). Authorization – define access. Accounting – logs user actions."
   },
   {
     "Acronym": "",
@@ -45,7 +45,7 @@
     "Description": "User enters credentials. Firewall or VPN forwards to AAA server. Server validates credentials. Access granted if approved."
   },
   {
-    "Acronym": "",
+    "Acronym": "CBA",
     "Name": "Certificate-Based Authentication",
     "Description": "Uses digital certificates issued by a Certificate Authority (CA). Verifies identity using public-key cryptography. Used in VPNs, Wi-Fi, secure email."
   },
