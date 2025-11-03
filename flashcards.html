@@ -6,13 +6,14 @@
   <title>Security+ Flashcards</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- Flip animation --- */
     .flashcard-area {
       display: flex;
       align-items: center;
       justify-content: center;
       height: calc(100vh - 80px);
       position: relative;
+      flex-direction: column;
+      gap: 16px;
     }
     .flip-container {
       perspective: 1000px;
@@ -27,9 +28,7 @@
       transition: transform 0.8s;
       transform-style: preserve-3d;
     }
-    .flip-container.flipped .flipper {
-      transform: rotateY(180deg);
-    }
+    .flip-container.flipped .flipper { transform: rotateY(180deg); }
     .front, .back {
       position: absolute;
       width: 100%;
@@ -46,19 +45,14 @@
       border: 1px solid var(--border);
       text-align: center;
     }
-    .back {
-      transform: rotateY(180deg);
-    }
-
-    /* Centered buttons below card */
+    .back { transform: rotateY(180deg); }
     .flashcard-buttons {
-      margin-top: 20px;
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
     }
 
-    /* --- Floating settings bubble --- */
+    /* Dropdown & Menu */
     .settings-btn {
       position: absolute;
       top: 20px;
@@ -69,7 +63,7 @@
       height: 44px;
       border-radius: 50%;
       color: #fff;
-      font-size: 20px;
+      font-size: 22px;
       cursor: pointer;
       box-shadow: var(--shadow);
       display: flex;
@@ -88,11 +82,11 @@
       flex-direction: column;
       gap: 10px;
       border: 1px solid var(--border);
-      width: 240px;
+      width: 250px;
+      animation: fadeIn .25s ease-out;
     }
-    .settings-dropdown.show {
-      display: flex;
-    }
+    .settings-dropdown.show { display: flex; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
@@ -117,8 +111,8 @@
 
   <main class="main">
     <div class="flashcard-area">
-      <!-- Floating settings button -->
-      <button class="settings-btn" id="settingsBtn">⚙️</button>
+      <!-- Settings Button -->
+      <button class="settings-btn" id="settingsBtn">☰</button>
 
       <!-- Dropdown -->
       <div class="settings-dropdown" id="settingsDropdown">
@@ -138,28 +132,32 @@
             <option value="definition">Definition → Name</option>
           </select>
         </label>
+        <label class="small" style="display:flex;align-items:center;gap:8px;">
+          <input type="checkbox" id="reviewOnly"> Review Only
+        </label>
         <button class="btn" id="start">Start</button>
+        <button class="btn" id="resetReviews" style="background:#fee2e2;">Reset Reviews</button>
         <div class="small" id="stats">0 / 0</div>
       </div>
 
       <!-- Flashcard -->
-      <div>
-        <div class="flip-container" id="flipContainer">
-          <div class="flipper">
-            <div class="front">
-              <div class="small">Question</div>
-              <h2 id="q"></h2>
-            </div>
-            <div class="back">
-              <div class="small">Answer</div>
-              <h2 id="a"></h2>
-            </div>
+      <div class="flip-container" id="flipContainer">
+        <div class="flipper">
+          <div class="front">
+            <div class="small">Question</div>
+            <h2 id="q"></h2>
+          </div>
+          <div class="back">
+            <div class="small">Answer</div>
+            <h2 id="a"></h2>
           </div>
         </div>
-        <div class="flashcard-buttons">
-          <button class="btn primary" id="know" disabled>I knew this</button>
-          <button class="btn" id="dont">I need practice</button>
-        </div>
+      </div>
+
+      <div class="flashcard-buttons">
+        <button class="btn primary" id="know" disabled>I knew this</button>
+        <button class="btn" id="dont">I need practice</button>
+        <button class="btn" id="markReview">⭐ Mark for Review</button>
       </div>
     </div>
   </main>
@@ -170,6 +168,7 @@
     let ALL = [];
     let CARDS = [];
     let i = 0;
+    const REVIEW_KEY = "securityplus_review_cards";
 
     const flipContainer = document.getElementById('flipContainer');
     const qEl = document.getElementById('q');
@@ -177,11 +176,18 @@
     const stats = document.getElementById('stats');
     const knowBtn = document.getElementById('know');
     const dontBtn = document.getElementById('dont');
+    const markBtn = document.getElementById('markReview');
     const chSel = document.getElementById('ch');
     const modeSel = document.getElementById('mode');
+    const reviewOnly = document.getElementById('reviewOnly');
     const startBtn = document.getElementById('start');
+    const resetBtn = document.getElementById('resetReviews');
     const settingsBtn = document.getElementById('settingsBtn');
     const settingsDropdown = document.getElementById('settingsDropdown');
+
+    // Helpers
+    const getReviews = () => JSON.parse(localStorage.getItem(REVIEW_KEY) || "[]");
+    const saveReviews = (arr) => localStorage.setItem(REVIEW_KEY, JSON.stringify(arr));
 
     function updateStats(){ stats.textContent = `${Math.min(i+1, CARDS.length)} / ${CARDS.length}`; }
 
@@ -198,13 +204,19 @@
       aEl.textContent = card.answer;
       knowBtn.disabled = true;
       updateStats();
+
+      // Highlight review state
+      const reviews = getReviews();
+      markBtn.textContent = reviews.includes(card.key) ? "⭐ Marked for Review" : "⭐ Mark for Review";
     }
 
     function start(){
       const ch = parseInt(chSel.value, 10) || 0;
       const mode = modeSel.value;
+      const reviews = getReviews();
       let items = ALL;
       if(ch){ items = ALL.filter(x => x.Chapter === ch); }
+      if(reviewOnly.checked){ items = items.filter(x => reviews.includes(x.Name)); }
       CARDS = createFlashcards(items, mode);
       i = 0;
       showCard();
@@ -226,9 +238,24 @@
       showCard();
     });
 
+    markBtn.addEventListener('click', () => {
+      if(i >= CARDS.length) return;
+      const key = CARDS[i].Name;
+      const reviews = getReviews();
+      const idx = reviews.indexOf(key);
+      if(idx === -1){ reviews.push(key); } else { reviews.splice(idx,1); }
+      saveReviews(reviews);
+      markBtn.textContent = idx === -1 ? "⭐ Marked for Review" : "⭐ Mark for Review";
+    });
+
     startBtn.addEventListener('click', () => {
       start();
       settingsDropdown.classList.remove('show');
+    });
+
+    resetBtn.addEventListener('click', () => {
+      localStorage.removeItem(REVIEW_KEY);
+      alert("All review markers cleared.");
     });
 
     settingsBtn.addEventListener('click', () => {
