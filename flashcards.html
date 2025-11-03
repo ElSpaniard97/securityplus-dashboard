@@ -46,13 +46,13 @@
       text-align: center;
     }
     .back { transform: rotateY(180deg); }
+
     .flashcard-buttons {
       display: flex;
       justify-content: center;
       gap: 10px;
     }
 
-    /* Dropdown & Menu */
     .settings-btn {
       position: absolute;
       top: 20px;
@@ -180,9 +180,9 @@
       </div>
 
       <div class="flashcard-buttons">
-        <button class="btn primary" id="know" disabled>I knew this</button>
-        <button class="btn" id="dont">I need practice</button>
-        <button class="btn" id="markReview"> Mark for Review</button>
+        <button class="btn" id="prevBtn">"Previous"</button>
+        <button class="btn primary" id="nextBtn">"Next"</button>
+        <button class="btn" id="markReview">"Review"</button>
       </div>
     </div>
   </main>
@@ -199,10 +199,7 @@
       window.location.href = "login.html";
     });
 
-    // Per-user review namespace
     const REVIEW_KEY = `securityplus_${user}_review_cards`;
-
-    // Helpers
     const getReviews = () => JSON.parse(localStorage.getItem(REVIEW_KEY) || "[]");
     const saveReviews = (arr) => localStorage.setItem(REVIEW_KEY, JSON.stringify(arr));
 
@@ -214,8 +211,6 @@
     const qEl = document.getElementById('q');
     const aEl = document.getElementById('a');
     const stats = document.getElementById('stats');
-    const knowBtn = document.getElementById('know');
-    const dontBtn = document.getElementById('dont');
     const markBtn = document.getElementById('markReview');
     const chSel = document.getElementById('ch');
     const modeSel = document.getElementById('mode');
@@ -224,6 +219,8 @@
     const resetBtn = document.getElementById('resetReviews');
     const settingsBtn = document.getElementById('settingsBtn');
     const settingsDropdown = document.getElementById('settingsDropdown');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
     function updateStats(){ stats.textContent = `${Math.min(i+1, CARDS.length)} / ${CARDS.length}`; }
 
@@ -232,19 +229,15 @@
       if(i >= CARDS.length){
         qEl.textContent = "Session complete.";
         aEl.textContent = "";
-        knowBtn.disabled = true;
         return;
       }
       const card = CARDS[i];
       qEl.textContent = card.question;
       aEl.textContent = card.answer;
-      knowBtn.disabled = true;
       updateStats();
 
       const reviews = getReviews();
-      markBtn.textContent = reviews.includes(card.key)
-        ? "⭐ Marked for Review"
-        : "⭐ Mark for Review";
+      markBtn.textContent = reviews.includes(card.key) ? '"Marked for Review"' : '"Review"';
       markBtn.style.background = reviews.includes(card.key) ? "#fff7e6" : "#fff";
     }
 
@@ -262,17 +255,15 @@
 
     flipContainer.addEventListener('click', () => {
       flipContainer.classList.toggle('flipped');
-      knowBtn.disabled = false;
     });
 
-    dontBtn.addEventListener('click', () => {
-      if(i < CARDS.length){ CARDS.push(CARDS[i]); }
-      i++;
+    nextBtn.addEventListener('click', () => {
+      if(i < CARDS.length - 1) i++;
       showCard();
     });
 
-    knowBtn.addEventListener('click', () => {
-      i++;
+    prevBtn.addEventListener('click', () => {
+      if(i > 0) i--;
       showCard();
     });
 
@@ -283,7 +274,7 @@
       const idx = reviews.indexOf(key);
       if(idx === -1){ reviews.push(key); } else { reviews.splice(idx,1); }
       saveReviews(reviews);
-      markBtn.textContent = idx === -1 ? "⭐ Marked for Review" : "⭐ Mark for Review";
+      markBtn.textContent = idx === -1 ? '"Marked for Review"' : '"Review"';
       markBtn.style.background = idx === -1 ? "#fff7e6" : "#fff";
     });
 
