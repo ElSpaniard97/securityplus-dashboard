@@ -90,31 +90,56 @@
   </style>
 </head>
 <body>
+  <script>
+    // Login check
+    const currentUser = localStorage.getItem("securityplus_user");
+    if(!currentUser){
+      window.location.href = "login.html";
+    }
+  </script>
+
   <aside class="sidebar">
     <div class="brand">
       <div class="logo">
-        <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#eaf0fa"/><path d="M4 20a8 8 0 0 1 16 0" fill="#eaf0fa"/></svg>
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <circle cx="12" cy="8" r="4" fill="#eaf0fa"/>
+          <path d="M4 20a8 8 0 0 1 16 0" fill="#eaf0fa"/>
+        </svg>
       </div>
       <h1>Security+ Dashboard</h1>
     </div>
+
     <div class="profile">
-      <div class="name">Ezekiel Correa</div>
+      <div class="name" id="userName"></div>
       <div class="role">Security+ Candidate</div>
+      <button class="btn" id="logoutBtn" style="margin-top:8px;width:100%;justify-content:center;">Logout</button>
     </div>
+
     <nav class="nav">
-      <a href="index.html"><svg viewBox="0 0 24 24"><path d="M12 3l9 7h-3v9h-5v-6H11v6H6v-9H3z"/></svg>Overview</a>
-      <a href="chapters.html"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>Chapters</a>
-      <a class="active" href="flashcards.html"><svg viewBox="0 0 24 24"><path d="M4 6h12a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2z"/><path d="M8 4h12a2 2 0 0 1 2 2v10h-2V6H8z"/></svg>Flashcards</a>
-      <a href="search.html"><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35"/><circle cx="10" cy="10" r="7" stroke="#eaf0fa" stroke-width="2" fill="none"/></svg>Search</a>
+      <a href="index.html">
+        <svg viewBox="0 0 24 24"><path d="M12 3l9 7h-3v9h-5v-6H11v6H6v-9H3z"/></svg>
+        Overview
+      </a>
+      <a href="chapters.html">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>
+        Chapters
+      </a>
+      <a class="active" href="flashcards.html">
+        <svg viewBox="0 0 24 24"><path d="M4 6h12a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2z"/><path d="M8 4h12a2 2 0 0 1 2 2v10h-2V6H8z"/></svg>
+        Flashcards
+      </a>
+      <a href="search.html">
+        <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35"/><circle cx="10" cy="10" r="7" stroke="#eaf0fa" stroke-width="2" fill="none"/></svg>
+        Search
+      </a>
     </nav>
   </aside>
 
   <main class="main">
     <div class="flashcard-area">
-      <!-- Settings Button -->
       <button class="settings-btn" id="settingsBtn">☰</button>
 
-      <!-- Dropdown -->
+      <!-- Settings Dropdown -->
       <div class="settings-dropdown" id="settingsDropdown">
         <label class="small">Chapter
           <select class="input" id="ch">
@@ -157,7 +182,7 @@
       <div class="flashcard-buttons">
         <button class="btn primary" id="know" disabled>I knew this</button>
         <button class="btn" id="dont">I need practice</button>
-        <button class="btn" id="markReview"> Mark for Review</button>
+        <button class="btn" id="markReview">⭐ Mark for Review</button>
       </div>
     </div>
   </main>
@@ -165,10 +190,25 @@
   <script type="module">
     import { loadAllData, createFlashcards } from './script.js';
 
+    const user = localStorage.getItem("securityplus_user") || "Guest";
+    document.getElementById("userName").textContent = user;
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("securityplus_user");
+      window.location.href = "login.html";
+    });
+
+    // Per-user review namespace
+    const REVIEW_KEY = `securityplus_${user}_review_cards`;
+
+    // Helpers
+    const getReviews = () => JSON.parse(localStorage.getItem(REVIEW_KEY) || "[]");
+    const saveReviews = (arr) => localStorage.setItem(REVIEW_KEY, JSON.stringify(arr));
+
     let ALL = [];
     let CARDS = [];
     let i = 0;
-    const REVIEW_KEY = "securityplus_review_cards";
 
     const flipContainer = document.getElementById('flipContainer');
     const qEl = document.getElementById('q');
@@ -184,10 +224,6 @@
     const resetBtn = document.getElementById('resetReviews');
     const settingsBtn = document.getElementById('settingsBtn');
     const settingsDropdown = document.getElementById('settingsDropdown');
-
-    // Helpers
-    const getReviews = () => JSON.parse(localStorage.getItem(REVIEW_KEY) || "[]");
-    const saveReviews = (arr) => localStorage.setItem(REVIEW_KEY, JSON.stringify(arr));
 
     function updateStats(){ stats.textContent = `${Math.min(i+1, CARDS.length)} / ${CARDS.length}`; }
 
@@ -205,9 +241,11 @@
       knowBtn.disabled = true;
       updateStats();
 
-      // Highlight review state
       const reviews = getReviews();
-      markBtn.textContent = reviews.includes(card.key) ? "⭐ Marked for Review" : "⭐ Mark for Review";
+      markBtn.textContent = reviews.includes(card.key)
+        ? "⭐ Marked for Review"
+        : "⭐ Mark for Review";
+      markBtn.style.background = reviews.includes(card.key) ? "#fff7e6" : "#fff";
     }
 
     function start(){
@@ -246,6 +284,7 @@
       if(idx === -1){ reviews.push(key); } else { reviews.splice(idx,1); }
       saveReviews(reviews);
       markBtn.textContent = idx === -1 ? "⭐ Marked for Review" : "⭐ Mark for Review";
+      markBtn.style.background = idx === -1 ? "#fff7e6" : "#fff";
     });
 
     startBtn.addEventListener('click', () => {
@@ -255,7 +294,7 @@
 
     resetBtn.addEventListener('click', () => {
       localStorage.removeItem(REVIEW_KEY);
-      alert("All review markers cleared.");
+      alert("All review markers cleared for this user.");
     });
 
     settingsBtn.addEventListener('click', () => {
