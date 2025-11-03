@@ -7,10 +7,17 @@
   <link rel="stylesheet" href="style.css">
   <style>
     /* --- Flip animation --- */
+    .flashcard-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(100vh - 80px);
+      position: relative;
+    }
     .flip-container {
       perspective: 1000px;
-      width: 100%;
-      height: 250px;
+      width: 480px;
+      height: 300px;
       cursor: pointer;
     }
     .flipper {
@@ -42,6 +49,50 @@
     .back {
       transform: rotateY(180deg);
     }
+
+    /* Centered buttons below card */
+    .flashcard-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    /* --- Floating settings bubble --- */
+    .settings-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .settings-dropdown {
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px solid var(--border);
+      width: 240px;
+    }
+    .settings-dropdown.show {
+      display: flex;
+    }
   </style>
 </head>
 <body>
@@ -65,10 +116,34 @@
   </aside>
 
   <main class="main">
-    <div class="top"><h2>Flashcards</h2></div>
+    <div class="flashcard-area">
+      <!-- Floating settings button -->
+      <button class="settings-btn" id="settingsBtn">⚙️</button>
 
-    <div class="grid">
-      <div class="col-8">
+      <!-- Dropdown -->
+      <div class="settings-dropdown" id="settingsDropdown">
+        <label class="small">Chapter
+          <select class="input" id="ch">
+            <option value="0">All Chapters</option>
+            <option value="1">Chapter 1</option>
+            <option value="2">Chapter 2</option>
+            <option value="3">Chapter 3</option>
+            <option value="4">Chapter 4</option>
+            <option value="5">Chapter 5</option>
+          </select>
+        </label>
+        <label class="small">Mode
+          <select class="input" id="mode">
+            <option value="acronym">Acronym/Name → Definition</option>
+            <option value="definition">Definition → Name</option>
+          </select>
+        </label>
+        <button class="btn" id="start">Start</button>
+        <div class="small" id="stats">0 / 0</div>
+      </div>
+
+      <!-- Flashcard -->
+      <div>
         <div class="flip-container" id="flipContainer">
           <div class="flipper">
             <div class="front">
@@ -81,36 +156,9 @@
             </div>
           </div>
         </div>
-
-        <div style="display:flex; gap:8px; margin-top:18px">
+        <div class="flashcard-buttons">
           <button class="btn primary" id="know" disabled>I knew this</button>
           <button class="btn" id="dont">I need practice</button>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card">
-          <h3 class="section-title">Settings</h3>
-          <div style="display:grid; gap:8px">
-            <label>Chapter
-              <select class="input" id="ch">
-                <option value="0">All Chapters</option>
-                <option value="1">Chapter 1</option>
-                <option value="2">Chapter 2</option>
-                <option value="3">Chapter 3</option>
-                <option value="4">Chapter 4</option>
-                <option value="5">Chapter 5</option>
-              </select>
-            </label>
-            <label>Mode
-              <select class="input" id="mode">
-                <option value="acronym">Acronym/Name → Definition</option>
-                <option value="definition">Definition → Name</option>
-              </select>
-            </label>
-            <button class="btn" id="start">Start</button>
-            <div class="small" id="stats">0 / 0</div>
-          </div>
         </div>
       </div>
     </div>
@@ -132,6 +180,8 @@
     const chSel = document.getElementById('ch');
     const modeSel = document.getElementById('mode');
     const startBtn = document.getElementById('start');
+    const settingsBtn = document.getElementById('settingsBtn');
+    const settingsDropdown = document.getElementById('settingsDropdown');
 
     function updateStats(){ stats.textContent = `${Math.min(i+1, CARDS.length)} / ${CARDS.length}`; }
 
@@ -176,13 +226,18 @@
       showCard();
     });
 
-    startBtn.addEventListener('click', start);
+    startBtn.addEventListener('click', () => {
+      start();
+      settingsDropdown.classList.remove('show');
+    });
 
-    document.addEventListener('keydown', (e) => {
-      if(e.code === 'Space'){
-        flipContainer.classList.toggle('flipped');
-        knowBtn.disabled = false;
-        e.preventDefault();
+    settingsBtn.addEventListener('click', () => {
+      settingsDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if(!settingsDropdown.contains(e.target) && e.target !== settingsBtn){
+        settingsDropdown.classList.remove('show');
       }
     });
 
