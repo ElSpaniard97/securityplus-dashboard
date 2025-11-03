@@ -62,7 +62,6 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Chapter</th>
               <th>Acronym</th>
               <th>Name</th>
               <th>Description</th>
@@ -87,7 +86,7 @@
       window.location.href = "login.html";
     });
 
-    // Override local storage key to isolate per-user data
+    // Namespace user key
     window.storageKeyForItem = function(name){
       return `securityplus_${user}_studied::${name}`;
     };
