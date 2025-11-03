@@ -1,0 +1,404 @@
+[
+  {
+    "Acronym": "",
+    "Name": "Control with MDM -Mobile Device Manager",
+    "Description": "WorkstationsUser desktops and laptops Constant monitoring and updates Automate the monthly patches Connect toa policy management system - AD GP Remove unnecessary software Network Infrastructure DevicesSwitches, routers, etc. Purpose - built devices - embedded OS, limited OS access Configure authentication - don't' use defaults Check with manufacturer - security updates Cloud InfrastructureSecure the cloud management workstation Least privilege - all services, network settings, application rights and permissions",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "EDR",
+    "Name": "Configure Endpoint Detection and Response (EDR)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "C2C",
+    "Name": "Always have backups -Cloud to Cloud (C2C)",
+    "Description": "ServersMany and varied",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Windows or Linux",
+    "Description": "Updates - OS, service packs, security patches User accounts - passwords and account limitation Network access and security - limit network access Monitor and secure - anti - malware software SCADA/ICSSupervisory Control and Data Acquisition System / Industrial Control SystemPC manages equipment Power generation, refining, manufacturing equipment Facilities, industrial, energy, logistics Distributed control systems Requires extensive segmentation Embedded systemsHardware and software designed for a specific function Can be difficult to upgrade Correct vulnerabilities Segment and firewall RTOSReal Time Operating SystemOS with deterministic processing schedule Used for industrial equipment, automobiles, military environment Isolate the system Run with the minimum services Use secure communication IoT DevicesHeating and cooling, lighting, home automation, wearable technology Weak defaults - change passwords Deploy updates quickly Segmentation - put IoT devices on their own VLAN Site SurveysDetermines existing wireless landscape Identify existing access points Work around existing frequencies Plan for outgoing site surveys Heat maps",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Wireless Survey ToolsSignal coverage",
+    "Description": "Potential interference Built - in tools 3rd party tools Spectrum analyzer Ex. NetSpotMDMMobile Device ManagementManage company owned and BYOD mobile devices Centralized management of the mobile devices Set policies, apps, data, camera, etc Manage access control BYODBring your own deviceEmployee brings personal phone Device needs to meet company's requirements Difficult to secure COPECorporate owned, personally enabledCompany buys device Used as both corporate and personal device Organization keeps full control of the device Information is protected CYOD - choose your own device",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Cellular NetworksMobile devices",
+    "Description": "Separate land into cells Security concerns Wi - FiLocal network access Same security concerns Data capture - encrypt your data BluetoothHigh speed communication over short distances",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "PAN",
+    "Name": "PAN (personal area network)",
+    "Description": "Connects our mobile devices Do not connect to unknown Bluetooth devices Securing a wireless networkAuthenticate user's before granting access Ensure that all communication is confidential Verify the integrity of all communication",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "WPA2",
+    "Name": "WPA2 PSK ProblemBrute force problem",
+    "Description": "Attacker derives the PSK hash without the handshake > capture hash WPA3 and GCMPWi - Fi protected Access 3 Introduced in 2018 More secure than WPA2 Changes PSK authentication process Includes mutual authentication Creates a shared session key without sending that key across the network No more four - way handshakes, no hashes, no brute force attacks",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "GCMPGalois Counter Mode ProtocolData confidentiality with AES",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "GMAC",
+    "Name": "Message integrity check (MIC) with Galois Message Authentication Code (GMAC)",
+    "Description": "SAESimultaneous Authentication of EqualsA diffe - hellman derived key exchange with an authentication component Everyone uses a different session key, even with the same PSK An IEEE standard - the dragonfly handshake",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "PSK",
+    "Name": "Wireless Authentication MethodsCredentials -shared password (PSK)",
+    "Description": "Configuration - prompted during connection process Wireless Security ModesConfigure the authentication on your wireless access point/wireless router Open system - no authentication",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "WPA3-Personal/WPA3-PSKEveryone uses the same 256-bit key",
+    "Description": "WPA3 - Enterpriese/WPA3 - 802.1XAuthenticates users individually with an authentication server (i.e. RADIUS) AAA FrameworkAuthentication - Password and other authentication factors Authorization - access to resources Accounting - login time, data sent and received, logout time RADIUSRemote Authentication Dial - In User ServiceOne of the more common AAA protocols Supported on a wide variety of platforms and devices Not just for dial - in Centralized in authentication for users Services available on almost any server operating system",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "NAC",
+    "Name": "IEEE 802.1XNetwork Access Control (NAC)",
+    "Description": "You don't get access to the network until you authenticate Used in conjunction with an access database - RADIUS, LDAP, TACACS+",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "EAPExtensible Authentication ProtocolAuthentication framework",
+    "Description": "Many different ways to authenticate based on RFC standards Manufacturers can build their own EAP methods",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Integrates with 802.1X",
+    "Description": "Prevents access to the network until the authentication succeeds",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "IEEE",
+    "Name": "IEEE 802.1X and EAPSuppliant -client",
+    "Description": "Authenticator - device that provides access Authentication server - validates the client credentials Input ValidationValidate actual vs expected Document all input methods - forms, fields, type",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Check and correct all input (normalization)",
+    "Description": "Secure CookiesCookies - information stored on your computer by the browser Used for tracking, personalization, session management Secure cookies have secure attribute set - HTTPS Sensitive information should not be saved in a cookie",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "SASTStatic Application Security TestingStatic code analyzer",
+    "Description": "Help to identify security flaws Many security vulnerabilities found easily - buffer overflows, database injections, etc Not everything can be identified through analysis - authentication security Still have to verify each finding - false positives are an issue Code SigningApplication code can be digitally signed by the developer Asymmetric encryption A trusted CA signs the developer's public key Developer signs the code with their private key For internal apps, use your own CA SandboxingCommonly used during development Can be a useful production technique Used in many different deployments - VM, Mobile devices, Browser iframes, Windows User Account Control (UAC)",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Application Security MonitoringReal-time information",
+    "Description": "View blocked attacks Audit the logs Anomaly detection",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Acquisition/Procurement ProcessPurchasing process",
+    "Description": "Usually includes budgeting information and formal approvals Negotiate with supplier Purchase, invoice, and payment",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Assignment/AccountingCentral asset tracking system",
+    "Description": "Ownership - assign to users Classification - type of asset",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Monitoring/Asset TrackingInventory every asset",
+    "Description": "Associate a support ticket with a device make and model Enumeration - list all parts of an asset Add a asset tag - barcode, RFID, visible tracking number, organization name Media SanitizationSystem disposal or decommissioning - completely remove data Different use cases - clean hard drive for future use One - way trip - no recovery Reuse the storage media",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Physical DestructionShredder/pulverizer",
+    "Description": "Complete destroy",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Drill/hammer",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Electromagnetic (degaussing)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Incineration",
+    "Description": "Certificate of DestructionDestruction is often done by a 3rd Party Need a confirmation that your data is destroyed A paper trail of broken data Data RetentionBackup your data Regulatory compliance Operational needs Vulnerability scanningUsually minimally invasive Not a penetration test Port scan - poke around and see what's open Identify systems Test from the outside and inside Gather as much information as possible - separate wheat from chaff later",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Dynamic Analysis (Fuzzing)Send random input to an application",
+    "Description": "Fault - injection, robustness testing, syntax testing, negative testing Looking for something out of the ordinary - application crash, server error, exception Fuzzing EnginesMany different fuzzing options Very time and processor resource heavy Ex. CERTPackage MonitoringSome applications are distributed in a package Confirm the package is legitimate Confirm a safe package before deployment - verify contents Threat IntelligenceResearch the threat Data is everything Make decisions based on this intelligence Used by researchers, security operations teams, and others",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "OSINTOpen Source IntelligenceOpen source",
+    "Description": "Publicly available sources Internet - discussion groups, social media Government data - mostly public Commercial data - maps, financial reports, databases Proprietary/Third Party IntelligenceSomeone else has already complied threat information - you can buy Threat intelligence services Constant threat monitoring",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Information Sharing Organization Public threat intelligence",
+    "Description": "Private threat intelligence Need to share critical security details CTACyber Threat AllianceMembers upload specifically formatted threat intelligence CTA scores each submission and validates across other submissions Other members can extract the validated data Dark Web IntelligenceOverlay network that use the internet Requires specific software and configuration to access Hacking groups and services Monitor forums for activity Penetration TestingSimulate attack on your systems Similar to vulnerability scanning Often a compliance mandate Rules of EngagementImportant document Defines purpose and scope Makes everyone aware of the test parameters Type of testing and schedule Rules - what systems can be tested Exploiting VulnerabilitiesTry to break into the system Password brute force Social engineering Database injections Buffer overflows The ProcessInitial Exploitation1.Lateral Movement - move from system to system2.Persistence - once in, make sure you can come back > setup backdoor3.Pivot - gain access to other systems > setup as relay or proxy to jump to other systems4.Responsible Disclosure ProgramTakes time to fix vulnerability Bug bounty programs - reward for discovering vulnerabilities A controlled information release False PositivesVulnerability is identified that doesn't really exist False NegativesVulnerability exists, but you didn't detect it Prioritizing VulnerabilitiesNot every vulnerability shares the same priority This may be difficult to determine Refer to the public disclosures and vulnerability databases Ex. CVSSCVSSCommon Vulnerabilities Scoring SystemQuantitative scoring of vulnerability - 0 to 10 Scoring standards change over time Industry collaboration CVECommon Vulnerabilities and ExposuresCan be cross - referenced online Vulnerability ClassificationScanner looks for everything Make sure use latest set of signatures Application scans - desktop or mobile apps Web application scans - software on a web server Network scans - misconfigured firewalls, open ports, vulnerable devices Exposure FactorLoss of value or business activity if the vulnerability is exploited A small DDoS may limit access to a service A buffer overflow may completely disable a service Environmental VariablesWhat type of environment is associated with the vulnerability Internal server, public cloud, test lab Prioritization and patching frequency Every environment is different Risk ToleranceAmount of risk acceptable to an organization Impractical to remove all risk Timing of security patches - patching immediately doesn't allow for proper testing Testing takes time There's a middle ground PatchingCommon mitigation technique",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Scheduled/vulnerability/patch issues",
+    "Description": "Unscheduled patches - zero day Ongoing process",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "InsuranceCybersecurity Insurance coverage",
+    "Description": "Lost revenue Data recovery costs Money lost to phishing Privacy lawsuit costs Doesn't cover everything - intentional acts, funds transfers SegmentationLimit the scope of an exploit",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Separate devices into their own networks/VLANs",
+    "Description": "A breach would have limited scope",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Use internal NGFWs (Next Gen. Firewall)",
+    "Description": "Compensating ControlsDisable the problematic service Revoke access to the application Limit external access Modify internal security controls and software firewalls Validation of RemediationVulnerability is now patched Did it fix issue? Rescanning - perform an extensive vulnerability scan Audit - check remediated systems to ensure the patch was successfully deployed Verification - manually confirm the security of the system ReportingOngoing checks are required Difficult to manage without automation Continuous reporting Number of identified vulnerabilities Systems patched vs unpatched New threat notifications Errors, exceptions, and exemptions Security MonitoringMonitor all entry points React to security events Status dashboards Monitoring computing resourcesSystems - authentication, services, backups, software versions, location Applications - availability, data transfers, security notifications Infrastructure - remote access systems, firewalls, and IPS reports",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "SIEMSecurity Information and Event ManagerLog aggregation",
+    "Description": "Consolidate many different logs to a central database Servers, firewalls, VPN concentrators, SANs, cloud services Centralized reporting Correlation between diverse systems ScanningActively check systems and devices Gather the raw details Reporting Analyze the collect data - Actionable reports Status information Determine best next steps AD HOC information summaries - prepare for unknown ArchivingAccess to data is critical Archive over an extended period May have a mandate - state or federal law AlertingReal - time notification of security events Actionable data",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Notification methods -sms/txt, email, security console",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Alert Response and RemediationQuarantine device",
+    "Description": "Alert tuning - prevent false positives and false negatives Alert should be accurate SCAPSecurity Content Automation ProtocolAllows tools to identify and act on the same criteria Validate the security configuration Confirm patch installs Scan for a security breach Using SCAPContent can be shared between tools Focused on configuration compliance Easily detect applications with known vulnerabilities Especially useful in large environments This specification standard enables automation Automation types - ongoing, notification and alerting, and remediation of noncompliant systems BenchmarksApply security best practices to everything",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Agents/agentlessInstall a software agent onto the device",
+    "Description": "Run an on demand agentless check Agents - provide more detail, keep updated Agentless - runs without a formal install, will not inform or alert DLPData Loss PreventionLook for and block data you do not want running on your network Stop the data before the attacker gets it Often requires multiple solutions Endpoint clients Cloud - based systems",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "SNMPSimple Network Management ProtocolMIB -Management information Base",
+    "Description": "OID - Object identifiers",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Poll devices over udp/161",
+    "Description": "Request statistics from a device Poll devices at fixed intervals SNMP TrapCan be configured on the monitored device",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Communicates over udp/162",
+    "Description": "Set a threshold for alerts If the number of CRC errors increases by 5, send a trap Monitoring station can react immediately NetFlowGather traffic statistic from all traffic flows Shared communication between devices Standard collection method Many products and options Probe and collector Probe - watches network communication Summary records are sent to the collector Usually a separate reporting app",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Firewall RulesLogical path",
+    "Description": "Usually top - to - bottom Can be very general or very specific Implicit deny - most firewalls include a deny at the bottom ACLAccess Control ListAllow or disallow traffic Groupings of categories Source, IP, destination IP, port number, time of day, application",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Web Server Firewall Ruleset",
+    "Description": "Screened SubnetAn additional layer of security between the you and the internet Public access to public resources Private data remains inaccessible",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "IPS",
+    "Name": "IPS RulesIntegrated into an NGFW",
+    "Description": "Different ways to find malicious traffic - look at traffic as it passes by Signature - based - look for a perfect match Anomaly - based - unusual traffic patterns are flagged Determine what happens - block, allow, send an alert, etc Thousands of rules Rules can be customized by group Content FilteringControl traffic based on data within the content URL filtering, website category filtering Corporate control of outbound and inbound data Control of inappropriate content Protection against evil URL ScanningAllow or restrict based on Uniform Resource Locator Managed by category - auction, hacking, malware, travel, recreation Can have limited control Often integrated into an NGFW Agent BasedInstall client software on the user's device Managed from a central console Users can be located anywhere - local agent makes the filtering decisions, always on Updates must be distributed to all agents - cloud based updates, update status shown at the console ProxiesSits between the users and the external network",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Block RulesBased on specific URL",
+    "Description": "Category of site content Usually divided into over 50 different topics Different dispositions ReputationFilter URLs based on perceived risk Automated reputation - Sites are scanned and assigned a reputation Manual Reputation - administratively assigned a reputation DNS FilteringBefore connecting to a website, get the IP address DNS is updated with real - time threat intelligence Harmful sites are not resolved - No IP address, no connection Works for any DNS lookup - not just web filtering Active DirectoryDatabase of everything on the network Computers, user accounts, file shares, printers, groups and more Manage authentication Centralized access control Group PolicyManage the computers or users Local and domain policies Group policy management editor Central console - login scripts, network configurations (QoS), security parameters Comprehensive control - hundreds of configuration options SELinuxSecurity Enhanced LinuxSecurity patches for the Linux kernel Adds mandatory access control MAC to Linux",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "DAC",
+    "Name": "Linux traditionally uses Discretionary Access Control (DAC)",
+    "Description": "Limits application access Open source",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Mail Gateway",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "SPFSender Policy FrameworkSPF protocol",
+    "Description": "Sender configures a list of all servers authorized to send emails for a domain List of authorized mail servers are added to a DNS TXT record Receiving mail servers perform a check to see if incoming mail really did come from an authorized host DKIMDomain Keys Identified MailA mail server digitally signs all outgoing mail The public key is in the DKIM TXT record The signature is validated by the receiving mail servers Not usually seen by the end users DMARCDomain Based Message Authentication Reporting and Conformance An extension of SPF and DKIM The domain owner decides what receiving email servers should do with emails not validating using SPF and DKIM That policy is written into a DNS TXT record Accept all, send to spam, or reject the email Compliance reports are sent to the email administrator The domain owner can see how emails are received FIMFile integrity MonitoringMonitor important operating system and application files",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "SFCSystem File CheckerWindows",
+    "Description": "Linux = tripwire Many host - based IPS options DLPData Loss PreventionStop the data before the attackers gets it Data in motion - on you network Data in use - on your computer Data at rest - in server Cloud Based DLPLocated between users and the internet Block custom defined data strings Manage access to URLs Block viruses and malware DLP and emailEmail continues to be the most critical risk vector Check every email inbound and outbound Internal system or cloud - based Can look at inbound and outbound emails",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "EndpointUser's access/device",
+    "Description": "Protection is multi - faceted Defense in depth Edge vs Access ControlControl at the edge - firewall, internet link Access control - control wherever you go Access can be based on many rules Access can be easily revoked or changed Posture AssessmentBefore connecting to network, perform a health check Persistent agentsPermanently installed onto a system Periodic updates may be required Dissolvable agentsNo installation is required Runs during the posture assessment Terminates when no longer required",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Agentless NACIntegrated with Active Directory",
+    "Description": "Checks are made during login and logoff Can't be scheduled Failing AssessmentQuarantine network, notify administrator Once resolved, try again EDREndpoint detection and responseDifferent method of threat protection Scale to meet the increasing number of threats Detect a threat Signatures aren't the only detection tool Behavioral analysis, machine learning, process monitoring Lightweight agent on the endpoint Investigate the threat Root cause analysis Respond to the threat Isolate the system, quarantine the threat, rollback to a previous config API driven, no user or technician intervention required XDRAn evolution of EDRAn evolution of EDR Improve missed detections, false positives and long investigation times Attacks involve more than just the endpoint Add network - based detection Correlate endpoint, network, and cloud data User Behavior AnalyticsWatch users, hosts, network traffic, data repositories Watch for anything unusual Real - time detection of usual activity IAMIdentify and Access ManagementIdentify lifecycle management - every entity gets a digital identity Access control - get access to what they need Authentication and authorization - Identity governance - track an entity's resource access Provisioning/De - Provisioning User AccountsUser account creation process & removal process Provisioning and de - provisioning occurs for certain events - hiring, transfers, promotions, job separation Account details - name, attributes, group permissions, other permissions An important part of the IAM process - limit access, nobody gets administrator access Permissions AssignmentsEach entity gets limited permissions Each entity gets limited permissions Storage and files can be private to that user No privileged access to the operating system Identity proofingResolution - who the system thinks you are",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Validation -gathering information for the user (password or security questions)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Verification/Attestation -automated verification is also an option",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Gaining Access",
+    "Description": "SSOSingle Sign OnProvide credentials one time Usually limited by time The underlying authentication infrastructure must support SSO LDAPLightweight Directory Access ProtocolProtocol for reading and writing directories over an IP network An organized set of records X.500 specification was written by the International Telecommunications Union (ITU) DAP ran on the OSI protocol stack LDAP is lightweight Used to query and update an X.500 directory",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Used in Windows AD, Apply OpenDirectory, Novell eDirectory",
+    "Description": "X.500 Distinguished NamesAttribute = value pairs Most specific attribute is listed first",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "X.500",
+    "Name": "X.500 Directory Information TreeHierarchical structure",
+    "Description": "Builds a tree Container objects - Country, organization, organizational units Leaf ObjectsUsers, computers, printers, files SAMLSecurity Assertion Markup LanguageOpen standard for authentication and authorization You can authenticate through a third party to gain access One standard does it all, sort of Not originally designed for mobile apps This has been SAML's largest roadblock OAuthAuthorization framework Determines what resources a user will be able to access Created by twitter, google, and many others Significant industry support Not an authentication protocol OpenID Connect handles the single sign - on authentication OAuth provides authorization between applications FederationProvide network access to others Third parties can establish a federated network Authenticate and authorize between the two organizations Third parties must establish a trust relationship InteroperabilityMany different ways to communicate with an authentication server More than a simple login process Often determined by what is at hand A new app uses Oauth Need to allow authentication API access Dependent on the environment - much larger than IAM strategy",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Access ControlAuthorization",
+    "Description": "Process of determining rights Users receive rights based on access control models Least privilegeRights and permissions should be set to the bare minimum All user accounts must be limited Don't allow users to run with administrative privileges MACMandatory Access ControlOperating system limits the operation on an object Based on security clearance levels Every object gets a label Labeling of objects uses predefined rules DACDiscretionary Access ControlUsed in most operating systems You create it, you own it Very flexible access control RBACRole - based Access ControlYou role determines access to data Administrators provide access based on the role of the user Create a group then add users Rule Based Access ControlGeneric terms for following rules Access is determined through system - enforced rules The rule is associated with the object ABACAttribute Based Access ControlUsers can have complex relationships to applications and data Considers many parameters Combine and evaluate multiple parameters Time - of - day RestrictionAlmost all security devices include a time - of - day option Restrict access during certain times or days of the week Can be difficult to implement due to time zones Multifactor authenticationProve who you are Somethings you know - password Somethings you have - smart card, software tokens, SMS code Something you are - Biometric authentication Somewhere you are - location, IP address Password ManagerSet rules for passwords Password less AuthenticationAuthenticate without a password Facial recognition, security key Just - in - time permissionsGrant admin access for a limited time Request access from clearinghouse Password vaulting Accounts are temporary Scripting and AutomationAutomate and orchestrate Monitor and resolve problems before they happen Script is as fast as the computer No typing or delays No human error Automate mundane tasks Save time Enforce baselines Standard infrastructure configurations Secure scaling Better reaction times Workforce multiplier Cases for automation Cases for AutomationUser and resource provisioning Guard rails - limit behaviors and responses, reduce errors Security groups - constant audits without human intervention, assign or remove group access Ticket creation",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Escalation",
+    "Description": "Controlling services and access Continuous integration and testing",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Integrations and application programming interfaces (APIs)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Scripting ConsiderationsComplexity",
+    "Description": "Cost money Single point of failure Technical debt - patching temporary problems Require ongoing support",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "NIST",
+    "Name": "NIST SP800-61Computer Security Incident Handling Guide",
+    "Description": "Incident Response LifecyclePreparation1.Detection and analysis2.Containment, eradication, and recovery3.Post - incident activity4. Preparing for an incidentCommunication methods - updated phones and contact information Incident handling hardware and software - laptops, removeable media, forensic software, digital cameras Incident analysis resources - documentation, network diagrams, baselines, critical file hash values Incident mitigation software - clean OS and application images Policies needed for incident handling DetectionMany different detection sources Different levels of details, different levels of perception AnalysisWeb server log - vulnerability scanner Exploit announcement Direct threats Buffer overflow attempt Anti - virus software identifies malware Host - based monitor detects a configuration change Network traffic flows deviate from the norm Isolation and containmentSandboxes - run malware and analyze the results Recovery after an incidentEradicate the bug Remove malware Disable breached user accounts Fix vulnerabilities Recover the system Restore the backups Rebuild from scratch Replace compromised files Tighten down the perimeter ReflectionLearn and improve Post - incident meeting Don't wait too long Answer the tough questions - what happened, timestamp How did previous planning work What would you do differently next time Which indicators would you watch next time Training for IncidentShould be done before the attack Threat huntingStrategies are constantly changing Intelligence data is reactive Speed up the reaction time Digital ForensicsCollect and protect information relating to an intrusion",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "RFC",
+    "Name": "RFC 3227 Guidelines for Evidence Collection and Archiving",
+    "Description": "Standard digital forensic process Acquisition, analysis, and reporting Must be detail oriented Legal HoldA legal technique to preserve relevant information Hold notification - custodians are instructed to preserve data ESIElectronically stored informationMany different data sources and types Unique workflow and retention requirements Ongoing preservation Chain of CustodyControl evidence Maintain integrity Everyone who contacts the evidence - use hashes and digital signatures, avoid tampering Label and catalog everything AcquisitionObtain the data - disk, RAM, Firmware, OS files Some of the data may not be on a single system For VMs, get a snapshot Look for any left - behind digital items ReportingDocument the findings - internal and legal use Summary information - security event Detailed explanation of data acquisition Analysis of data Conclusion - professional results PreservationHandling evidence Isolate and protect the data Analyze the data later without any alterations Manage the collection process Live collection has become an important skill Follow best practices to ensure admissibility of data in court E - Discoveryelectronic discovery - collect prepare, review, interpret and produce electronic documents Works together with digital forensics Security log filesDetailed security - related information Documentation of every traffic flow Firewall LogsTraffic flows through the firewall",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Source/destination IP",
+    "Description": "Port numbers",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Disposition",
+    "Description": "NFGW - logs application use, URL filtering categories, anomalies and suspicious data Application LogsSpecific to the application",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Windows -event viewer/application log",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Linux/MacOS -var/log",
+    "Description": "Parse the log details on the SIEM Endpoint LogsLogon events, policy changes, system events, processes, account management, directory services Everything rolls up to the SIEM Use with correlation of security events OS Specific security logsMonitoring apps Brute force, file changes Authentication details Find problems before they happen Brute force attacks Disabled services",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "IPS/IDS",
+    "Name": "IPS/IDS LogsUsually integrated into an NGFW",
+    "Description": "Logs contain information about predefined vulnerabilities Common data points Network LogsSwitches, routers, access points, VPN concentrators Network changes Routing updates Authentication issues Network security issues MetadataData that describes other data sources Email - header details, sending servers, destination address Mobile - type of phone, GPS location Web - OS, browser type, IP address Files - name, address, phone number, title Vulnerability ScansLack of Security Controls - no firewall, no anti - virus, no anti - spyware",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Misconfigurations",
+    "Description": "Automated ReportsMost SIEMs include report generator Automate common security reports May be easy or complex to create Requires human intervention These can be involved to create DashboardsReal - time status information Get summaries on a single screen Shows the most important data Packet CapturesSolve complex application issues View detailed traffic information AcronymNameDescriptionDevices/LayerSecure BaselinesSecurity of an application environment should be well defined Integrity measurements check for the secure baseline Establish BaselinesCreate a series of baselines Security baselines are often available from the manufacturer Many operating systems have extensive options Deploy BaselinesUsually managed through a centrally administered console May require multiple deployment mechanisms - AD or MDM Maintain BaselinesNew vulnerability is discovered An updated application has been deployed A new OS is installed Test and measure to avoid conflicts HardeningNo system is secure with the default configurations Hardening guides are specific to the software or platform Mobile devicesHardening checklists are available from manufacturers Updates are critical Segmentation can protect data - company and user data are separated",
+    "Devices_Layer": ""
+  }
+]

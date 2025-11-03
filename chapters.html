@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security+ Chapters</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <h1>Chapters</h1>
+        <span class="badge">All Terms</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Overview</a>
+        <a href="chapters.html">Chapters</a>
+        <a href="flashcards.html">Flashcards</a>
+      </nav>
+    </div>
+
+    <div class="card">
+      <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:12px">
+        <span class="small">Filter:</span>
+        <div class="tabs" id="tabs"></div>
+        <input class="input" id="q" placeholder="Search within chapter">
+      </div>
+      <div style="overflow:auto">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Chapter</th>
+              <th>Acronym</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Study</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Review each chapter and track progress.</div>
+      <div class="small">Use the toggle to mark studied items.</div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { loadAllData, filterItems, renderItemsTable, CHAPTER_TITLES } from './script.js';
+
+    let ALL = [];
+    let CURRENT_CHAPTER = 1;
+
+    function renderTabs(){
+      const tabs = document.getElementById('tabs');
+      let html = '';
+      for(let i=1;i<=5;i++){
+        html += `<div class="tab ${i===CURRENT_CHAPTER?'active':''}" data-ch="${i}">${CHAPTER_TITLES[i]}</div>`
+      }
+      tabs.innerHTML = html;
+      tabs.querySelectorAll('.tab').forEach(t => {
+        t.addEventListener('click', () => {
+          CURRENT_CHAPTER = parseInt(t.getAttribute('data-ch'));
+          render();
+          renderTabs();
+        });
+      });
+    }
+
+    function render(){
+      const q = document.getElementById('q').value;
+      const items = filterItems(ALL, q, CURRENT_CHAPTER);
+      renderItemsTable(document.getElementById('rows'), items);
+    }
+
+    (async function init(){
+      ALL = await loadAllData();
+      renderTabs();
+      document.getElementById('q').addEventListener('input', render);
+      render();
+    })();
+  </script>
+</body>
+</html>

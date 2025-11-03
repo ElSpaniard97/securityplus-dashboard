@@ -1,0 +1,302 @@
+[
+  {
+    "Acronym": "",
+    "Name": "Comprehensive system status and maintenance/patching",
+    "Description": "Single point of failure Potential performance issues VirtualizationRun many different operating systems on the same hardware Each application instance has its own operating system Adds overhead and complexity Virtualization is relatively expensive ContainerizationContains everything you need to run a application Code and dependencies A standardized unit of software An isolated process in a sandbox Self contained Apps can't interacted with each other Container ImageA standard for portability Lightweight, uses the host kernel Secure separation between applications",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Virtualized vs. Containerized",
+    "Description": "SCADA/ICSSupervisory Control and Data Acquisition SystemLarge - scale, multi - site industrial control system (ICS) PC manages equipment Distributed control systems Requires extensive segmentation RTOSReal - Time Operating SystemAn operating system with a deterministic processing schedule No time to wait for other processes Industrial equipment, automobiles Military environments Extremely sensitive to security issues Difficult to know what type of security is in place Embedded SystemHardware and software designed for a specific function Built with only one purpose Ex. Traffic light controllers, smart watches, medical imaging systems HAHigh AvailabilityRedundancy doesn't always mean always available May need to be powered on manually",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "HA",
+    "Name": "HA",
+    "Description": "Ma include many different components working together Higher cost",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "MTTRMean time to RepairAverage time to repair/replace something",
+    "Description": "Device PlacementEvery network is different Firewalls - separate trusted and untrusted Honeypots, jump server, load balancers, sensors Security ZonesZone - based security technologies",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "More flexible (and secure) than IP address ranges",
+    "Description": "Each area of the network is associated with a zone Trusted, untrusted Internal, external Simplifies security policies Attack SurfaceEverything can be vulnerability Application code Open ports Authentication process Human error Minimize the surface Audit the code Block ports on the firewall Monitor network traffic in real - time ConnectivityEverything contributes to security Including the network connection Secure the network cabling Protect the physical drops Application - level encryption Network - level encryption IPsec tunnels, VPN connections Fail - OpenWhen a system fails, data continues to flow Fail - ClosedWhan a system fails, data does not flow Active MonitoringSystem is connected inline Data can be blocked in real - time as it passes by Intrusion prevention is commonly active Malicious traffic is immediately identified Passive MonitoringA copy of the network traffic is examining using a tap or port monitor Data cannot be blocked in real time Intrusion detection is commonly passive",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "No way to block (prevent) traffic",
+    "Description": "Jump ServerAccess secure network zones Provides an access mechanism to a protected network Highly - secured device Hardened and monitored",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "SSH/Tunnel/VPN to the jump server",
+    "Description": "Significant security concern Compromise of the jump server is significant breach ProxiesSits between the users and the external network",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Receives the user requests and sends the request on their behalf (the proxy)",
+    "Description": "Useful for caching information, access control, URL filtering, content scanning",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Applications may need to know how to use the proxy (explicit)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Some proxies are invisible (transparent)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Application ProxiesNAT",
+    "Description": "Most proxies in use are application proxies A proxy may only know one application - HTTP Many proxies are multipurpose proxies - HTTP, HTTPS, FTP, etc",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Forward ProxyInternal proxy",
+    "Description": "Commonly used to protect and control user access to the internet Reverse ProxyInbound traffic from the internet to your internal service Open ProxyThird party, uncontrolled proxy Can be significant security concern Often used to circumvent existing security controls Often blocked",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Active/Active Load BalancingConfigurable load",
+    "Description": "Manage across servers TCP offload - protocol overhead",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "SSL",
+    "Name": "SSL offload -encryption/decryption",
+    "Description": "Caching - fast response Prioritization - QoS Content switching - application - centric balancing",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Active/Passive Load BalancingSome servers are active",
+    "Description": "Others are on standby If an active server fails, the passive server takes its place SensorsAggregated information from network devices Built - in sensors, separate devices IPS, firewall logs, authentication logs, web server access logs, database transaction logs, email logs",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "CollectorsProprietary consoles (IPS, firewall)",
+    "Description": "SIEM consoles, syslog servers Many SIEMs include a correlation engine to compare diverse sensor data Port SecurityCommonly used on wireless networks Also works on wired networks",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "EAPExtensible Authentication Protocol An authentication framework",
+    "Description": "Many different ways to authenticate based on RFC standards Manufacturers can build their own EAP methods EAP integrates with 802.1X Prevents access to the network until the authentication succeeds",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "NAC",
+    "Name": "IEEE 802.1XPort-based Network Access Control (NAC)",
+    "Description": "You don't get access to the network until you authenticate EAP integrates with 802.1X Extensible authentication protocol 802.1X prevents access to the network until the authentication succeeds Used in conjunction with an authentication database",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "RADIUS,",
+    "Name": "RADIUS, LDAP, TACACS+, Kerberos, etc",
+    "Description": "IEEE 802.1X and EAPSupplicant - the client Authenticator - the device that provides access Authentication server - validates the client credentials",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Universal Security ControlStandard issue",
+    "Description": "Control the flow of network traffic Corporate control of outbound and inbound data Control of inappropriate content Protection against malware Network Based - FirewallsFilter traffic by port number or application - OSI layer 4 vs OSI layer 7 Encrypt traffic - VPN between sites",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Most firewalls can be layer 3 devices (routers)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Often sits on the ingress/egress of the network",
+    "Description": "NAT functionality",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "UTMUnified Threat ManagementAll-in-one security appliance",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "URL/filter/content inspection",
+    "Description": "Malware inspection Spam filter",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "CSU/DSU",
+    "Name": "CSU/DSU",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Router/switch",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Firewall",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "IDS/IPS",
+    "Name": "IDS/IPS",
+    "Description": "Bandwidth shaper VPN endpoint Only operate at layer 4",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "NGFWNext-Gen FirewallOSI Application Layer",
+    "Description": "All data in every packet Requires some advanced decodes Every packet must be analyzed and categorized before security decision is determined Network - based firewalls Control traffic flows based on the application",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "IPS",
+    "Name": "IPS",
+    "Description": "Content filtering WAFWeb Application FirewallNot like normal firewall",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Applies rules to HTTP/HTTPS conversations",
+    "Description": "Allow or deny based on expected input SQL injection",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "A major focus of payment card industry data security standard (PCI DSS)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "VPNVirtual Private NetworkEncrypted (private) data traversing a public network",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "ConcentratorEncryption/decryption access device",
+    "Description": "Often integrated with a firewall Many deployment options Specialized cryptographic hardware Software - based options available Used with client software Encrypted TunnelKeep data private across the public internet Encryption is the key Encrypt your data Add new headers and trailers Decrypt on the other side Original data is delivered",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "SSL/TLS",
+    "Name": "SSL/TLS VPNUses common SSL/TLS protocol (TCP 443)",
+    "Description": "Almost no firewall issues No big VPN clients Usually remote access communication",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "No requirement for digital certificates or shared passwords (like IPSec)",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Can be run from a browser or from (usually light) VPN client",
+    "Description": "On - demand access from a remote device Software connects to a VPN concentrator Some software can be configured as always - on",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Site to Site IPsec VPNAlways on",
+    "Description": "Firewalls often act as VPN concentrators SD - WANSoftware Defined Networking in a Wide Area NetworkCloud based applications communicate directly to the cloud SASESecure Access Service EdgeUpdate secure access for cloud services Securely connect from different locations",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Next-generation VPN",
+    "Description": "Security technologies are in the cloud SASE clients on all devices Streamlined and automatic Selection of effective controlsMany different security options",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "VPN",
+    "Name": "VPN",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "SD-WAN",
+    "Name": "SD-WAN",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Sase",
+    "Description": "Data TypesRegulated - Managed by a third party Government laws and statutes Trade Secret - unique to an organization Intellectual Property - copyright or trademark restrictions Legal information - stored in many different systems Financial information - internal company financial details Human - readableHumans can understand the data Very clear and obvious Non - human readableNot easily understood by humans Encoded data",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Barcodes",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Images",
+    "Description": "Some formats are hybrid - CSV, XML, JSON, etc Classifying sensitive dataDifferent levels require different security and handling Additional permissions A different process to view Restricted network access ProprietaryData that is the property of an organization May also include trade secrets Often data unique to an organization PIIPersonal Identifiable InformationData that can be used to identify an individual Name, date of birth, mother's maiden name, biometric information PHIProtected Health InformationHealth information associated with an individual Health status, health care records, payments for health care, and much more",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Sensitive DataIntellectual property, PII, PHI",
+    "Description": "Confidential DataVery sensitive, must be approved to view",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Public / Unclassified No restrictions on viewing the data",
+    "Description": "",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Private / Classified / Restricted Restricted access, may require an NDA",
+    "Description": "CriticalData should always be available Data at restData on storage device",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Encrypt the data -whole disk, database or file/folder-level encryption",
+    "Description": "Apply permissions - limit access Data in transitData transmitted over the network Not much protection as it travels Network - based protection - firewall, IPS Provide transport encryption - TLS or IPsec Data in useData is actively processing in memory Data is almost always decrypted Attackers can pick the decrypted information out of RAM Data SovereigntyData that resides in a country is subject to the laws of that country Legal monitoring, court orders, etc Laws may prohibit where data is stored GDPR - EU - data collected on EU citizens must be stored in the EU GeolocationLocation details - tracks within a localized area Many ways to determine location - 802.11, mobile providers, GPS Can be used to manage data access - prevent access from other countries Limit administrative tasks",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Geographic RestrictionsNetwork location",
+    "Description": "Identify based on IP subnet Can be difficult with mobile devices Geolocation Determine a user's location GPS - mobile devices, very accurate 802.11 wireless, less accurate IP address, not very accurate GeofencingAutomatically allow or restrict access when the user is in a particular location Don't allow this app or run unless you're near the office Protect dataEncryption Security policies Data permissions - not everyone can access ConfusionThe encrypted data is drastically different than the plaintext HashingRepresent data as a short string of text ObfuscationMake something normally understandable very difficult to understand Take readable code and turn it into nonsense Code obfuscation MaskingA type of obfuscation Hide some of the original data Protects PII - and other sensitive data Many different techniques TokenizationReplace sensitive data with a non - sensitive placeholder Common with credit card processing This isn't encryption or hashing Ex. SSN: 266 - 12 - 1112 > 691 - 61 - 8539 SegmentationSeparate the data - store in different locations Sensitive data should have stronger security Permission RestrictionsControl access to an account Determines what policies are best for an organization Server clusteringCombine two or more servers Appears and operates as a single larger server Users only see one device Easily increase capacity and availability Usually configured in the operating system - same OS Load balancingLoad is distrusted across multiple servers Distributed load across multiple devices Site ResiliencyRecovery site is prepped Data is synchronized Business processes failover to the alternate processing site Revert back to primary location Hot SiteAn exact replica Stocked with hardware Applications and software are constantly updated Flip a switch everything moves",
+    "Devices_Layer": ""
+  },
+  {
+    "Acronym": "",
+    "Name": "Cold SiteNo hardware",
+    "Description": "Empty building No data No people Warm SiteJust enough to get going Big room with rack space Geographic dispersionSites should be physically different than the organization's primary location Can be a logistical challenge Platform DiversityEvery OS contains potential security issues Many security vulnerabilities are specific to a single OS Use many different platforms Multi - cloud systemsMany cloud providers Plan for cloud outages Data is both geographically dispersed and cloud service dispersed COOPContinuity of operations planningThere needs to be an alternative Manual transactions Paper receipts These must be documented and tested before problems occur Capacity PlanningRequires a balanced approach Add the right amount of people Apply appropriate technology Build the best infrastructure PeopleSome services require human intervention TechnologyPick a technology that can scale Web services - distribute the load across multiple web services Database services - cluster multiple SQL servers Cloud services - services on demand InfrastructureUnderlying framework Physical devices - purchase, configure and install Cloud - based devices - easier to deploy Recovery TestingTest yourselves before an actual event Use well - defined rules of engagement Very specific scenario Evaluate response Tabletop exerciseMany of the logistics can be determined through analysis Get key players together for a tabletop exercise Fail overCreate a redundant infrastructure If one stops working, fail over to the operational unit SimulationTest with a simulated event Phishing attack, password requests, data breaches Test internal security Test the users Ex. Create a phishing email attackParallel ProcessingSpilt a process through multiple (parallel) CPUs Improved performance Improved recovery BackupsIncredibly important Many different implementationsTotal amount of data - Type of backup - Backup media - Storage location - Backup and recovery software - Day of the week - Onsite BackupNo internet link required Data is immediately available Generally less expensive than off site Offsite BackupTransfer data over internet WAN link Data is available after a disaster Restoration can be performed from anywhere FrequencyHow often to backup Every week, day or hour May be different between systems May have multiple backup sets - daily, weekly and monthly Requires significant planning EncryptionProtect backup data using encryption Everything on the backup media is unreadable The recovery key is required to restore the data SnapshotPopular with virtual machine An instant backup of an entire system Save the current configuration and data Take another snapshot after 24 hours Take a snapshot Revert to any snapshot Very fast recovery Recovery TestingNot enough to perform the backup Have to be able to restore Disaster recovery testing Simulate a disaster situation Restore from backup Confirm restoration Perform periodic audits ReplicationAn ongoing, almost real - time backup Keep data synchronized in multiple locations Data is available There's always a copy somewhere Data can be stored locally to all users Replicate data to all remote sites Data is recoverable JournalingPower goes out while writing data to storage Before writing to storage, make a journal entry After the journal is written, write the data to storage Power ResiliencyWays to mitigate power issues UPSUninterruptible Power SupplyShort term backup power Blackouts, brownouts, or surges Auto shutdown, battery capacity, outlets, phone line suppression Types:Offline/standby - Line - interactive - On - line/Double - conversion - GeneratorsLong - term power backup Can power an entire building May take a few minutes to get the generator up to speed AcronymNameDescriptionDevices/LayerOn - Premises SecurityCustomize your security posture Full control when everything is in house On - site IT team can manage security better Local team maintains uptime and availability DecentralizedMany locations, cloud providers, operating systems, etc Difficult to manage and protect so many diverse systems Centralize the security management CentralizedCentralized approach Correlated alerts Consolidated log file analysis",
+    "Devices_Layer": ""
+  }
+]

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security+ Flashcards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <h1>Flashcards</h1>
+        <span class="badge">Active Recall</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Overview</a>
+        <a href="chapters.html">Chapters</a>
+        <a href="flashcards.html">Flashcards</a>
+      </nav>
+    </div>
+
+    <div class="grid">
+      <div class="col-8">
+        <div class="card" id="card" style="min-height:220px; display:flex; flex-direction:column; justify-content:center">
+          <div class="small">Question</div>
+          <h2 id="q" style="margin:6px 0 10px"></h2>
+          <div id="a" class="small" style="display:none; opacity:.9"></div>
+          <div style="display:flex; gap:8px; margin-top:12px">
+            <button class="btn" id="reveal">Reveal</button>
+            <button class="btn success" id="know" disabled>I knew this</button>
+            <button class="btn warn" id="dont">I need practice</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <h2 class="section-title">Settings</h2>
+          <div style="display:grid; gap:8px">
+            <label>Chapter
+              <select class="input" id="ch">
+                <option value="0">All Chapters</option>
+                <option value="1">Chapter 1</option>
+                <option value="2">Chapter 2</option>
+                <option value="3">Chapter 3</option>
+                <option value="4">Chapter 4</option>
+                <option value="5">Chapter 5</option>
+              </select>
+            </label>
+            <label>Mode
+              <select class="input" id="mode">
+                <option value="acronym">Acronym/Name → Definition</option>
+                <option value="definition">Definition → Name</option>
+              </select>
+            </label>
+            <button class="btn primary" id="start">Start</button>
+            <div class="small" id="stats">0 / 0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Use spacebar to reveal / next.</div>
+      <div class="small">Progress is saved locally.</div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { loadAllData, createFlashcards } from './script.js';
+
+    let ALL = [];
+    let CARDS = [];
+    let i = 0;
+
+    const qEl = document.getElementById('q');
+    const aEl = document.getElementById('a');
+    const stats = document.getElementById('stats');
+    const revealBtn = document.getElementById('reveal');
+    const knowBtn = document.getElementById('know');
+    const dontBtn = document.getElementById('dont');
+    const chSel = document.getElementById('ch');
+    const modeSel = document.getElementById('mode');
+    const startBtn = document.getElementById('start');
+
+    function updateStats(){
+      stats.textContent = `${Math.min(i+1, CARDS.length)} / ${CARDS.length}`;
+    }
+
+    function showCard(){
+      if(i >= CARDS.length){
+        qEl.textContent = "Session complete.";
+        aEl.style.display = "none";
+        knowBtn.disabled = true;
+        revealBtn.disabled = true;
+        return;
+      }
+      const card = CARDS[i];
+      qEl.textContent = card.question;
+      aEl.textContent = card.answer;
+      aEl.style.display = "none";
+      knowBtn.disabled = true;
+      revealBtn.disabled = false;
+      updateStats();
+    }
+
+    function start(){
+      const ch = parseInt(chSel.value, 10) || 0;
+      const mode = modeSel.value;
+      let items = ALL;
+      if(ch){ items = ALL.filter(x => x.Chapter === ch); }
+      CARDS = createFlashcards(items, mode);
+      i = 0;
+      showCard();
+    }
+
+    revealBtn.addEventListener('click', () => {
+      aEl.style.display = "block";
+      knowBtn.disabled = false;
+    });
+    dontBtn.addEventListener('click', () => {
+      // push current card back later in the deck
+      if(i < CARDS.length){ CARDS.push(CARDS[i]); }
+      i++;
+      showCard();
+    });
+    knowBtn.addEventListener('click', () => {
+      i++;
+      showCard();
+    });
+    startBtn.addEventListener('click', start);
+
+    document.addEventListener('keydown', (e) => {
+      if(e.code === 'Space'){
+        if(aEl.style.display === 'none'){ aEl.style.display = 'block'; knowBtn.disabled = false; }
+        else { i++; showCard(); }
+        e.preventDefault();
+      }
+    });
+
+    (async function init(){
+      ALL = await loadAllData();
+      start();
+    })();
+  </script>
+</body>
+</html>

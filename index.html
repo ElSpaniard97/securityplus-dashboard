@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security+ Study Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <h1>Security+ Study Dashboard</h1>
+        <span class="badge">GitHub Pages Ready</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Overview</a>
+        <a href="chapters.html">Chapters</a>
+        <a href="flashcards.html">Flashcards</a>
+        <a href="https://www.comptia.org/certifications/security" target="_blank" rel="noopener">CompTIA Security+</a>
+      </nav>
+    </div>
+
+    <div class="grid">
+      <div class="col-8">
+        <div class="card">
+          <h2 class="section-title">Progress by Chapter</h2>
+          <canvas id="progressChart" height="140"></canvas>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <h2 class="section-title">Quick Start</h2>
+          <div class="kpis">
+            <div class="kpi">
+              <div class="label">Today</div>
+              <div class="value" id="kpi-today">0</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Studied (All Time)</div>
+              <div class="value" id="kpi-studied">0</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Total Terms</div>
+              <div class="value" id="kpi-total">0</div>
+            </div>
+            <div class="kpi">
+              <div class="label">Completion</div>
+              <div class="value" id="kpi-completion">0%</div>
+            </div>
+          </div>
+          <hr class="sep">
+          <div style="display:flex; gap:8px; flex-wrap:wrap">
+            <a class="btn primary" href="flashcards.html">Start Flashcards</a>
+            <a class="btn" href="chapters.html">Browse Chapters</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <h2 class="section-title">Search</h2>
+          <input class="input" id="search" placeholder="Search acronyms, names, descriptions… (e.g., 'WPA3', 'Zero Trust', 'SCAP')">
+          <div style="margin-top:12px; overflow:auto">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Chapter</th>
+                  <th>Acronym</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Study</th>
+                </tr>
+              </thead>
+              <tbody id="searchResults"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Security+ Dashboard — study smarter.</div>
+      <div class="small">Data is stored locally in your browser. No server required.</div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { loadAllData, filterItems, renderItemsTable, summarizeByChapter, buildProgressChart } from './script.js';
+
+    let ALL_ITEMS = [];
+    let CHART = null;
+
+    function updateKPIs(items){
+      const studied = items.filter(it => localStorage.getItem('studied::'+it.Name) === 'true').length;
+      const total = items.length;
+      const pct = total ? Math.round((studied/total)*100) : 0;
+      document.getElementById('kpi-studied').textContent = studied;
+      document.getElementById('kpi-total').textContent = total;
+      document.getElementById('kpi-completion').textContent = pct + '%';
+      // Simple 'today' metric: number of items marked studied today
+      const todayKey = new Date().toISOString().slice(0,10);
+      let today = 0;
+      for(const k in localStorage){
+        if(k.startsWith('studied::')){
+          // not tracking timestamps; use a heuristic counter cache
+        }
+      }
+      document.getElementById('kpi-today').textContent = 0;
+    }
+
+    (async function init(){
+      ALL_ITEMS = await loadAllData();
+      updateKPIs(ALL_ITEMS);
+
+      // Chart
+      const summary = summarizeByChapter(ALL_ITEMS);
+      const ctx = document.getElementById('progressChart').getContext('2d');
+      CHART = buildProgressChart(ctx, summary);
+
+      // Search behavior
+      const input = document.getElementById('search');
+      const tbody = document.getElementById('searchResults');
+      const render = () => {
+        const q = input.value;
+        const list = filterItems(ALL_ITEMS, q, 0).slice(0, 150); // limit rows for speed
+        renderItemsTable(tbody, list);
+      };
+      input.addEventListener('input', render);
+      render();
+    })();
+  </script>
+</body>
+</html>
