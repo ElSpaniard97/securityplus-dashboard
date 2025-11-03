@@ -17,6 +17,7 @@
         <a href="index.html">Overview</a>
         <a href="chapters.html">Chapters</a>
         <a href="flashcards.html">Flashcards</a>
+        <a href="search.html">Search</a>
       </nav>
     </div>
 
@@ -58,7 +59,7 @@
       const tabs = document.getElementById('tabs');
       let html = '';
       for(let i=1;i<=5;i++){
-        html += `<div class="tab ${i===CURRENT_CHAPTER?'active':''}" data-ch="${i}">${CHAPTER_TITLES[i]}</div>`
+        html += `<div class="tab ${i===CURRENT_CHAPTER?'active':''}" data-ch="${i}">${CHAPTER_TITLES[i]}</div>`;
       }
       tabs.innerHTML = html;
       tabs.querySelectorAll('.tab').forEach(t => {
