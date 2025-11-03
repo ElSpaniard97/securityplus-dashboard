@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - Security+ Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Inter, system-ui;
+    }
+    .login-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 32px 24px;
+      width: 340px;
+      text-align: center;
+    }
+    .login-card h1 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .input {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .btn {
+      width: 100%;
+      justify-content: center;
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      font-size: 16px;
+    }
+    .error {
+      color: #e11d48;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h1>Security+ Dashboard</h1>
+    <input type="text" id="username" class="input" placeholder="Username">
+    <input type="password" id="pin" class="input" placeholder="PIN">
+    <button class="btn" id="loginBtn">Login</button>
+    <div class="error" id="errorMsg"></div>
+  </div>
+
+  <script>
+    const USERS = {
+      "Ezekiel Correa": "8290",
+      "Guest": "1234"
+    };
+
+    const btn = document.getElementById("loginBtn");
+    const err = document.getElementById("errorMsg");
+
+    btn.addEventListener("click", () => {
+      const u = document.getElementById("username").value.trim();
+      const p = document.getElementById("pin").value.trim();
+
+      if (USERS[u] && USERS[u] === p) {
+        localStorage.setItem("securityplus_user", u);
+        window.location.href = "index.html";
+      } else {
+        err.textContent = "Invalid username or PIN.";
+      }
+    });
+  </script>
+</body>
+</html>
