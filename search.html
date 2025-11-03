@@ -3,47 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Search - Security+ Dashboard</title>
+  <title>Search</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="brand">
-        <h1>Search</h1>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#eaf0fa"/><path d="M4 20a8 8 0 0 1 16 0" fill="#eaf0fa"/></svg>
       </div>
-      <nav class="nav">
-        <a href="index.html">Overview</a>
-        <a href="chapters.html">Chapters</a>
-        <a href="flashcards.html">Flashcards</a>
-        <a href="search.html">Search</a>
-      </nav>
+      <h1>Security+ Dashboard</h1>
     </div>
+    <div class="profile">
+      <div class="name">Ezekiel Correa</div>
+      <div class="role">Security+ Candidate</div>
+    </div>
+    <nav class="nav">
+      <a href="index.html"><svg viewBox="0 0 24 24"><path d="M12 3l9 7h-3v9h-5v-6H11v6H6v-9H3z"/></svg>Overview</a>
+      <a href="chapters.html"><svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>Chapters</a>
+      <a href="flashcards.html"><svg viewBox="0 0 24 24"><path d="M4 6h12a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2z"/><path d="M8 4h12a2 2 0 0 1 2 2v10h-2V6H8z"/></svg>Flashcards</a>
+      <a class="active" href="search.html"><svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35"/><circle cx="10" cy="10" r="7" stroke="#eaf0fa" stroke-width="2" fill="none"/></svg>Search</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="top"><h2>Search</h2></div>
 
     <div class="card">
-      <h2 class="section-title">Search Across All Chapters</h2>
+      <h3 class="section-title">Search Across All Chapters</h3>
       <input class="input" id="search" placeholder="Search acronyms, names, or descriptions… (e.g., 'WPA3', 'Zero Trust')">
       <div style="margin-top:12px; overflow:auto">
         <table class="table">
           <thead>
             <tr>
-              <th>Chapter</th>
-              <th>Acronym</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Study</th>
+              <th>Chapter</th><th>Acronym</th><th>Name</th><th>Description</th><th>Study</th>
             </tr>
           </thead>
           <tbody id="searchResults"></tbody>
         </table>
       </div>
     </div>
-
-    <div class="footer">
-      <div>Search and filter through all study data.</div>
-      <div class="small">Mark studied items directly from search results.</div>
-    </div>
-  </div>
+  </main>
 
   <script type="module">
     import { loadAllData, filterItems, renderItemsTable } from './script.js';
