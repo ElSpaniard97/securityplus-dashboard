@@ -30,7 +30,7 @@ securityplus-dashboard/
 3. Commit and go to **Settings → Pages → Build and deployment**:
    - Source: **Deploy from a branch**
    - Branch: **main** (or `master`), folder: **/root**
-4. Your site will be served at `https://<your-username>.github.io/securityplus-dashboard/`
+4. Your site will be served at https://elspaniard97.github.io/securityplus-dashboard/
 
 ## Updating Data
 - Replace JSON files in `/data` with updated versions to refresh content.
