@@ -8,19 +8,30 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+  <script>
+    // Check login
+    const currentUser = localStorage.getItem("securityplus_user");
+    if(!currentUser){
+      window.location.href = "login.html";
+    }
+  </script>
+
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="brand">
       <div class="logo">
-        <!-- simple avatar glyph -->
-        <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" fill="#eaf0fa"/><path d="M4 20a8 8 0 0 1 16 0" fill="#eaf0fa"/></svg>
+        <svg viewBox="0 0 24 24" width="22" height="22">
+          <circle cx="12" cy="8" r="4" fill="#eaf0fa"/>
+          <path d="M4 20a8 8 0 0 1 16 0" fill="#eaf0fa"/>
+        </svg>
       </div>
       <h1>Security+ Dashboard</h1>
     </div>
 
     <div class="profile">
-      <div class="name">Ezekiel Correa</div>
+      <div class="name" id="userName"></div>
       <div class="role">Security+ Candidate</div>
+      <button class="btn" id="logoutBtn" style="margin-top:8px;width:100%;justify-content:center;">Logout</button>
     </div>
 
     <nav class="nav">
@@ -108,16 +119,25 @@
   <script type="module">
     import { loadAllData, summarizeByChapter, buildProgressChart } from './script.js';
 
+    const user = localStorage.getItem("securityplus_user") || "Guest";
+    document.getElementById("userName").textContent = user;
+
+    // Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("securityplus_user");
+      window.location.href = "login.html";
+    });
+
     let ALL_ITEMS = [];
 
     function updateKPIs(items){
-      const studied = items.filter(it => localStorage.getItem('studied::'+it.Name) === 'true').length;
+      const studied = items.filter(it => localStorage.getItem(`securityplus_${user}_studied::${it.Name}`) === 'true').length;
       const total = items.length;
       const pct = total ? Math.round((studied/total)*100) : 0;
       document.getElementById('kpi-studied').textContent = studied;
       document.getElementById('kpi-total').textContent = total;
       document.getElementById('kpi-completion').textContent = pct + '%';
-      document.getElementById('kpi-today').textContent = 0; // simple placeholder
+      document.getElementById('kpi-today').textContent = 0;
       return { studied, total, pct };
     }
 
@@ -128,6 +148,7 @@
           labels:['Complete','Remaining'],
           datasets:[{
             data:[pct, 100-pct],
+            backgroundColor:['#fca311','#e5e7eb']
           }]
         },
         options:{
@@ -140,13 +161,11 @@
     (async function init(){
       ALL_ITEMS = await loadAllData();
       const { pct } = updateKPIs(ALL_ITEMS);
-
-      // Bar chart
       const summary = summarizeByChapter(ALL_ITEMS);
+
       const barctx = document.getElementById('progressChart').getContext('2d');
       buildProgressChart(barctx, summary);
 
-      // Ring
       const rctx = document.getElementById('ringChart').getContext('2d');
       buildRing(rctx, pct);
       document.getElementById('ringLabel').textContent = pct + '% complete';
