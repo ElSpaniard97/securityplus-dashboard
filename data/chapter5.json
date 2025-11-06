@@ -1,200 +1,154 @@
 [
   {
-    "Acronym": "",
-    "Name": "AcronymNameDescriptionDevices/LayerCIAConfidentiality",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Security Policy Guidelines",
+    "Description": "Define high-level security expectations for the organization. Explain what must be protected and why."
   },
   {
-    "Acronym": "",
-    "Name": "Integrity",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Information Security Policies",
+    "Description": "Master document containing all organizational security policies. Includes compliance and enforcement requirements. Procedures are documented separately."
   },
   {
-    "Acronym": "",
-    "Name": "Availability",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Acceptable Use Policy (AUP)",
+    "Description": "Defines how systems may be used, including networks, internet, messaging, and devices. Helps reduce liability and misuse."
   },
   {
-    "Acronym": "",
-    "Name": "Security Policy GuidelinesHigh level strategies",
-    "Description": "Detailed security goals Security polices answer - the what and why Information Security PoliciesBig list of all security related policies Compliance requirements Detailed security procedures",
-    "Devices_Layer": ""
+    "Name": "Business Continuity",
+    "Description": "Plans to maintain operations during disruptions. May include manual or alternate workflows. Must be documented and tested regularly."
   },
   {
-    "Acronym": "",
-    "Name": "AUPAcceptable Use PoliciesDetailed documentation",
-    "Description": "Covers many topics - internet use, telephones, computers, mobile devices Used by an organization to limit legal liability Business ContinuityAlterantives to computer systems Manual transactions Paper receipts Phone calls for transaction approval These must be documented and tested before a problem occurs Disaster Recovery PlanPart of business continuity planning Disasters are many and varied Comprehensive plan Recovery location Data recovery method Application restoration IT team and employee availability Security IncidentsUsers clicks an email attachment and executes malware",
-    "Devices_Layer": ""
+    "Name": "Disaster Recovery Plan (DRP)",
+    "Description": "Focuses on restoring IT systems after a disaster. Includes alternate site planning, backup/recovery, and staff availability considerations."
   },
   {
-    "Acronym": "",
-    "Name": "DDoS",
-    "Description": "Confidential information is stolen Incident Response RolesSpecialized group, trained and tested IT security management - corporate support Compliance officers - intricate knowledge of compliance rules Technical staff - your team in the trenches User community - what they saw SDLCSoftware development lifecycle System development life cycle Many ways to get from idea to app No best way, but helps for have a framework",
-    "Devices_Layer": ""
+    "Name": "Security Incidents & Examples",
+    "Description": "Include malware execution, phishing, ransomware, DDoS attacks, and unauthorized access or data theft."
   },
   {
-    "Acronym": "",
-    "Name": "Popular SDLC",
-    "Description": "Change ManagementHow to make a change Upgrade software, change firewall configuration, modify switch ports On of the most common risks in the enterprise Often overlooked or ignored Have clear policies - frequency, duration, installation process, fallback procedures Sometimes difficult to implement OnboardingBring a new person into the organization - new hire or transfers IT agreements need to be signed Create accounts - associate the user with the proper groups and departments Provide required IT hardware - laptops, tablets, phones",
-    "Devices_Layer": ""
+    "Name": "Incident Response Roles",
+    "Description": "Security management: oversight and authority. Compliance/legal: regulatory compliance. Technical staff: investigation and restoration. Users: report suspicious activity."
   },
   {
-    "Acronym": "",
-    "Name": "OffboardingPre-planned",
-    "Description": "Disable account associated with user Determine what to do with hardware and data PlaybooksConditional steps to follow; a broad process SOARSecurity Orchestration, Automation and ResponseIntegrated third - party tools and data sources Make security teams more effective Used for playbooks Monitoring and RevisionIT security is constantly changing Update to security posture - tighter change control, additional playbooks Change to an individual procedure New security concerns",
-    "Devices_Layer": ""
+    "Name": "SDLC (Software Development Lifecycle)",
+    "Description": "Framework for developing and maintaining software. Security integration (DevSecOps) ensures protection across waterfall, agile, or DevOps models."
   },
   {
-    "Acronym": "",
-    "Name": "Governance StructuresBoards",
-    "Description": "A panel of specialists Sets the tasks or requirements for the committees Government EntitiesLegal concerns, administrative requirements, political issues Often open to the public Centralized GovernanceOne location with a group of decision makers Decentralized GovernanceSpreads the decision - making process around to other individuals or locations SOXSarbanes - Oxley ActPublic company accounting reform and investor Protection Act of 2002 HIPAAHealth Insurance Portability and Accountability ActExtensive healthcare standards for storage, use and transmission of health care information LegalSecurity team is often tasked with legal responsibilities Holding data required for legal proceedings Security breach notifications - legal requirement in many jurisdictions IndustryMay require specific security considerations Electrical power and public utilities - isolated and protected system controls Medial - highly secure data storage and access logs, data encryption and protection",
-    "Devices_Layer": ""
+    "Name": "Change Management",
+    "Description": "Structured process for modifying configurations. Includes approval, scheduling, testing, and rollback plans to avoid system disruption."
   },
   {
-    "Acronym": "",
-    "Name": "Geographical SecurityLocal/regional -city and state records",
-    "Description": "National - federal government, multi - state organizations Global SecurityLarge multinational companies Global financial markets Legal concerns will vary widely Data ResponsibilitiesData owner - accountable for specific data Data RolesData controller - how data is used Data processor - processes data on behalf of the data controller, often third - party",
-    "Devices_Layer": ""
+    "Name": "Onboarding",
+    "Description": "Create user accounts, assign permissions, issue equipment, and ensure policy acknowledgment."
   },
   {
-    "Acronym": "",
-    "Name": "Data Custodian/StewardResponsible for data accuracy, privacy and security",
-    "Description": "Works directly with the data Associates sensitivity labels to the data Ensures compliance with any applicable laws and standards Manages the access rights to the data Implements security controls AD Hoc AssessmentAn organization may not have a formal risk assessment process Perform an assessment when the situation requires Committee is create and the risk assessment proceeds Once the assessment is complete, the committee is disbanded There may not be a need to investigate this specific risk again Recurring AssessmentEvaluation occurs on a standard intervals Internal assessment Mandated risk assessment Qualitative Risk AssessmentIdentify significant risk factors Ask opinions about the significance Display visually with traffic light grid or similar method Quantitative Risk AssessmentARO - annualized rate of occurrence, how likely this will happen AV - asset value - cost of asset, effect on company sales EF - exposure factor - the percentage of the value lost due to an incident SLESingle Loss ExpectancyWhat is the monetary loss if a single event occurs",
-    "Devices_Layer": ""
+    "Name": "Offboarding",
+    "Description": "Disable accounts, revoke access, retrieve company assets, and document separation activities."
   },
   {
-    "Acronym": "EF",
-    "Name": "Asset value (AV) x Exposure factor (EF)",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Playbooks",
+    "Description": "Documented response steps for specific incidents such as phishing or malware infection."
   },
   {
-    "Acronym": "SLE",
-    "Name": "Laptop stolen = $1,000 (AV) x 1.0 (EF) = $1,000 (SLE)",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "SOAR (Security Orchestration, Automation, Response)",
+    "Description": "Automates security responses and integrates tools for faster coordinated incident handling."
   },
   {
-    "Acronym": "",
-    "Name": "ALEAnnualized Loss ExpectancyAnnualized rate of occurrence (ARO) x SLE",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Governance",
+    "Description": "Structures such as committees guide security strategy and enforce accountability."
   },
   {
-    "Acronym": "",
-    "Name": "7 laptops (ARO) x $1,000 = $7,000.00",
-    "Description": "ImpactLife - most important consideration Property - risk to buildings and assets Safety - some environments are too dangerous to work Finance - resulting financial costs Risk LikelihoodA qualitative measurement of risk Rare, possible, almost certain Risk ProbabilityA quantitative measurement of risk A statistical measurement Can be based on historical performance Risk AppetiteA broad description of risk - taking deemed acceptable The amount of accepted risk before taking any action to reduce that risk Risk appetite PostureQualitative description for readiness to take risk Conservative, neutral, and expansionary",
-    "Devices_Layer": ""
+    "Name": "Centralized vs Decentralized Governance",
+    "Description": "Centralized: decisions made by one authority. Decentralized: distributed decision-making across groups or regions."
   },
   {
-    "Acronym": "",
-    "Name": "Risk toleranceAn acceptable variance (usually larger) from the risk appetite",
-    "Description": "Risk RegisterEvery project has a plan, but also has risk Identify and document the risk associated with each step Apply possible solutions to the identified risks Monitor the results Key risk indicators - identify risks that could impact our organization Risk owners - each indicator is assigned someone to manage the risk Risk threshold - cost of mitigation is at least equal to the value gained by mitigation TransferMove the risk to another party Buy some cybersecurity insurance AcceptA business decision Usual course Accept with exemptionA security policy or regulation cannot be followed May be based on available security controls, size of the organization, total assets Exemption may need approval Accept with exceptionInternal security policies are not applied Monthly security patches updates must be applied within 3 calendar days The monthly updates cause critical software package to crash An exception is made to the update timeframe AvoidStop participating in a high - risk activity This effectively removes the risk MitigateDecrease the risk level Invest in security systems",
-    "Devices_Layer": ""
+    "Name": "Laws, Regulations & Standards",
+    "Description": "SOX ensures financial integrity; HIPAA protects health data. Legal teams handle evidence, breach notifications, and compliance."
   },
   {
-    "Acronym": "",
-    "Name": "Risk ReportingFormal document",
-    "Description": "Identifies risks Detailed information for each risk Usually created for senior management Commonly includes critical and emerging risks RTORecovery Time ObjectiveGet up and running quickly RPORecovery Point ObjectiveBring the system back online MTTRMean Time to RepairAverage time required to fix an issue MTBFMean Time Between FailuresThe time between outages Right - to - audit ClausesShould be in the contract A legal agreement to have the option to perform a security audit at any time Everyone agrees to the terms and conditions Ability to verify security before a breach occurs Evidence of Internal AuditsEvaluate the effectiveness of security controls Have a third party perform an audit Check security controls and processes Perform at a reasonable frequency Supply Chain AnalysisSystem involved when creating a product Involves organizations, people, activities, and resources Process:Get a product from supplier to customer1.Evaluate coordination between groups2.Identify areas of improvement3.Assess IT systems supporting the operation4.Document the business process changes5.Independent AssessmentsBring in a smart person or team to evaluate security and provide recommendations",
-    "Devices_Layer": ""
+    "Name": "Industry-Specific Requirements",
+    "Description": "Utilities, medical, and financial industries may require enhanced regulatory compliance and control frameworks."
   },
   {
-    "Acronym": "",
-    "Name": "Vendor Selection ProcessDue diligence",
-    "Description": "Check a company out before doing business Investigate and verify information Vendor MonitoringOngoing management of the vendor relationship Reviews should occur on a regular basis Different vendors may be checked for different indicators Assign a person to be in chare of the vendor relationship QuestionnairesImportant part of due diligence and ongoing vendor monitoring Security related questions Results are used to update vendor risk analysis SLAService Level AgreementMinimum terms for service provided Uptime, response time agreement, etc Commonly used between customers and service providers MOUMemorandum of UnderstandingBoth sides agree in general to the contents of the memorandum Usually states common goals, but not much more May include statements of confidentiality Informal letter of intent Not a signed contract MOAmemorandum of AgreementNext step above a MOU Both sides conditionally agree to the objectives Can also be a legal document, even without legal language Unlike a contract, may not contain legally enforceable promises MSAMaster Service AgreementLegal contract and agreement of terms Broad framework to cover later transactions Many detailed negotiations happen here Future projects will be based on this agreement",
-    "Devices_Layer": ""
+    "Name": "Geographic vs Global Security",
+    "Description": "Regional laws differ globally, especially regarding data storage and privacy (e.g., GDPR)."
   },
   {
-    "Acronym": "",
-    "Name": "WO/SOWWork Order/Statement of WorkSpecific list of items to be completed",
-    "Description": "Used in conjunction with a MSA Details the scope of the job, location, deliverables schedule, acceptance criteria, and more Was the job done properly? Lets refer to the SOW NDANon - Disclose AgreementConfidentiality agreement between parties Protects confidential information",
-    "Devices_Layer": ""
+    "Name": "Data Roles & Responsibilities",
+    "Description": "Owner defines and classifies data; Controller determines purpose; Processor handles data; Custodian maintains security and compliance."
   },
   {
-    "Acronym": "",
-    "Name": "Unilateral or bilateral (or multilateral)",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Risk Assessments",
+    "Description": "Ad hoc: when needed. Recurring: scheduled. Qualitative: judgment-based. Quantitative: uses numerical metrics (AV, EF, ARO)."
   },
   {
-    "Acronym": "",
-    "Name": "One-way NDA or mutual NDA",
-    "Description": "Formal contract Signatures are usually required BPABusiness Partners AgreementGoing into business together Owner stake Financial contract Determines decision maker Prepare for contingencies ComplianceMeeting the standards of laws, policies and regulations A healthy catalog of rules Penalties for not being in compliance",
-    "Devices_Layer": ""
+    "Name": "Quantitative Risk Metrics",
+    "Description": "SLE = AV × EF. ALE = ARO × SLE. These measure financial impact of security risks."
   },
   {
-    "Acronym": "",
-    "Name": "Scope",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Risk Concepts",
+    "Description": "Impact: life, safety, finances. Likelihood: chance of occurrence. Risk appetite: acceptable risk level. Tolerance: deviation range."
   },
   {
-    "Acronym": "",
-    "Name": "Compliance ReportingInternal",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Risk Register",
+    "Description": "Tracks risk details including ownership, severity, mitigation, and monitoring indicators."
   },
   {
-    "Acronym": "CCO",
-    "Name": "Central Compliance Officer (CCO)",
-    "Description": "Monitor and report on organizational compliance efforts",
-    "Devices_Layer": ""
+    "Name": "Risk Response Strategies",
+    "Description": "Transfer (insurance), Accept, Avoid, or Mitigate. Exceptions may allow deviation from standard controls."
   },
   {
-    "Acronym": "",
-    "Name": "External",
-    "Description": "Documentation required by external or industry regulators May require annual or ongoing regulators",
-    "Devices_Layer": ""
+    "Name": "Business Recovery Metrics",
+    "Description": "RTO: target restore time. RPO: acceptable data loss. MTTR: mean time to repair. MTBF: mean time between failures."
   },
   {
-    "Acronym": "",
-    "Name": "Missing or invalid reporting could result in fines and/or sanctions",
-    "Description": "GLBAGramm - Leach Bliley ActDisclosure of privacy information from financial institutions",
-    "Devices_Layer": ""
+    "Name": "Vendor and Supply Chain Management",
+    "Description": "Includes right-to-audit, internal/external audits, and due diligence before vendor approval."
   },
   {
-    "Acronym": "",
-    "Name": "Privacy Local/regional -State and Local government privacy limits",
-    "Description": "National - privacy laws for everyone in a country Global - Many countries working together for privacy",
-    "Devices_Layer": ""
+    "Name": "Vendor Monitoring",
+    "Description": "Ongoing evaluation of vendor performance, compliance, and security posture."
   },
   {
-    "Acronym": "",
-    "Name": "GDPRGeneral Data Protection RegulationEuropean Union Regulation",
-    "Description": "Control export of personal data - user decides Data SubjectAny information relating to an identified or identifiable natural person Cybersecurity AuditExamines IT infrastructure, software, devices, etc Checks for effectiveness of policies and procedures Find vulnerabilities before the attackers Can be performed internally or third party AttestationProvides an opinion of truth or accuracy of a company's security positioning An auditor will attest to a company's cybersecurity posture Internal AuditsAnswer questions about compliance Audit committee - oversees risk management activities Self assessments",
-    "Devices_Layer": ""
+    "Name": "Vendor Questionnaires",
+    "Description": "Used to assess vendor risk, compliance status, and contractual obligations."
   },
   {
-    "Acronym": "",
-    "Name": "External AuditsRegulatory requirements",
-    "Description": "Examinations - view records, compile reports and gather additional data Assessment - provide recommendation for future improvements ReconnaissanceNeed information before the attack Gathering a digital footprint Understand the security posture Minimize the attack area Create a network map Passive ReconnaissanceLearn as much as you can from open sources Social media Corporate web site Online forums, reddit Social engineering Dumpster diving Business organizations Active ReconnaissanceTrying the doors Visible on network traffic and logs Ping scans, port scans DNS queries OS scans, OS fingerprinting Service scans, version scans Phishing CampaignsSend a phishing email to your employees Automated process Centralized reporting for incorrect clicks Users can receive immediate feedback and security training Some organizations will schedule in - person training GoalWant Users to check Spelling and grammatical errors Domain name and email inconsistencies Unusual attachments Request for personal information Respond to reported suspicious messages",
-    "Devices_Layer": ""
+    "Name": "Agreements & Contracts",
+    "Description": "Include SLA, MOU, MOA, MSA, SOW, NDA, and BPA to define roles, expectations, and confidentiality."
   },
   {
-    "Acronym": "",
-    "Name": "Anomalous Behavior RecognitionRisky behavior",
-    "Description": "Unexpected behavior Unintentional behavior Security Awareness TeamDetermines roles for training, monitoring, policy creation, etc Establish a minimum awareness level Integrate compliance mandates Define metrics Document success measurements Identify the stakeholders Provide ongoing metrics and performance data Deploy the training materials Track user training efforts",
-    "Devices_Layer": ""
+    "Name": "Compliance & Privacy",
+    "Description": "Ensures adherence to laws, policies, and regulations. Noncompliance may result in fines or penalties."
   },
   {
-    "Acronym": "",
-    "Name": "Security Awareness TrainingTrain users",
-    "Description": "Specialized training depending on role Also applies to third parties Detailed documentation and records",
-    "Devices_Layer": ""
+    "Name": "GLBA (Gramm-Leach-Bliley Act)",
+    "Description": "Protects consumer financial data and enforces privacy safeguards for institutions."
   },
   {
-    "Acronym": "",
-    "Name": "User Guidance and TrainingPolicy/handbooks",
-    "Description": "Situational awareness Password management Insider threat Removable media and cables Social engineering Operational security",
-    "Devices_Layer": ""
+    "Name": "GDPR (General Data Protection Regulation)",
+    "Description": "EU privacy law granting individuals control over personal data collection and processing."
   },
   {
-    "Acronym": "",
-    "Name": "Hybrid/remote work environments",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Data Subject",
+    "Description": "The individual whose personal data is collected, stored, or processed."
+  },
+  {
+    "Name": "Cybersecurity Audits & Attestation",
+    "Description": "Audits evaluate control effectiveness; attestation confirms accuracy of results. Can be internal or external."
+  },
+  {
+    "Name": "Reconnaissance",
+    "Description": "Passive: collect public information. Active: direct interaction (e.g., scanning) to identify vulnerabilities."
+  },
+  {
+    "Name": "Phishing Campaigns",
+    "Description": "Used to train employees and measure awareness. Teaches users to recognize and report social engineering attempts."
+  },
+  {
+    "Name": "Security Awareness Team",
+    "Description": "Develops, maintains, and communicates training materials and awareness programs."
+  },
+  {
+    "Name": "User Behavior & Awareness Training",
+    "Description": "Covers password hygiene, social engineering, data handling, remote work safety, and insider threat awareness."
   }
 ]
