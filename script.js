@@ -1,13 +1,11 @@
 // =====================================================
-// Security+ Dashboard Script (Simplified - No Acronym Field)
+// Security+ Dashboard Script (Fixed for simplified JSON)
 // =====================================================
 
-// --- Global user isolation ---
 export const USER = localStorage.getItem("securityplus_user") || "Guest";
 export const STUDIED_PREFIX = `securityplus_${USER}_studied::`;
 export const REVIEW_PREFIX  = `securityplus_${USER}_review_cards`;
 
-// --- Chapter Titles (edit if you add/remove chapters) ---
 export const CHAPTER_TITLES = {
   1: "Chapter 1",
   2: "Chapter 2",
@@ -82,26 +80,25 @@ export function setStudied(name, val){
 }
 
 // =====================================================
-// Flashcards
+// Flashcards (fixed for Name/Description-only JSON)
 // =====================================================
-export function createFlashcards(items, mode="acronym"){
+export function createFlashcards(items, mode="normal"){
   const cards = [];
   for(const it of items){
-    const question = mode === "definition"
-      ? (it.Description || "")
-      : (it.Name || "");
-    const answer = mode === "definition"
-      ? (it.Name || "")
-      : (it.Description || "");
+    if(!it.Name || !it.Description) continue;
+
+    const question = mode === "definition" ? it.Description : it.Name;
+    const answer   = mode === "definition" ? it.Name : it.Description;
+
     cards.push({
       key: it.Name,
       question,
       answer,
       Name: it.Name,
+      Description: it.Description,
       Chapter: it.Chapter
     });
   }
-  // Shuffle for randomness
   return cards.sort(() => Math.random() - 0.5);
 }
 
@@ -133,16 +130,8 @@ export function buildProgressChart(ctx, summary){
     data: {
       labels,
       datasets: [
-        {
-          label: "Studied",
-          data: studied,
-          backgroundColor: "#fca311"
-        },
-        {
-          label: "Total",
-          data: total,
-          backgroundColor: "#e5e7eb"
-        }
+        { label: "Studied", data: studied, backgroundColor: "#fca311" },
+        { label: "Total", data: total, backgroundColor: "#e5e7eb" }
       ]
     },
     options: {
@@ -152,4 +141,3 @@ export function buildProgressChart(ctx, summary){
     }
   });
 }
-
