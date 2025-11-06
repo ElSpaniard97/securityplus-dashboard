@@ -57,12 +57,11 @@
 
     <div class="card">
       <h3 class="section-title">Search Across All Chapters</h3>
-      <input class="input" id="search" placeholder="Search acronyms, names, or descriptions… (e.g., 'WPA3', 'Zero Trust')">
+      <input class="input" id="search" placeholder="Search by term or description… (e.g., 'Firewall', 'Zero Trust')">
       <div style="margin-top:12px; overflow:auto">
         <table class="table">
           <thead>
             <tr>
-              <th>Acronym</th>
               <th>Name</th>
               <th>Description</th>
               <th>Study</th>
@@ -86,7 +85,7 @@
       window.location.href = "login.html";
     });
 
-    // Namespace user key
+    // Namespace for user-specific progress tracking
     window.storageKeyForItem = function(name){
       return `securityplus_${user}_studied::${name}`;
     };
@@ -110,3 +109,4 @@
   </script>
 </body>
 </html>
+
