@@ -8,11 +8,10 @@
   <style>
     .flashcard-area {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: calc(100vh - 80px);
-      position: relative;
-      flex-direction: column;
       gap: 16px;
     }
     .flip-container {
@@ -46,13 +45,11 @@
       text-align: center;
     }
     .back { transform: rotateY(180deg); }
-
     .flashcard-buttons {
       display: flex;
       justify-content: center;
       gap: 10px;
     }
-
     .settings-btn {
       position: absolute;
       top: 20px;
@@ -91,11 +88,9 @@
 </head>
 <body>
   <script>
-    // Login check
+    // Enforce login
     const currentUser = localStorage.getItem("securityplus_user");
-    if(!currentUser){
-      window.location.href = "login.html";
-    }
+    if(!currentUser) window.location.href = "login.html";
   </script>
 
   <aside class="sidebar">
@@ -116,22 +111,10 @@
     </div>
 
     <nav class="nav">
-      <a href="index.html">
-        <svg viewBox="0 0 24 24"><path d="M12 3l9 7h-3v9h-5v-6H11v6H6v-9H3z"/></svg>
-        Overview
-      </a>
-      <a href="chapters.html">
-        <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>
-        Chapters
-      </a>
-      <a class="active" href="flashcards.html">
-        <svg viewBox="0 0 24 24"><path d="M4 6h12a2 2 0 0 1 2 2v10H6a2 2 0 0 1-2-2z"/><path d="M8 4h12a2 2 0 0 1 2 2v10h-2V6H8z"/></svg>
-        Flashcards
-      </a>
-      <a href="search.html">
-        <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35"/><circle cx="10" cy="10" r="7" stroke="#eaf0fa" stroke-width="2" fill="none"/></svg>
-        Search
-      </a>
+      <a href="index.html">Overview</a>
+      <a href="chapters.html">Chapters</a>
+      <a class="active" href="flashcards.html">Flashcards</a>
+      <a href="search.html">Search</a>
     </nav>
   </aside>
 
@@ -153,7 +136,7 @@
         </label>
         <label class="small">Mode
           <select class="input" id="mode">
-            <option value="acronym">Term → Definition</option>
+            <option value="normal">Term → Definition</option>
             <option value="definition">Definition → Term</option>
           </select>
         </label>
@@ -192,20 +175,16 @@
 
     const user = localStorage.getItem("securityplus_user") || "Guest";
     document.getElementById("userName").textContent = user;
-
-    // Logout
-    document.getElementById("logoutBtn").addEventListener("click", () => {
+    document.getElementById("logoutBtn").onclick = () => {
       localStorage.removeItem("securityplus_user");
       window.location.href = "login.html";
-    });
+    };
 
     const REVIEW_KEY = `securityplus_${user}_review_cards`;
     const getReviews = () => JSON.parse(localStorage.getItem(REVIEW_KEY) || "[]");
     const saveReviews = (arr) => localStorage.setItem(REVIEW_KEY, JSON.stringify(arr));
 
-    let ALL = [];
-    let CARDS = [];
-    let i = 0;
+    let ALL = [], CARDS = [], i = 0;
 
     const flipContainer = document.getElementById('flipContainer');
     const qEl = document.getElementById('q');
@@ -222,7 +201,7 @@
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
 
-    function updateStats(){ stats.textContent = `${Math.min(i+1, CARDS.length)} / ${CARDS.length}`; }
+    function updateStats(){ stats.textContent = `${CARDS.length ? i+1 : 0} / ${CARDS.length}`; }
 
     function showCard(){
       flipContainer.classList.remove('flipped');
@@ -233,87 +212,52 @@
       }
       if(i >= CARDS.length) i = 0;
       if(i < 0) i = CARDS.length - 1;
-
       const card = CARDS[i];
-      // Skip empty cards automatically
-      if(!card.Name || !card.Description){
-        i++;
-        showCard();
-        return;
-      }
+      if(!card.question || !card.answer){ i++; showCard(); return; }
 
       qEl.textContent = card.question;
       aEl.textContent = card.answer;
       updateStats();
 
       const reviews = getReviews();
-      markBtn.textContent = reviews.includes(card.key) ? '"Marked for Review"' : '"Review"';
-      markBtn.style.background = reviews.includes(card.key) ? "#fff7e6" : "#fff";
+      const marked = reviews.includes(card.key);
+      markBtn.textContent = marked ? '"Marked for Review"' : '"Review"';
+      markBtn.style.background = marked ? "#fff7e6" : "#fff";
     }
 
     function start(){
-      const ch = parseInt(chSel.value, 10) || 0;
+      const ch = parseInt(chSel.value,10) || 0;
       const mode = modeSel.value;
       const reviews = getReviews();
       let items = ALL;
-      if(ch){ items = ALL.filter(x => x.Chapter === ch); }
-      if(reviewOnly.checked){ items = items.filter(x => reviews.includes(x.Name)); }
-      CARDS = createFlashcards(items.filter(x => x.Name && x.Description), mode); // Filter blanks
+      if(ch) items = ALL.filter(x => x.Chapter === ch);
+      if(reviewOnly.checked) items = items.filter(x => reviews.includes(x.Name));
+      CARDS = createFlashcards(items, mode);
       i = 0;
       showCard();
     }
 
-    flipContainer.addEventListener('click', () => {
-      flipContainer.classList.toggle('flipped');
-    });
-
-    nextBtn.addEventListener('click', () => {
-      i++;
-      if(i >= CARDS.length) i = 0;
-      showCard();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      i--;
-      if(i < 0) i = CARDS.length - 1;
-      showCard();
-    });
-
-    markBtn.addEventListener('click', () => {
-      if(i >= CARDS.length) return;
+    flipContainer.onclick = () => flipContainer.classList.toggle('flipped');
+    nextBtn.onclick = () => { i++; if(i>=CARDS.length) i=0; showCard(); };
+    prevBtn.onclick = () => { i--; if(i<0) i=CARDS.length-1; showCard(); };
+    markBtn.onclick = () => {
+      if(!CARDS.length) return;
       const key = CARDS[i].Name;
       const reviews = getReviews();
       const idx = reviews.indexOf(key);
-      if(idx === -1){ reviews.push(key); } else { reviews.splice(idx,1); }
+      if(idx === -1) reviews.push(key); else reviews.splice(idx,1);
       saveReviews(reviews);
-      markBtn.textContent = idx === -1 ? '"Marked for Review"' : '"Review"';
-      markBtn.style.background = idx === -1 ? "#fff7e6" : "#fff";
-    });
-
-    startBtn.addEventListener('click', () => {
-      start();
-      settingsDropdown.classList.remove('show');
-    });
-
-    resetBtn.addEventListener('click', () => {
-      localStorage.removeItem(REVIEW_KEY);
-      alert("All review markers cleared for this user.");
-    });
-
-    settingsBtn.addEventListener('click', () => {
-      settingsDropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', (e) => {
-      if(!settingsDropdown.contains(e.target) && e.target !== settingsBtn){
+      showCard();
+    };
+    startBtn.onclick = () => { start(); settingsDropdown.classList.remove('show'); };
+    resetBtn.onclick = () => { localStorage.removeItem(REVIEW_KEY); alert("All review markers cleared."); };
+    settingsBtn.onclick = () => settingsDropdown.classList.toggle('show');
+    document.addEventListener('click', e => {
+      if(!settingsDropdown.contains(e.target) && e.target !== settingsBtn)
         settingsDropdown.classList.remove('show');
-      }
     });
 
-    (async function init(){
-      ALL = await loadAllData();
-      start();
-    })();
+    (async function init(){ ALL = await loadAllData(); start(); })();
   </script>
 </body>
 </html>
