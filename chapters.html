@@ -65,7 +65,6 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Acronym</th>
               <th>Name</th>
               <th>Description</th>
               <th>Study</th>
@@ -89,7 +88,7 @@
       window.location.href = "login.html";
     });
 
-    // Override key namespace per user
+    // Override per-user namespace
     window.storageKeyForItem = function(name){
       return `securityplus_${user}_studied::${name}`;
     };
@@ -97,6 +96,7 @@
     let ALL = [];
     let CURRENT_CHAPTER = 1;
 
+    // Render chapter tabs
     function renderTabs(){
       const tabs = document.getElementById('tabs');
       let html = '';
@@ -113,6 +113,7 @@
       });
     }
 
+    // Render chapter items
     function render(){
       const q = document.getElementById('q').value;
       const items = filterItems(ALL, q, CURRENT_CHAPTER);
