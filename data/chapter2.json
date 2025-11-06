@@ -1,770 +1,182 @@
 [
   {
     "Acronym": "",
-    "Name": "Attributes of Threat ActorsInternal/External",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Threat Actors",
+    "Description": "Any person, group, or entity responsible for an event that affects security. Also called a malicious actor."
   },
   {
     "Acronym": "",
-    "Name": "Resources/funding can help attacker",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Attributes of Threat Actors",
+    "Description": "Internal vs. External, level of sophistication, available funding, motivation, and intent determine threat potential."
   },
   {
     "Acronym": "",
-    "Name": "Level of sophistication/capabilities",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Common Motivations",
+    "Description": "Financial gain, data theft/exfiltration, espionage, service disruption, blackmail, ideological or ethical causes, revenge, chaos, or warfare."
   },
   {
     "Acronym": "",
-    "Name": "Motivation of Threat ActosData exfiltration",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Nation-State Threat Actors",
+    "Description": "Government-linked and highly funded. Often operate as Advanced Persistent Threat (APT) groups with maximum sophistication and stealth."
   },
   {
     "Acronym": "",
-    "Name": "Espionage",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Unskilled Attackers (Script Kiddies)",
+    "Description": "Use pre-made tools or scripts with little understanding. Motivated by curiosity or reputation. Can be internal or external."
   },
   {
     "Acronym": "",
-    "Name": "Service Disruption",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Hacktivists",
+    "Description": "Attackers driven by social, political, or ideological causes. Skill and funding vary; often rely on public exploits."
   },
   {
     "Acronym": "",
-    "Name": "Blackmail",
-    "Description": "Financial gain",
-    "Devices_Layer": ""
+    "Name": "Insider Threats",
+    "Description": "Originates from within the organization. Motivations include revenge, profit, or coercion. Dangerous due to legitimate access."
   },
   {
     "Acronym": "",
-    "Name": "Philosophical/political beliefs",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Organized Crime",
+    "Description": "Professional, well-structured groups focused on financial gain. Use ransomware, fraud, and identity theft with high sophistication."
   },
   {
     "Acronym": "",
-    "Name": "Ethical",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Shadow IT",
+    "Description": "Unauthorized systems, software, or cloud services deployed by employees. Not malicious but introduces significant risk."
   },
   {
     "Acronym": "",
-    "Name": "Revenge",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Threat Vectors (Attack Vectors)",
+    "Description": "Methods attackers use to gain access. Includes message, file, media, voice, removable media, software, and network vectors."
   },
   {
     "Acronym": "",
-    "Name": "Disruption/chaos",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Message-Based Vectors",
+    "Description": "Email, SMS, or instant messages delivering phishing, malware, or scams."
   },
   {
     "Acronym": "",
-    "Name": "War",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Phishing and Variants",
+    "Description": "Phishing: deceptive messages with malicious links. BEC: impersonates executives. Vishing: voice calls. Smishing: SMS phishing."
   },
   {
     "Acronym": "",
-    "Name": "Nation StatesExternal entity",
-    "Description": "Government and national security Constant attacks, massive resources",
-    "Devices_Layer": ""
+    "Name": "Image-Based Attack Vectors",
+    "Description": "Malicious code hidden inside image formats like SVG via XML-based scripting."
   },
   {
-    "Acronym": "APT",
-    "Name": "Commonly an Advanced Persistent Threat (APT)",
-    "Description": "Highest sophistication Unskilled AttackersRun pre - made scripts without any knowledge of what's really happening Motivated by the hunt Can be internal or external Not very sophisticated HacktivistHacker with a purpose Often an external entity Remarkably sophisticated Funding may be limited Insider ThreatMore than just passwords on sticky notes Motivated by revenge, financial gain Extensive resources Internal entity Medium level of sophistication",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Organized CrimeProfessional criminals",
-    "Description": "Motived by money Very sophisticated Crime that's organized Lots of capital to fund hacking efforts",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Shadow ITGoing rogue",
-    "Description": "Working around the internal IT organization Limited resources Medium sophistication Threat VectorsMethod used by the attackers Gain access or infect target Also called attack vectors",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Message-based VectorsOne of the biggest (and most successful) threat vectors",
-    "Description": "Messaging systems",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Email",
-    "Description": "SMS - text messages Phishing attacksLinks in email, text or IM Deliver malware to user - attach it to email Social engineering attacks - invoice scams, cryptocurrency scams Image - based VectorsEasy to identify a text - based threat More difficult to identify the threat in an image Some image formats can be a threat",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "SVG",
-    "Name": "SVG (Scalable Vector Graphic) format",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Image is described in XML (Extensible Markup Language)",
-    "Description": "Significant security concerns - HTML injection, Javascript attack code Browsers must provide input validation - avoids running malicious code File - based VectorsMore than just executables Malicious code can hide in many places Adobe PDF - contains other objects",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "ZIP/RAR",
-    "Name": "ZIP/RAR files (compression type)",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Microsoft Office",
-    "Description": "Voice Call VectorsVishing - over the phone Spam over IP - large scale phone calls War dialing Call tampering - disrupting voice calls Removable Device VectorsGet around the firewall - USB interface Malicious software on USB flash drives Infect air gapped networks Industrial systems, high - security services USB devices can act as a keyboards Data exfiltration",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Vulnerable Software VectorsClient-based",
-    "Description": "Infected executable",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Known (or unknown) vulnerabilities",
-    "Description": "May require constant updates",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Agentless",
-    "Description": "No installed executable Compromised software on the server would affect all users Client runs a new instance each time Unsupported system vectorsNo patches available",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Outdated OS",
-    "Description": "A single system could be an entry",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Unsecure network vectorsWireless outdated protocols (WEP, WPA, WPA2)",
-    "Description": "Open or rogue wireless networks",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Wired -Unsecure interfaces (NO 802.1X)",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Bluetooth",
-    "Description": "Open service portsEvery open port is an opportunity for the attacker Firewall Rules - must allow traffic to an open port Default CredentialsMost devices have default usernames and passwords Need to be changed Supply Chain VectorsTamper with the underlying infrastructure",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "MSP",
-    "Name": "Managed service providers (MSP)",
-    "Description": "Counterfeit networking equipment PhishingSocial engineering with a touch of spoofing - email",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Check URL",
-    "Description": "Usually there's something not quite right - spelling, fonts, graphics Business Email CompromiseSpoofed email addresses - not legitimate email address Tricks and misdirectionTypo squatting - URL hijacking Pretexting - lying to get information VishingVoice phishing over phone or voicemail Caller ID spoofing is common Fake security checks or bank updates SmishingSMS phishing over text message Forwards links or asks for personal information ImpersonationAttackers pretending to be someone they aren't Use some of those details from reconnaissance Attack the victim as someone higher in rank Throw tons of technical details around Be a buddy Eliciting InformationExtracting information from the victim Often seen with vishing These are well - documented psychological techniques Identity FraudYour identity can be used by others Credit card fraud Bank fraud Loan fraud Government benefits fraud",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Protect Against ImpersonationNever volunteer information",
-    "Description": "Don't disclose personal details Always verify before revealing info Verification should be encouraged Watering Hole AttackAttacker poisons watering hole and waits for you to visits Determine which website the victim group uses Infect one of these third party sites Infect all visitors Defense in depthLayered defense Its never one thing",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Firewalls and IPS",
-    "Description": "Stop the network traffic before things get bad",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Misinformation/ DisinformationDisseminate factually incorrect information",
-    "Description": "Create confusion and division Influence campaigns Nation - state actors Advertising is an option Enabled through social media Misinformation ProcessCreate fake users Create content",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Post on Social Media",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Amplify Message",
-    "Description": "Real users share the message Mass media picks up the story Brand ImpersonationPretend to be well - known brandCreate tens of thousands of impersonated sitesVisitors are presented with a pop - upMalware infection is almost guaranteedMalwareRuns in memory Memory forensics can find the malicious code Memory contains running processes",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "DLLs (Dynamic Link Libraries)",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Threads",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Buffers",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Memory Management functions",
-    "Description": "Runs in its own process Malware injects itself into a legitimate process Memory InjectionAdd code into the memory of an existing process Hide malware inside of the process Get access to the data in that process Same rights and permissions Perform a privilege escalation",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "DLL",
-    "Name": "DLL InjectionDynamic Link Library",
-    "Description": "A windows library containing code and data Many applications can use the library Attackers inject a path to a malicious DLL Runs as part of the target process One of the most popular memory injection methods Relatively easy to implement Buffer OverflowOverwriting a buffer of memory Spills over into other memory areas Developers need to perform bounds checking Attackers spend a lot of time looking for openings Not a simple exploit Takes time to avoid crashing things Takes time to make it do what you want A really useful buffer Overflow is repeatable Which means that a system can be compromised",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Race ConditionProgramming conundrum",
-    "Description": "Things happen at the same time TOCTOUTime - of - Check to Time - of - Use attackCheck the system When do you use the results of your last check Something might happen between the check and the use Software updatesAlways keep your operating system and applications updated This process has its own security concerns Not every update is equally secure Follow best practices Have a backup Install from trusted sources Downloading and UpdatingInstall updates from a downloaded file Confirm the source Visit the developer's site directly Many operating systems will only allow signed apps Automatic UpdatesApp updates itself",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Often includes security checks/digital signatures",
-    "Description": "Relatively trustworthy Comes directly form the developer Code InjectionAdding your own information into a data system Enabled because of bad programming Many different data types",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "HTML,",
-    "Name": "HTML, SQL, XML, LDAP, etc",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "SQLiSQL InjectionStructured Query Language",
-    "Description": "Put your own SQL requests into an existing application Your application shouldn't allow this Can often be executed in a web browser View all database information",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Example of SQLiNormal:",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "SQLi:",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Result:",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "CSS",
-    "Name": "XSSCross-site ScriptingCascading style sheets (CSS)",
-    "Description": "Originally called cross - site because of browser security flaws Information from one site could be shared with another One of the most common web app vulnerabilities Takes advantage of the trust of a user for a site Complex and varied XSS commonly uses JavaScript Non - persistent (reflected) XSS AttackWeb site allows scripts to run in user input Search box is a common sourceAttacker emails a link that takes advantage of this vulnerability1.Runs a script that sends credentials/session IDs/cookies to the attacker2.Script embedded in URL executes in the victim's browser3.Attacker Uses credentials/session IDs/cookies to steal victim's information without their knowledge4. Pop will not happen, will be send to hackerPersistent (stored) XSS attackAttacker posts a message to a social network Includes the malicious payload Its now \"persistent\" Everyone gets the payload No specific target All viewers to the page For social networking, this can spread quickly Everyone who views the message can have it posted to their page Where someone else can view it and propagate it further Protect Against XSSBe careful when clicking untrusted links",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Consider disabling JavaScript",
-    "Description": "Keep your browser and applications updated Validate input fields",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Hardware VulnerabilitiesIoT Devices",
-    "Description": "Potential security issues FirmwareSoftware inside the hardware Vendors are the only ones who can fix the hardware EOLEnd of LifeManufacturer stops selling a product EOSLEnd of Service LifeManufacturer stops providing support Legacy PlatformsSome devices remain installed for a long time Older operating systems, applications, middleware May be running end of life software Risk needs to be considered May require additional security protections Virtualization SecurityQuantity of resources vary between VMs - CPU, memory, storage Many similarities to physical machines Virtualizaiton VulnerabilitiesLocal privilege escalations Command injection Information disclosure",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "VM",
-    "Name": "VM Escape ProtectionVM is self-contained",
-    "Description": "Break out of the VM and interact with the host operating system or hardware Once you escape the VM, you have great control Huge exploit Resource ReuseHypervisor manages the relationship between physical and virtual resources Available RAM, storage space, CPU, availability These resources can be reused between VMs Hypervisor host with 4 GB of RAM Supports three VMs with 2GB of RAM each RAM is allocated and shared between VMs Data can inadvertently be shared between VMs Time to update the memory management features Security patches can mitigate the risk DoSDenial of ServiceFundamental attack type Authentication bypass Take advantage of weak or faulty authentication Directory traversal Faulty configuration put data at risk Remote code execution Take advantage of unpatched systems Attack the ApplicationWeb application attacks have increased",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Log4j and Spring Cloud function",
-    "Description": "Easy to exploit, rewards are extensive",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "XSS",
-    "Name": "XSS",
-    "Description": "Out of Bounds wireWrite to unauthorized memory areas Data corruption, crashing, or code execution SQL injectionGet direct access to a database Supply Chain RiskChain contains many moving parts Raw materials, suppliers, manufacturers, distributors, customers, consumers Attackers can infect any step along the way One exploit can infect the entire chain Service ProvidersOften have access to internal services May different types of providers Consider ongoing security audits of all providers",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Hardware ProvidersCan you trust your new server/router/switch/firewall/software",
-    "Description": "Use small supplier base Strict controls over policies and procedures Security should be part of the overall design Software providersTrust is a foundation of security Initial installation Digital signature should be confirmed during installation Updates and patches Open sources is not immune Open PermissionsIncreasingly common with cloud storage Must secure permissions Unsecured Admin AccountsLinux > root account Can be misconfiguration Disable direct login to the root account Use su or sudo option Limit root or admin accounts Insecure ProtocolsSome protocols are encrypted",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Telnet, FTP, SMTP, IMAP",
-    "Description": "Verify with a packet capture Use encrypted versions",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "SSH,",
-    "Name": "SSH, SFTP, HTTPS, etc",
-    "Description": "Default SettingsEvery application and network device has a default login Mirai Botnet takes advantage of default configurations Take over IoT devices Open Ports and ServicesServices will open ports Important to manage access Often managed with a firewall Firewall rulesets can be complex Always test and audit",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Mobile Device SecurityChallenging to secure",
-    "Description": "Always moving",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Small",
-    "Description": "Packed with sensitive data Constantly connected to the internet",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Use MDM (Mobile Device Manager)",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Jailbreaking/rootingMobile devices are purpose-built systems",
-    "Description": "Gaining access Android - Rooting Apple iOS - Jailbreaking Install custom firmware Replace existing operating system Uncontrolled access Circumvent security features The MDM becomes relatively useless SideloadingMalicious apps can be significant security concern Manage installation sources Global or local app store Sideloading circumvents security Apps can be installed manually without using an app store Again, your MDM becomes relatively useless Zero - Day VulnerabilitiesVulnerabilities that have not been found yet Zero - day attacks Zero - Day AttackAttack without a patch or method of mitigation MalwareMalicious software Gather information Show you advertising Viruses and worms Malware can also work together",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "TypesViruses",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Worms",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Ransomware",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Trojan Horse",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Rootkit",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Keylogger",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Spyware",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Bloatware",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Logic Bomb",
-    "Description": "RansomwareData encrypted until you provide cash Personal data Organizational data Untraceable payment system Must pay for decryption key Keep backups Keep OS and anti - virus apps up to date VirusMalware that can reproduce itself Needs you to execute a program Reproduces through file systems or the network May or may not cause problems Virus TypesProgram viruses - part of application Boot sector Viruses - starts on boot up Script viruses - OS and browser based Macro viruses - MS office Fileless virusStealth attack Does good job of avoiding anti - virus detection Operates in memory Never installed in a file or application WormsMalware that self - replicates Doesn't need you to do anything Uses network as a transmission medium Self - propagates and spreads quickly",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Firewalls and IDS/IPS can mitigate many worm infestations",
-    "Description": "SpywareMalware that spies on you Advertising, identity theft, affiliate fraud Can trick you into installing Peer to peer, fake security softwareBrowser monitoring",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Keyloggers",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Protecting against SpywareMaintain your anti-virus / anti-malware",
-    "Description": "Always have the latest signatures Always know what your installing Run some scans - Malwarebytes BloatwareApplications that are installed by manufacturer Can be removed Uses valuable storage space Removing bloatwareIdentify and remove Use the built - in uninstaller Some apps have their own uninstaller KeyloggersKeystrokes are saved to file, sent to attack, will record of activity Keystrokes are in the clear Clipboard logging, screen logging, instant messaging, search engine queries Logic BombWaits for predefined event Time bomb User event Difficult to identify Difficult to recover",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Preventing Logic BombDifficult to identify",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Can have Process and Procedures",
-    "Description": "Electronic monitoring Constant auditing RootkitsModifies core system files Part of the OS Can be invisible to the OS Won't see it in Task Manager Finding and Removing RootkitLook for the unusual Anti - malware scans Use a remover specific to the rootkit Usually built after the rootkit is discovered Secure boot with UEFI Old - School SecurityNo keyboard, no mouse, no command line If you have physical access to a server, you have full control Door locks Brute ForceNot just for passwords Push through obstruction Check physical security RFID cloningAccess badges Key fobs Duplicates are $50 on Amazon Duplication process takes seconds Read one card Copy to another This is why we have MFA Environmental attacksShut off power HVAC can be hacked, turned off, causing equipment to over heat, causing equipment to crash and turn of DoSDenial of ServiceForce a service to fail Cause a system to be unavailable Create a smokescreen for some other exploit Doesn't have to be complicated Take advantage of a design failure or vulnerability",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Friendly DoSUnintentional DoS",
-    "Description": "Network DoS - network loop DDoSDistributed Denial of ServiceLaunch an army of computers to bring down a service Use all the bandwidth or resources - traffic spike",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Botnets",
-    "Description": "Asymmetric ThreatAttacker has fewer resources than the victim DDoS reflection and amplificationTurn your small attack into a big attack Increasingly common network DDoS techniques Use protocols with little authentication or check",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "NTP,",
-    "Name": "NTP, DNS, ICMP",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "DNS",
-    "Name": "DNS amplification DDoS",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "DNS",
-    "Name": "DNS PoisoningModify the DNS server",
-    "Description": "Requires some crafty hacking Modify the client host file Host file takes precedent over DNS queries Send a fake response to a valid DNS request Requires a redirection of the original request or the resulting response Real - time redirection On - path attack",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "DNS",
-    "Name": "DNS Spoofing/Poisoning",
-    "Description": "Domain HijackingGet access to the domain registration You have control where the traffic flows Many ways to get into the account Brute force Social engineer the password Gain access to the email address that manages the account URL HijackingSell badly spelled domain to the actual owner Redirect to a competitor Phishing site Infect with a drive - by download",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Typo-squatting / BrandjackingTake advantage of poor spelling",
-    "Description": "Outright misspelling Different types of domain",
-    "Devices_Layer": ""
-  },
-  {
     "Acronym": "",
-    "Name": "Wireless DeauthenticationA significant wireless denial of service (DoS) attack",
-    "Description": "802.11 Management FramesIncludes a number of management features Frames that make everything work You never see them Important for operation of 802.11 wireless How to find access points, manage QoS, associate/disassociate with an access point, etc Original wireless standards did not add protection for management frames Sent in the clear, no authentication or validation Protecting Against Deauthtiation AttacksIEEE addressed the problem",
-    "Devices_Layer": ""
+    "Name": "File-Based Attack Vectors",
+    "Description": "Malware hidden in PDFs, Office macros, or ZIP archives that execute upon opening or enabling scripts."
   },
   {
     "Acronym": "",
-    "Name": "802.11ac",
-    "Description": "Some of the important management frames are encrypted Disassociate, deauthenticate, channel switch announcements Not everything is encrypted Beacons, probes, authentication, association",
-    "Devices_Layer": ""
+    "Name": "Voice Call Vectors",
+    "Description": "Robocalls, war dialing, or call tampering targeting VoIP or phone systems."
   },
   {
     "Acronym": "",
-    "Name": "Radio Frequency (RF) JammingDenial of Service",
-    "Description": "Prevent wireless communication Transmit interfering wireless signals Decrease the signal - to - noise ratio at the receiving device The receiving device can't hear the good signal Sometimes its not intentional Interference, not jaming, microwave oven, fluorescent lights Jamming is intentional Someone wants your network to not work Wireless JammingMany different types",
-    "Devices_Layer": ""
+    "Name": "Removable Media Vectors",
+    "Description": "USB drives used to infect air-gapped systems, impersonate keyboards, or exfiltrate data."
   },
   {
     "Acronym": "",
-    "Name": "Constant, random bits / constant, legitimate frames",
-    "Description": "Data sent at random times - random data and legitimate frames Reactive jamming - only when someone else tries to communicate Needs to be somewhere close Time to go fox hunting - directional antenna, attenuator",
-    "Devices_Layer": ""
+    "Name": "Vulnerable Software Vectors",
+    "Description": "Unpatched or unsupported client/server applications become high-risk entry points."
   },
   {
     "Acronym": "",
-    "Name": "On-path Network AttackMan-in-the-middle",
-    "Description": "Redirects your traffic Then passes it on to the destination You never know your traffic was redirected",
-    "Devices_Layer": ""
+    "Name": "Unsecured Network Vectors",
+    "Description": "Weak Wi-Fi protocols, rogue APs, open ports, or default credentials increase exposure."
   },
   {
-    "Acronym": "ARP",
-    "Name": "ARP Poisoning (spoofing)On-path attack on the local IP subnet",
-    "Description": "ARP has no security",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "On-Path Browser AttackMan-in-the-browser",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Malware/Trojan does all of the proxy work",
-    "Description": "Huge advantages for the attackers Relatively easy to proxy encrypted traffic Everything looks normal to the victim Malware in your browser waits for you to login to your bank Replay AttackUseful information is transmitted over the network Need access to the raw network data Network Tap, ARP Poisoning, malware on victim computer They gather information may help the attacker Replay the data to appear as someone else This is not an on - path attack The actual replay doesn't require the original workstation Pass the HashAvoid this type of replay attack with salt or encryption Use a session ID with the password hash to create a unique authentication hash each time Browser Cookies and Session IDsCookies - information stored on your computer by the browser Used for tracking, personalization, session management Not executable, not generally a security risk Could be considered a privacy risk Lots of personal data in there Session IDs are often stored in the cookie Maintains sessions across multiple browser sessions",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Session Hijacking (Sidejacking)",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Header ManipulationInformation gathering",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Wireshark, Kismet",
-    "Description": "Exploits - cross - site scripting Modify headers - tamper, firesheep, scapy",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Modify cookies -cookies manager+ (firefox add-on)",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Prevent Session HijackingEncrypt end-to-end",
-    "Description": "They can't capture your session ID if they can't see it",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "HTTPS",
-    "Name": "Additional load on the web server (HTTPS)",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Firefox extension: HTTPS everywhere, Force-TLS",
-    "Description": "Many sites are now HTTPS - only Encrypt end - to - somewhere At least avoid capture over a local wireless network Still in - the - clear for part of the journey",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Personal VPN",
-    "Description": "Malicious CodeAttackers use any opportunity Many different forms Executable, scripts, macro viruses, worms, trojan horse, etc Protection comes from many different sources",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Anti-malware",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Firewall",
-    "Description": "Continuous updates and patches Secure computing habits",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Cross-site Request ForgeryOne-click attack",
-    "Description": "Session riding",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "XSRF",
-    "Name": "XSRF or CSRF (sea surf)",
-    "Description": "Takes advantage of the trust that a web application has for the user To prevent, use cryptographic token to prevent a forgery",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Directory TraversalPath traversal",
-    "Description": "Read files from a web server that are outside of the website's file directory Users shouldn't be able to browse the windows folder Web server software vulnerability Won't stop users from browsing past the web server root Web application code vulnerability Take advantage of badly written code Birthday AttackIn a classroom of 23 students, what is the chance of two students sharing a birthday? About 50%",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Hash Collision",
-    "Description": "Hash CollisionSame hash value for two different plaintexts Find a collision through brute force Attacker will generate multiple versions of plaintext to match the hashes Protect yourself with large hash output size CollisionsHash digests are suppose to be unique Different input data should not create the same hash Downgrade AttackInstead of using perfectly good encryption, use something that's not so great Force the system to downgrade their security SSL StrippingCombines an on - path attack with a downgrade attack Difficult to implement, but big returns for the attacker Attacker must sit in the middle of the conversation Victims browser page isn't encrypted Strips the S away from HTTPS Hashing a PasswordHashes represent data as a fixed - length string of text Message digest or fingerprint Different inputs will not have the same hash One - way trip Impossible to recover the original",
-    "Devices_Layer": ""
-  },
-  {
     "Acronym": "",
-    "Name": "Ex. SHA-256",
-    "Description": "Password FileDifferent across operating systems and applications Different hash alogrithms Spraying AttackTry to login with an incorrect password Eventually locked out Attackers usually try common passwords 3 times By only trying 3 times, no alerts are sent out Brute ForceTry every possible password combination until the hash is matched This might take some time Very slow Most accounts will lockout after a number of failed attempts Process:Attacker obtains hashTests until password matches hash Brute force the hash - offlineObtain the list of users and hashes Calculate a password hash, compare it to a stored hash Large computational resource requirement IOCIndicators of CompromiseAn event that indicates an intrusion Unusual amount of network activity Change of file hash values Irregular international traffic Changes to DNS data Uncommon login patterns Spikes of read requests to certain files Account LockoutCredentials are not working Exceeded login attempts Account is automatically locked Account was administratively disabled This may be part of a larger plan Attacker locks account > Calls support line to reset the password Concurrent Session UrgeMultiple account logins from multiple locations Difficult to track Blocked ContentAn attacker wants to say as long as possible Auto - update connections disabled Blocks security patches Blocks removal tools Blocks third party anti - malware sites Impossible TravelUser logging in from different states Resource ConsumptionEvery attacker's action has an equal and opposite reaction Watch carefully for significant changes File transfers use bandwidth An unusual spike at 3 AM Firewall logs show the outgoing transfer - IP addresses, timeframes Often the first real notification of an issue Resource InaccessibilityThe server is down - not responding Network disruption - cover for the actual exploit Server outage - result of an exploit gone wrong Encrypted data - a potential ransomware attack begins Brute force attack - locks account access Out - of - Cycle LoggingOccurs at an unexpected time Operating system patch logs Occurring outside of the normal patch day Keep that exploited system safe from other attackers Firewall log activity Timestamps of every traffic flow Protocols and applications used Missing LogsLog information is evidence Attackers will try to cover their tracks by removing logs Information is everything Logs may be incriminating Missing logs are certainly suspicious Logs should be secured and monitored",
-    "Devices_Layer": ""
+    "Name": "Supply Chain Attacks",
+    "Description": "Compromise occurs at vendor or provider level before deployment to the target organization."
   },
   {
     "Acronym": "",
-    "Name": "Published/documentedEntire attack and data exfiltration may go unnoticed",
-    "Description": "It happens quite often Company data may be published online The attackers post a portion or all data This may be inconjunct ion with ransomware Raw data may be released without context Segmenting the NetworkPhysical, logical, or virtual segmentation Devices, VLANs, virtual networks Increase performance Increase security Required for compliance Use ACL to segmentAccess Control ListAllow or disallow traffic Grouping of categories Restrict access to network devices",
-    "Devices_Layer": ""
+    "Name": "Social Engineering Tactics",
+    "Description": "Psychological manipulation using impersonation, elicitation, or identity fraud to extract information or access."
   },
   {
     "Acronym": "",
-    "Name": "Many OS's use ACLs",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Watering Hole Attacks",
+    "Description": "Compromising a trusted website frequently visited by a target group to deliver malware passively."
   },
   {
     "Acronym": "",
-    "Name": "Application Allow/Deny ListSecurity policy can control app execution",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "Misinformation and Disinformation",
+    "Description": "Spreading false or misleading content to manipulate public opinion or behavior, often amplified through social media."
   },
   {
     "Acronym": "",
-    "Name": "Allow list, deny/block list",
-    "Description": "Allow list - Nothing runs, unless its approved Deny list - nothing on \"bad list\" can be executed Application HashOnly allows applications with this unique identifier CertificateAllow digitally signed apps from certain publishers PathOnly run applications in these folders Network ZoneApps can be run form this network zone PatchingIncredibly important System stability, security fixes Monthly updates Third party - updates",
-    "Devices_Layer": ""
+    "Name": "Malware Basics",
+    "Description": "Malicious software executes in memory or injects code into legitimate processes to evade detection."
   },
   {
     "Acronym": "",
-    "Name": "Auto-updates",
-    "Description": "Emergency out - of - band updates EncryptionPrevent access to application data files File system encryption",
-    "Devices_Layer": ""
+    "Name": "Memory Injection / DLL Injection",
+    "Description": "Inserts malicious code into running processes to inherit permissions and maintain stealth."
   },
   {
     "Acronym": "",
-    "Name": "File Level EncryptionWindows EFS",
-    "Description": "FDEFull Disk EncryptionEncrypt everything on the drive",
-    "Devices_Layer": ""
+    "Name": "Buffer Overflow",
+    "Description": "Writing data beyond allocated memory to execute attacker-controlled code; may crash systems if unhandled."
   },
   {
     "Acronym": "",
-    "Name": "BitLocker, File Vault",
-    "Description": "Application Data EncryptionManaged by the app Stored data is protected MonitoringAggregated information from devices Built - in sensors, separate devices Integrated into servers, switches, routers, firewalls, etc SensorsIntrusion prevention systems, firewall logs, authentication logs, web server access logs, database transaction logs, email logs",
-    "Devices_Layer": ""
+    "Name": "Race Condition (TOCTOU)",
+    "Description": "Time-of-check-to-time-of-use flaw that allows attackers to modify data between validation and execution."
   },
   {
     "Acronym": "",
-    "Name": "CollectorsProprietary consoles (IPS, firewall)",
-    "Description": "SIEM consoles Syslog servers Many SIEMs include a correlation engine to compare diverse sensor data Least PrivilegeRights and permissions should be set to the bare minimum All user accounts must be limited Don't allow users to run with administrative privileges Configuration EnforcementPerform a posture assessment Extensive check System out of compliance are quarantined DecommissioningShould be a formal policy Mostly associated with storage devices Many options for physical devices - Recycle or destroy System HardeningKeep OS and applications up - to - date User accounts are secured - password policy, limit access Network access and security Monitor and secure",
-    "Devices_Layer": ""
+    "Name": "Software Updates and Patching",
+    "Description": "Always install updates from trusted sources, validate signatures, and maintain backups."
   },
   {
     "Acronym": "",
-    "Name": "Encrypt data -EFS, FDE",
-    "Description": "Encrypt all network communication - VPN, Application encryption EndpointUser's access - applications and data Stop attackers - inbound or outboundmany different platforms - mobile or desktop Protection is multi - faceted EDREndpoint detection and responseA different method of threat protection Scale to meet the increasing number of threats Detect a threat Behavioral analysis, machine learning, process monitoring Investigate the threat - root cause analysis Respond to the threat Isolate system quarantine the threat, rollback to a previous config API driven, no user or technician intervention required",
-    "Devices_Layer": ""
+    "Name": "Code Injection Attacks",
+    "Description": "SQL Injection modifies database queries; XSS injects scripts into web pages viewed by users."
   },
   {
     "Acronym": "",
-    "Name": "Host-based FirewallSoftware-based firewall",
-    "Description": "Personal firewall, runs on every endpoint Allow or disallow incoming or outgoing application traffic Control by application process View all data Identify and block unknown processes Stop malware before it can start Manage centrally HIPSHost - Based Intrusion Prevention SystemRecognize and block known attacks Secure OS, and application configs, validate incoming service requests Often built into endpoint protection software HIPS identification Signatures, heuristics, behavioral Buffer overflows, registry updates, writing files to the windows folder Access to non - encrypted data Open Ports and ServicesEvery open port is a possible entry point Close everything except required ports Control access with a firewall NGFW would be ideal Unused or unknown services Installed with the OS or from other applications Use Nmap or similar port scanner to verify Matrix of ResponsibilitiesShows who is responsible for different responsibilities Ex. Hybrid ConsiderationsHybrid Cloud - more than one public or private cloud, add complexity Network protection mismatches Different security monitoring Data leakage IaCInfrastructure as CodeDefine servers, network, and applications code Modify the infrastructure and create versions",
-    "Devices_Layer": ""
+    "Name": "Hardware and Firmware Risks",
+    "Description": "IoT and EOL/EOSL devices lack patches; isolate legacy hardware or use compensating controls."
   },
   {
     "Acronym": "",
-    "Name": "Use the description (code) to build other application instances",
-    "Description": "Important concept for cloud computing",
-    "Devices_Layer": ""
+    "Name": "Virtualization Security",
+    "Description": "Risks include VM escape and privilege escalation; mitigation through patching and isolation."
   },
   {
-    "Acronym": "",
-    "Name": "Serverless ArchitectureFunction as a Services",
-    "Description": "FaaSFunction as a ServiceApplications are separated into individual, autonomous functions Remove the OS from the equation Developer still creates the server - side logic Runs in a stateless compute container May be even triggered and ephemeral May only run for one event Managed by third - party Microservices and APIsMonolithic applications - one big application does everything Application contains all decision making processes User interface, business logic, data input and output Code challenges - large codebase, change control challenges APIsApplication Programming InterfacesWork together to act as the application Glue for microservices",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Scalable",
-    "Description": "",
-    "Devices_Layer": ""
+    "Acronym": "DoS / DDoS",
+    "Name": "Denial of Service Attacks",
+    "Description": "Overwhelm services to cause downtime or distraction; DDoS uses distributed botnets and amplification methods."
   },
   {
     "Acronym": "",
-    "Name": "Resilient",
-    "Description": "Security and compliance Physical IsolationDevices are physically separate Air gap Must be connected to provided communication",
-    "Devices_Layer": ""
+    "Name": "DNS Attacks",
+    "Description": "Poisoning, spoofing, or hijacking DNS entries to redirect users to malicious destinations."
   },
   {
     "Acronym": "",
-    "Name": "Physical SegmentationSeparate devices",
-    "Description": "Multiple units, separate infrastructure Logical Segmentation with VLANsSeparated logically instead of physically",
-    "Devices_Layer": ""
+    "Name": "Wireless Attacks",
+    "Description": "Deauthentication and RF jamming disrupt connectivity; mitigated with 802.11w and signal monitoring."
   },
   {
-    "Acronym": "",
-    "Name": "Cannot communicate between VLANs without a layer 3 device/router",
-    "Description": "SDNSoftware Defined NetworkingNetworking devices have different functional planes of operation",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "",
-    "Name": "Data",
-    "Description": "",
-    "Devices_Layer": ""
+    "Acronym": "MITM",
+    "Name": "On-Path (Man-in-the-Middle) Attacks",
+    "Description": "Intercept and alter communications using ARP poisoning, browser injection, or session hijacking."
   },
   {
-    "Acronym": "",
-    "Name": "Control",
-    "Description": "",
-    "Devices_Layer": ""
+    "Acronym": "IOC",
+    "Name": "Indicators of Compromise",
+    "Description": "Unusual network activity, abnormal logins, missing logs, data leaks, or impossible travel events."
   },
   {
     "Acronym": "",
-    "Name": "Management",
-    "Description": "Split functions into separate logical units Data PlaneProcess the network frames and packets Forwarding, trunking, encrypting, NAT Control PlaneManages the actions of the data plane Routing tables, session tables, NAT tables Dynamic routing protocol updates Management PlaneConfigure and manage the device",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "SSH,",
-    "Name": "SSH, browser, API",
-    "Description": "Extend the physcial architecture",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "SDN",
-    "Name": "SDN Data Flows",
-    "Description": "",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "SDN",
-    "Name": "SDN Security",
-    "Description": "AcronymNameDescriptionDevices/LayerThreat ActorEntity responsible for an event that has an impact on the safety of another entity Also called a malicious actor",
-    "Devices_Layer": ""
-  },
-  {
-    "Acronym": "SDN",
-    "Name": "SDN Security",
-    "Description": "",
-    "Devices_Layer": ""
+    "Name": "System Hardening and Defense",
+    "Description": "Apply least privilege, patch management, encryption, SIEM logging, and secure decommissioning."
   }
 ]
