@@ -1,6 +1,5 @@
 // =====================================================
-// Security+ Dashboard Script
-// Supports per-user tracking, flashcards, chapters, search
+// Security+ Dashboard Script (Simplified - No Acronym Field)
 // =====================================================
 
 // --- Global user isolation ---
@@ -43,9 +42,10 @@ export function filterItems(all, query, chapter){
   const q = query.toLowerCase();
   return all.filter(it =>
     (chapter === 0 || it.Chapter === chapter) &&
-    (it.Acronym?.toLowerCase().includes(q) ||
-     it.Name?.toLowerCase().includes(q) ||
-     it.Description?.toLowerCase().includes(q))
+    (
+      it.Name?.toLowerCase().includes(q) ||
+      it.Description?.toLowerCase().includes(q)
+    )
   );
 }
 
@@ -54,8 +54,6 @@ export function renderItemsTable(tbody, items){
   for(const it of items){
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td>${it.Chapter}</td>
-      <td>${it.Acronym || ""}</td>
       <td>${it.Name || ""}</td>
       <td>${it.Description || ""}</td>
       <td><input type="checkbox" ${isStudied(it.Name) ? "checked" : ""}></td>
@@ -91,9 +89,9 @@ export function createFlashcards(items, mode="acronym"){
   for(const it of items){
     const question = mode === "definition"
       ? (it.Description || "")
-      : (it.Acronym || it.Name || "");
+      : (it.Name || "");
     const answer = mode === "definition"
-      ? (it.Name || it.Acronym || "")
+      ? (it.Name || "")
       : (it.Description || "");
     cards.push({
       key: it.Name,
@@ -154,3 +152,4 @@ export function buildProgressChart(ctx, summary){
     }
   });
 }
+
