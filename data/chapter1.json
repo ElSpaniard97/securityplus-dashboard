@@ -1,126 +1,101 @@
 [
   {
-    "Acronym": "",
     "Name": "Technical Controls",
     "Description": "Implemented using technology or systems. Examples: firewalls, antivirus, intrusion detection, access controls."
   },
   {
-    "Acronym": "",
     "Name": "Managerial Controls",
     "Description": "Administrative measures that define security design and policy. Examples: security policies, risk assessments, standard operating procedures."
   },
   {
-    "Acronym": "",
     "Name": "Operational Controls",
     "Description": "Implemented and executed by people. Examples: security awareness training, incident response procedures, background checks."
   },
   {
-    "Acronym": "",
     "Name": "Physical Controls",
     "Description": "Restrict physical access to systems and facilities. Examples: fences, locks, badge readers, guard stations."
   },
   {
-    "Acronym": "",
     "Name": "Control Types",
     "Description": "Preventive – stop unwanted activity (firewalls, locks). Deterrent – discourage attempts (signs, guards). Detective – identify and alert (CCTV, IDS). Corrective – fix issues (restore backups). Compensating – alternate protection. Directive – enforce behavior (policies, signage)."
   },
   {
-    "Acronym": "CIA",
     "Name": "CIA Triad",
     "Description": "Confidentiality – prevent unauthorized access (encryption, access control). Integrity – ensure accuracy (hashing, checksums). Availability – ensure access (redundancy, backups)."
   },
   {
-    "Acronym": "",
     "Name": "Non-Repudiation and Integrity Proofs",
     "Description": "Non-repudiation prevents denial of actions (digital signatures, logs). Proof of Integrity verifies data unchanged (hashing). Proof of Origin confirms sender identity (authentication, signatures)."
   },
   {
-    "Acronym": "AAA",
     "Name": "AAA Framework",
-    "Description": "Authentication – verify identity (password, MFA). Authorization – define access. Accounting – logs user actions."
+    "Description": "Identification – claim identity (username). Authentication – verify identity (password, MFA). Authorization – define access. Accounting – logs user actions."
   },
   {
-    "Acronym": "",
     "Name": "Authentication Flow",
     "Description": "User enters credentials. Firewall or VPN forwards to AAA server. Server validates credentials. Access granted if approved."
   },
   {
-    "Acronym": "CBA",
     "Name": "Certificate-Based Authentication",
     "Description": "Uses digital certificates issued by a Certificate Authority (CA). Verifies identity using public-key cryptography. Used in VPNs, Wi-Fi, secure email."
   },
   {
-    "Acronym": "",
     "Name": "Authorization Models",
     "Description": "Define how access is granted. RBAC (Role-Based), ABAC (Attribute-Based), MAC/DAC. Abstraction groups permissions to simplify management."
   },
   {
-    "Acronym": "",
     "Name": "Security Assessments",
     "Description": "Gap Analysis – compare current vs desired state. Baseline – define standard configuration. Reporting – identify weaknesses and improvements."
   },
   {
-    "Acronym": "",
     "Name": "Zero Trust Architecture",
     "Description": "Principle: never trust, always verify. Includes data/control planes, adaptive identity, policy enforcement points, and threat scope reduction."
   },
   {
-    "Acronym": "",
     "Name": "Physical Security Controls",
     "Description": "Barricades, fences, bollards, CCTV, guards, badges, and access vestibules restrict or monitor access."
   },
   {
-    "Acronym": "",
     "Name": "Deception and Detection Tools",
     "Description": "Honeypots, honeynets, honeyfiles, and honeytokens attract attackers or detect misuse."
   },
   {
-    "Acronym": "",
     "Name": "Change Management",
     "Description": "Structured process for managing IT changes. Includes ownership, stakeholders, impact analysis, sandbox testing, backout plan, and documentation."
   },
   {
-    "Acronym": "",
     "Name": "Software and System Controls",
     "Description": "Allow list – approved applications only. Deny list – block malicious software. Maintain redundancy and isolate legacy systems."
   },
   {
-    "Acronym": "PKI",
-    "Name": "Public Key Infrastructure",
+    "Name": "Public Key Infrastructure (PKI)",
     "Description": "Framework for managing certificates and encryption keys. Supports symmetric/asymmetric encryption and key escrow."
   },
   {
-    "Acronym": "",
     "Name": "Encryption Practices",
     "Description": "Data at rest – BitLocker, FileVault. Data in transit – TLS, VPN. Data in use – secure memory. Use AES/RSA/ECC with strong key management."
   },
   {
-    "Acronym": "",
     "Name": "Cryptographic Hardware",
     "Description": "TPM, HSM, KMS, and Secure Enclave manage encryption keys securely and isolate sensitive operations."
   },
   {
-    "Acronym": "",
     "Name": "Data Obfuscation and Privacy",
     "Description": "Obfuscation hides intent. Steganography hides data in media. Tokenization replaces sensitive data. Data masking hides parts of data."
   },
   {
-    "Acronym": "SHA-256",
     "Name": "Hashing and Digital Signatures",
     "Description": "Hashing verifies integrity. SHA-256 is secure. MD5/SHA-1 are obsolete. Digital signatures verify authenticity and non-repudiation."
   },
   {
-    "Acronym": "",
     "Name": "Blockchain",
     "Description": "Immutable distributed ledger linking transactions with hashes. Used for secure tracking and verification."
   },
   {
-    "Acronym": "",
     "Name": "Digital Certificates and Trust",
     "Description": "X.509 certificates bind keys to identities. Managed by Certificate Authorities (CAs). Includes CSRs, SANs, and wildcard certificates."
   },
   {
-    "Acronym": "OCSP / CRL",
     "Name": "Certificate Revocation",
     "Description": "CRL lists revoked certs. OCSP checks validity in real time. OCSP stapling improves performance."
   }
