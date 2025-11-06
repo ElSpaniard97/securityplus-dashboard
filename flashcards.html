@@ -153,8 +153,8 @@
         </label>
         <label class="small">Mode
           <select class="input" id="mode">
-            <option value="acronym">Acronym/Name → Definition</option>
-            <option value="definition">Definition → Name</option>
+            <option value="acronym">Term → Definition</option>
+            <option value="definition">Definition → Term</option>
           </select>
         </label>
         <label class="small" style="display:flex;align-items:center;gap:8px;">
@@ -226,12 +226,22 @@
 
     function showCard(){
       flipContainer.classList.remove('flipped');
-      if(i >= CARDS.length){
-        qEl.textContent = "Session complete.";
+      if(CARDS.length === 0){
+        qEl.textContent = "No flashcards available.";
         aEl.textContent = "";
         return;
       }
+      if(i >= CARDS.length) i = 0;
+      if(i < 0) i = CARDS.length - 1;
+
       const card = CARDS[i];
+      // Skip empty cards automatically
+      if(!card.Name || !card.Description){
+        i++;
+        showCard();
+        return;
+      }
+
       qEl.textContent = card.question;
       aEl.textContent = card.answer;
       updateStats();
@@ -248,7 +258,7 @@
       let items = ALL;
       if(ch){ items = ALL.filter(x => x.Chapter === ch); }
       if(reviewOnly.checked){ items = items.filter(x => reviews.includes(x.Name)); }
-      CARDS = createFlashcards(items, mode);
+      CARDS = createFlashcards(items.filter(x => x.Name && x.Description), mode); // Filter blanks
       i = 0;
       showCard();
     }
@@ -258,12 +268,14 @@
     });
 
     nextBtn.addEventListener('click', () => {
-      if(i < CARDS.length - 1) i++;
+      i++;
+      if(i >= CARDS.length) i = 0;
       showCard();
     });
 
     prevBtn.addEventListener('click', () => {
-      if(i > 0) i--;
+      i--;
+      if(i < 0) i = CARDS.length - 1;
       showCard();
     });
 
