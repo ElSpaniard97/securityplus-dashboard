@@ -1,181 +1,145 @@
 [
   {
-    "Acronym": "",
     "Name": "Threat Actors",
     "Description": "Any person, group, or entity responsible for an event that affects security. Also called a malicious actor."
   },
   {
-    "Acronym": "",
     "Name": "Attributes of Threat Actors",
     "Description": "Internal vs. External, level of sophistication, available funding, motivation, and intent determine threat potential."
   },
   {
-    "Acronym": "",
     "Name": "Common Motivations",
     "Description": "Financial gain, data theft/exfiltration, espionage, service disruption, blackmail, ideological or ethical causes, revenge, chaos, or warfare."
   },
   {
-    "Acronym": "",
     "Name": "Nation-State Threat Actors",
     "Description": "Government-linked and highly funded. Often operate as Advanced Persistent Threat (APT) groups with maximum sophistication and stealth."
   },
   {
-    "Acronym": "",
     "Name": "Unskilled Attackers (Script Kiddies)",
     "Description": "Use pre-made tools or scripts with little understanding. Motivated by curiosity or reputation. Can be internal or external."
   },
   {
-    "Acronym": "",
     "Name": "Hacktivists",
     "Description": "Attackers driven by social, political, or ideological causes. Skill and funding vary; often rely on public exploits."
   },
   {
-    "Acronym": "",
     "Name": "Insider Threats",
     "Description": "Originates from within the organization. Motivations include revenge, profit, or coercion. Dangerous due to legitimate access."
   },
   {
-    "Acronym": "",
     "Name": "Organized Crime",
     "Description": "Professional, well-structured groups focused on financial gain. Use ransomware, fraud, and identity theft with high sophistication."
   },
   {
-    "Acronym": "",
     "Name": "Shadow IT",
     "Description": "Unauthorized systems, software, or cloud services deployed by employees. Not malicious but introduces significant risk."
   },
   {
-    "Acronym": "",
     "Name": "Threat Vectors (Attack Vectors)",
     "Description": "Methods attackers use to gain access. Includes message, file, media, voice, removable media, software, and network vectors."
   },
   {
-    "Acronym": "",
     "Name": "Message-Based Vectors",
     "Description": "Email, SMS, or instant messages delivering phishing, malware, or scams."
   },
   {
-    "Acronym": "",
     "Name": "Phishing and Variants",
     "Description": "Phishing: deceptive messages with malicious links. BEC: impersonates executives. Vishing: voice calls. Smishing: SMS phishing."
   },
   {
-    "Acronym": "",
     "Name": "Image-Based Attack Vectors",
     "Description": "Malicious code hidden inside image formats like SVG via XML-based scripting."
   },
   {
-    "Acronym": "",
     "Name": "File-Based Attack Vectors",
     "Description": "Malware hidden in PDFs, Office macros, or ZIP archives that execute upon opening or enabling scripts."
   },
   {
-    "Acronym": "",
     "Name": "Voice Call Vectors",
     "Description": "Robocalls, war dialing, or call tampering targeting VoIP or phone systems."
   },
   {
-    "Acronym": "",
     "Name": "Removable Media Vectors",
     "Description": "USB drives used to infect air-gapped systems, impersonate keyboards, or exfiltrate data."
   },
   {
-    "Acronym": "",
     "Name": "Vulnerable Software Vectors",
     "Description": "Unpatched or unsupported client/server applications become high-risk entry points."
   },
   {
-    "Acronym": "",
     "Name": "Unsecured Network Vectors",
     "Description": "Weak Wi-Fi protocols, rogue APs, open ports, or default credentials increase exposure."
   },
   {
-    "Acronym": "",
     "Name": "Supply Chain Attacks",
     "Description": "Compromise occurs at vendor or provider level before deployment to the target organization."
   },
   {
-    "Acronym": "",
     "Name": "Social Engineering Tactics",
     "Description": "Psychological manipulation using impersonation, elicitation, or identity fraud to extract information or access."
   },
   {
-    "Acronym": "",
     "Name": "Watering Hole Attacks",
     "Description": "Compromising a trusted website frequently visited by a target group to deliver malware passively."
   },
   {
-    "Acronym": "",
     "Name": "Misinformation and Disinformation",
     "Description": "Spreading false or misleading content to manipulate public opinion or behavior, often amplified through social media."
   },
   {
-    "Acronym": "",
     "Name": "Malware Basics",
     "Description": "Malicious software executes in memory or injects code into legitimate processes to evade detection."
   },
   {
-    "Acronym": "",
     "Name": "Memory Injection / DLL Injection",
     "Description": "Inserts malicious code into running processes to inherit permissions and maintain stealth."
   },
   {
-    "Acronym": "",
     "Name": "Buffer Overflow",
     "Description": "Writing data beyond allocated memory to execute attacker-controlled code; may crash systems if unhandled."
   },
   {
-    "Acronym": "",
     "Name": "Race Condition (TOCTOU)",
     "Description": "Time-of-check-to-time-of-use flaw that allows attackers to modify data between validation and execution."
   },
   {
-    "Acronym": "",
     "Name": "Software Updates and Patching",
     "Description": "Always install updates from trusted sources, validate signatures, and maintain backups."
   },
   {
-    "Acronym": "",
     "Name": "Code Injection Attacks",
     "Description": "SQL Injection modifies database queries; XSS injects scripts into web pages viewed by users."
   },
   {
-    "Acronym": "",
     "Name": "Hardware and Firmware Risks",
     "Description": "IoT and EOL/EOSL devices lack patches; isolate legacy hardware or use compensating controls."
   },
   {
-    "Acronym": "",
     "Name": "Virtualization Security",
     "Description": "Risks include VM escape and privilege escalation; mitigation through patching and isolation."
   },
   {
-    "Acronym": "DoS / DDoS",
-    "Name": "Denial of Service Attacks",
+    "Name": "Denial of Service (DoS / DDoS)",
     "Description": "Overwhelm services to cause downtime or distraction; DDoS uses distributed botnets and amplification methods."
   },
   {
-    "Acronym": "",
     "Name": "DNS Attacks",
     "Description": "Poisoning, spoofing, or hijacking DNS entries to redirect users to malicious destinations."
   },
   {
-    "Acronym": "",
     "Name": "Wireless Attacks",
     "Description": "Deauthentication and RF jamming disrupt connectivity; mitigated with 802.11w and signal monitoring."
   },
   {
-    "Acronym": "MITM",
     "Name": "On-Path (Man-in-the-Middle) Attacks",
     "Description": "Intercept and alter communications using ARP poisoning, browser injection, or session hijacking."
   },
   {
-    "Acronym": "IOC",
-    "Name": "Indicators of Compromise",
+    "Name": "Indicators of Compromise (IOC)",
     "Description": "Unusual network activity, abnormal logins, missing logs, data leaks, or impossible travel events."
   },
   {
-    "Acronym": "",
     "Name": "System Hardening and Defense",
     "Description": "Apply least privilege, patch management, encryption, SIEM logging, and secure decommissioning."
   }
