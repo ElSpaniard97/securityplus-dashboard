@@ -1,154 +1,286 @@
 [
   {
     "Name": "Technical Controls",
-    "Description": "Implemented using technology or systems. Examples: firewalls, antivirus, intrusion detection, access controls."
+    "Description": "• Controls implemented using systems\n• Operating system controls\n• Firewalls, anti-virus"
   },
   {
     "Name": "Managerial Controls",
-    "Description": "Administrative measures that define security design and policy. Examples: security policies, risk assessments, standard operating procedures."
+    "Description": "• Administrative controls associated with security design and implementation\n• Security policies, standard operating procedures"
   },
   {
     "Name": "Operational Controls",
-    "Description": "Implemented and executed by people. Examples: security awareness training, incident response procedures, background checks."
+    "Description": "• Controls implemented by people instead of systems\n• Security guards, awareness program"
   },
   {
     "Name": "Physical Controls",
-    "Description": "Restrict physical access to systems and facilities. Examples: fences, locks, badge readers, guard stations."
+    "Description": "• Limit physical access\n• Guard shack\n• Fences, locks\n• Badge readers"
   },
   {
     "Name": "Control Types",
-    "Description": "Preventive, Deterrent, Detective, Corrective, Compensating, Directive"
+    "Description": "• Preventive\n• Deterrent\n• Detective\n• Corrective\n• Compensating\n• Directive"
   },
   {
-    "Name": "Preventive Control",
-    "Description": "Prevents security incidents by stopping unwanted or unauthorized activity before it occurs. Examples include firewalls, locks, and access control lists."
+    "Name": "Preventive",
+    "Description": "• Block access"
   },
   {
-    "Name": "Deterrent Control",
-    "Description": "Discourages potential attackers or policy violations through visible warnings or consequences. Examples include security signs, guards, and surveillance cameras."
+    "Name": "Deterrent",
+    "Description": "• Discourage intrusion attempt"
   },
   {
-    "Name": "Detective Control",
-    "Description": "Identifies and alerts when a security incident occurs or has occurred. Examples include intrusion detection systems (IDS), CCTV monitoring, and log reviews."
+    "Name": "Corrective",
+    "Description": "• Apply control using other means"
   },
   {
-    "Name": "Corrective Control",
-    "Description": "Responds to and fixes issues after they have been detected. Examples include restoring backups, patching vulnerabilities, and reimaging compromised systems."
-  },
-  {
-    "Name": "Compensating Control",
-    "Description": "Provides alternative protection when the primary control cannot be implemented. Examples include manual review processes or temporary technical safeguards."
-  },
-  {
-    "Name": "Directive Control",
-    "Description": "Guides or enforces expected behavior within the organization. Examples include security policies, acceptable use policies, and posted procedures."
+    "Name": "Directive",
+    "Description": "• Direct a subject towards security compliance"
   },
   {
     "Name": "CIA Triad",
-    "Description": "Confidentiality, Integrity & Availability"
+    "Description": "• Confidentiality\n• Integrity\n• Availability"
   },
   {
     "Name": "Confidentiality",
-    "Description": "Ensures information is only accessible to authorized individuals. Protects against unauthorized access and disclosure. Common methods include encryption, access control lists (ACLs), and multi-factor authentication (MFA)."
+    "Description": "• Certain information should only be known to certain people\n• Encryption\n• Access controls\n• Two-factor authentication"
   },
   {
     "Name": "Integrity",
-    "Description": "Ensures data remains accurate, consistent, and unaltered during storage or transmission. Protects against unauthorized modification or corruption. Common techniques include hashing, checksums, and digital signatures."
+    "Description": "• Data is stored and transferred as intended"
+  },
+  {
+    "Name": "Examples of Integrity",
+    "Description": "1. Hashing – map data of arbitrary length to fixed length\n2. Digital signatures – verify data integrity\n3. Certificates – used with digital signatures to verify an individual\n4. Non-repudiation – provides proof of integrity"
   },
   {
     "Name": "Availability",
-    "Description": "Ensures systems and data are accessible to authorized users when needed. Focuses on maintaining uptime and recovery from disruptions. Common safeguards include redundancy, backups, and failover systems."
+    "Description": "• Information is accessible to authorized users"
   },
   {
-    "Name": "Non-Repudiation and Integrity Proofs",
-    "Description": "Non-repudiation prevents denial of actions (digital signatures, logs). Proof of Integrity verifies data unchanged (hashing). Proof of Origin confirms sender identity (authentication, signatures)."
+    "Name": "Examples of Availability",
+    "Description": "1. Redundancy – build services that will always be available\n2. Fault tolerance – system continues to run even when a failure occurs\n3. Patching – maintain stability and close security holes"
+  },
+  {
+    "Name": "Non-Repudiation",
+    "Description": "• You can't deny what you've said\n• Proof of integrity\n• Proof of origin"
+  },
+  {
+    "Name": "Proof of Integrity",
+    "Description": "• Verify data does not change"
+  },
+  {
+    "Name": "Hash",
+    "Description": "• Used in cryptography\n• Represent data as a short string of text\n• If data changes, the hash changes\n• Does not necessarily associate data with an individual"
+  },
+  {
+    "Name": "Proof of Origin",
+    "Description": "• Proves the message was not changed – Integrity\n• Proves the source of the message – Authentication\n• Ensures the signature isn't fake – Non-repudiation"
+  },
+  {
+    "Name": "Examples of Proof of Origin",
+    "Description": "• Private Key – Sign\n• Public Key – Verify"
   },
   {
     "Name": "AAA Framework",
-    "Description": "Identification, Authentication, Authorization, Accounting"
+    "Description": "• Identification\n• Authentication\n• Authorization\n• Accounting"
   },
   {
     "Name": "Identification",
-    "Description": "The process of claiming an identity within a system. Typically achieved by providing a username, ID, or credential that uniquely represents a user or device before authentication occurs."
+    "Description": "• Username"
   },
   {
     "Name": "Authentication",
-    "Description": "The process of verifying that the claimed identity is valid. Common methods include passwords, biometrics, tokens, and multi-factor authentication (MFA)."
+    "Description": "• Password and other authentication factors"
   },
   {
     "Name": "Authorization",
-    "Description": "Determines what actions or resources an authenticated user is allowed to access. Implemented through permissions, roles, and access control lists (ACLs)."
+    "Description": "• Determine access to resources based on role"
   },
   {
-    "Name": "Accounting (Auditing)",
-    "Description": "Tracks and logs user activity for monitoring, compliance, and forensic analysis. Provides traceability for actions such as logins, file access, and configuration changes."
+    "Name": "Accounting",
+    "Description": "• Record login time, data sent and received, and logout time"
   },
   {
-    "Name": "Authentication Flow",
-    "Description": "User enters credentials. Firewall or VPN forwards to AAA server. Server validates credentials. Access granted if approved."
+    "Name": "Authenticating People",
+    "Description": "1. Enter username and password\n2. Goes to VPN/Firewall\n3. Checks identification via AAA Server\n4. If approved, goes back to VPN/Firewall\n5. Then goes to Internal File Server"
   },
   {
-    "Name": "Certificate-Based Authentication",
-    "Description": "Uses digital certificates issued by a Certificate Authority (CA). Verifies identity using public-key cryptography. Used in VPNs, Wi-Fi, secure email."
+    "Name": "Authenticating Systems",
+    "Description": "• Use signed certificate on the device"
+  },
+  {
+    "Name": "Certificate Authentication",
+    "Description": "• Certificate Authority (CA)\n• Most organizations maintain their own CAs"
+  },
+  {
+    "Name": "CA Process",
+    "Description": "1. Organization creates a certificate for a device\n2. Digitally signs the certificate with the organization's CA\n3. Certificate can now be included on a device as an authentication factor\n4. CA's digital signature is used to validate the certificate"
   },
   {
     "Name": "Authorization Models",
-    "Description": "Define how access is granted. RBAC (Role-Based), ABAC (Attribute-Based), MAC/DAC. Abstraction groups permissions to simplify management."
+    "Description": "• Users and services → data and applications\n• Defined by roles, organizations, attributes, etc."
   },
   {
-    "Name": "Security Assessments",
-    "Description": "Gap Analysis – compare current vs desired state. Baseline – define standard configuration. Reporting – identify weaknesses and improvements."
+    "Name": "Abstraction",
+    "Description": "• Reduce complexity\n• Create a clear relationship between the user and the resource\n• Administration is streamlined\n• Easy to understand authorizations\n• Support any number of users or resources"
   },
   {
-    "Name": "Zero Trust Architecture",
-    "Description": "Principle: never trust, always verify. Includes data/control planes, adaptive identity, policy enforcement points, and threat scope reduction."
+    "Name": "Gap Analysis",
+    "Description": "• Where you are → Where you want to be\n• Can take a long time\n• Can require many people"
   },
   {
-    "Name": "Physical Security Controls",
-    "Description": "Barricades, fences, bollards, CCTV, guards, badges, and access vestibules restrict or monitor access."
+    "Name": "Baseline",
+    "Description": "• Internal set of goals\n• Some organizations use formal standards\n• Used to evaluate people and processes"
   },
   {
-    "Name": "Deception and Detection Tools",
-    "Description": "Honeypots, honeynets, honeyfiles, and honeytokens attract attackers or detect misuse."
+    "Name": "Compare and Contrast",
+    "Description": "• Compare – evaluate existing systems\n• Identify weaknesses\n• Perform detailed analysis"
+  },
+  {
+    "Name": "Analysis and Report",
+    "Description": "• Final comparison – detailed baseline\n• Path to goals\n• Create gap analysis report"
+  },
+  {
+    "Name": "Zero Trust",
+    "Description": "• Holistic approach to network security\n• Covers every device, process, and person\n• Everything must be verified\n• Nothing is inherently trusted"
+  },
+  {
+    "Name": "Planes of Operation",
+    "Description": "• Split the network into functional planes\n• Applies to physical, virtual, and cloud components"
+  },
+  {
+    "Name": "Data Plane",
+    "Description": "• Processes frames, packets, and network data\n• Handles forwarding, trunking, encrypting, and NAT"
+  },
+  {
+    "Name": "Control Plane",
+    "Description": "• Manages the actions of the data plane\n• Defines policies and rules\n• Determines how packets should be forwarded\n• Routing tables, session tables, NAT tables"
+  },
+  {
+    "Name": "Adaptive Identity",
+    "Description": "• Controls trust dynamically\n• Examines identity based on provided credentials and other authentication data"
+  },
+  {
+    "Name": "Threat Scope Reduction",
+    "Description": "• Reduces the number of possible entry points\n• Minimizes exposure by controlling trust"
+  },
+  {
+    "Name": "Policy Driven Access Control",
+    "Description": "• Combines adaptive identity with predefined rules to manage access"
+  },
+  {
+    "Name": "Security Zones",
+    "Description": "• Define source and destination trust levels\n• Trusted → Untrusted\n• Internal network → External network"
+  },
+  {
+    "Name": "Policy Enforcement Point",
+    "Description": "• Subjects and systems: users, apps, non-human entities\n• Acts as a gatekeeper\n• Allows, monitors, and terminates connections"
+  },
+  {
+    "Name": "Policy Decision Point",
+    "Description": "• Evaluates each access request based on policy and data sources\n• Grants, denies, or revokes access"
+  },
+  {
+    "Name": "Policy Administrator",
+    "Description": "• Communicates with the Policy Enforcement Point\n• Generates access tokens or credentials\n• Instructs PEP to allow or disallow access"
+  },
+  {
+    "Name": "Policy Engine",
+    "Description": "• Evaluates access decisions based on policy and other inputs\n• Grants, denies, or revokes access"
+  },
+  {
+    "Name": "Barricades and Bollards",
+    "Description": "• Prevent access\n• Channel people through a specific entry point\n• Identify safety concerns"
+  },
+  {
+    "Name": "Access Control Vestibules",
+    "Description": "• Allow or control access to secure areas"
+  },
+  {
+    "Name": "Fence",
+    "Description": "• Create a physical perimeter for security"
+  },
+  {
+    "Name": "CCTV",
+    "Description": "• Closed-circuit television for video surveillance"
+  },
+  {
+    "Name": "Guards and Access Badges",
+    "Description": "• Provide physical protection and identification\n• Support two-person integrity/control\n• Access badge – employee ID badge"
+  },
+  {
+    "Name": "Honeypots",
+    "Description": "• Attract attackers into isolated environments\n• Simulate real systems to collect threat data"
+  },
+  {
+    "Name": "Honeynets",
+    "Description": "• Larger deception networks built from multiple honeypots"
+  },
+  {
+    "Name": "Honeyfiles",
+    "Description": "• Fake files used as bait within a honeynet\n• Generate alerts when accessed"
+  },
+  {
+    "Name": "Honeytokens",
+    "Description": "• Traceable data planted to track malicious activity\n• Reveal where stolen information is used"
   },
   {
     "Name": "Change Management",
-    "Description": "Structured process for managing IT changes. Includes ownership, stakeholders, impact analysis, sandbox testing, backout plan, and documentation."
+    "Description": "• Formal process for managing change\n• Prevent downtime, confusion, and mistakes"
   },
   {
-    "Name": "Software and System Controls",
-    "Description": "Allow list – approved applications only. Deny list – block malicious software. Maintain redundancy and isolate legacy systems."
+    "Name": "Change Management Process",
+    "Description": "1. Complete request forms\n2. Determine the purpose of the change\n3. Identify scope and impact\n4. Schedule date/time\n5. Analyze risk and obtain approval\n6. Implement and test\n7. Document and get end-user acceptance"
   },
   {
-    "Name": "Public Key Infrastructure (PKI)",
-    "Description": "Framework for managing certificates and encryption keys. Supports symmetric/asymmetric encryption and key escrow."
+    "Name": "Ownership",
+    "Description": "• Individual or entity responsible for initiating and managing the change"
   },
   {
-    "Name": "Encryption Practices",
-    "Description": "Data at rest – BitLocker, FileVault. Data in transit – TLS, VPN. Data in use – secure memory. Use AES/RSA/ECC with strong key management."
+    "Name": "Stakeholders",
+    "Description": "• Individuals or groups impacted by the change"
   },
   {
-    "Name": "Cryptographic Hardware",
-    "Description": "TPM, HSM, KMS, and Secure Enclave manage encryption keys securely and isolate sensitive operations."
+    "Name": "Impact Analysis",
+    "Description": "• Determine the risk level of the change\n• Consider risks of not making the change"
   },
   {
-    "Name": "Data Obfuscation and Privacy",
-    "Description": "Obfuscation hides intent. Steganography hides data in media. Tokenization replaces sensitive data. Data masking hides parts of data."
+    "Name": "Sandbox",
+    "Description": "• Isolated testing environment with no connection to production systems"
   },
   {
-    "Name": "Hashing and Digital Signatures",
-    "Description": "Hashing verifies integrity. SHA-256 is secure. MD5/SHA-1 are obsolete. Digital signatures verify authenticity and non-repudiation."
+    "Name": "Backout Plan",
+    "Description": "• Plan to revert to previous state if issues occur\n• Always maintain backups"
   },
   {
-    "Name": "Blockchain",
-    "Description": "Immutable distributed ledger linking transactions with hashes. Used for secure tracking and verification."
+    "Name": "Maintenance Window",
+    "Description": "• Scheduled time period for performing changes"
   },
   {
-    "Name": "Digital Certificates and Trust",
-    "Description": "X.509 certificates bind keys to identities. Managed by Certificate Authorities (CAs). Includes CSRs, SANs, and wildcard certificates."
+    "Name": "SOP (Standard Operating Procedure)",
+    "Description": "• Change management must be documented and repeatable"
   },
   {
-    "Name": "Certificate Revocation",
-    "Description": "CRL lists revoked certs. OCSP checks validity in real time. OCSP stapling improves performance."
+    "Name": "Allow List",
+    "Description": "• Only approved software or processes can run\n• Highly restrictive"
+  },
+  {
+    "Name": "Deny List",
+    "Description": "• Blocks known malicious or disallowed software\n• Implemented via anti-virus or anti-malware tools"
+  },
+  {
+    "Name": "Downtime",
+    "Description": "• Schedule maintenance during non-production hours\n• Minimize downtime using redundancy"
+  },
+  {
+    "Name": "Legacy Applications",
+    "Description": "• Unsupported software that requires custom maintenance\n• Create specific procedures for stability"
+  },
+  {
+    "Name": "Documentation",
+    "Description": "• Update diagrams, policies, and procedures during change processes"
+  },
+  {
+    "Name": "Version Control",
+    "Description": "• Track configuration changes over time\n• Enable rollback to previous settings\n• Examples: router configs, OS updates"
   }
 ]
