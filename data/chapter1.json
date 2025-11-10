@@ -17,8 +17,32 @@
   },
   {
     "Name": "Control Types",
-    "Description": "Preventive – stop unwanted activity (firewalls, locks). Deterrent – discourage attempts (signs, guards). Detective – identify and alert (CCTV, IDS). Corrective – fix issues (restore backups). Compensating – alternate protection. Directive – enforce behavior (policies, signage)."
+    "Description": "Preventive, Deterrent, Detective, Corrective, Compensating, Directive"
   },
+  {
+    "Name": "Preventive Control",
+    "Description": "Prevents security incidents by stopping unwanted or unauthorized activity before it occurs. Examples include firewalls, locks, and access control lists."
+  },
+  {
+    "Name": "Deterrent Control",
+    "Description": "Discourages potential attackers or policy violations through visible warnings or consequences. Examples include security signs, guards, and surveillance cameras."
+  },
+  {
+    "Name": "Detective Control",
+    "Description": "Identifies and alerts when a security incident occurs or has occurred. Examples include intrusion detection systems (IDS), CCTV monitoring, and log reviews."
+  },
+  {
+    "Name": "Corrective Control",
+    "Description": "Responds to and fixes issues after they have been detected. Examples include restoring backups, patching vulnerabilities, and reimaging compromised systems."
+  },
+  {
+    "Name": "Compensating Control",
+    "Description": "Provides alternative protection when the primary control cannot be implemented. Examples include manual review processes or temporary technical safeguards."
+  },
+  {
+    "Name": "Directive Control",
+    "Description": "Guides or enforces expected behavior within the organization. Examples include security policies, acceptable use policies, and posted procedures."
+  }
   {
     "Name": "CIA Triad",
     "Description": "Confidentiality – prevent unauthorized access (encryption, access control). Integrity – ensure accuracy (hashing, checksums). Availability – ensure access (redundancy, backups)."
