@@ -65,8 +65,24 @@
   },
   {
     "Name": "AAA Framework",
-    "Description": "Identification – claim identity (username). Authentication – verify identity (password, MFA). Authorization – define access. Accounting – logs user actions."
+    "Description": "Identification, Authentication, Authorization, Accounting"
   },
+  {
+    "Name": "Identification",
+    "Description": "The process of claiming an identity within a system. Typically achieved by providing a username, ID, or credential that uniquely represents a user or device before authentication occurs."
+  },
+  {
+    "Name": "Authentication",
+    "Description": "The process of verifying that the claimed identity is valid. Common methods include passwords, biometrics, tokens, and multi-factor authentication (MFA)."
+  },
+  {
+    "Name": "Authorization",
+    "Description": "Determines what actions or resources an authenticated user is allowed to access. Implemented through permissions, roles, and access control lists (ACLs)."
+  },
+  {
+    "Name": "Accounting (Auditing)",
+    "Description": "Tracks and logs user activity for monitoring, compliance, and forensic analysis. Provides traceability for actions such as logins, file access, and configuration changes."
+  }
   {
     "Name": "Authentication Flow",
     "Description": "User enters credentials. Firewall or VPN forwards to AAA server. Server validates credentials. Access granted if approved."
