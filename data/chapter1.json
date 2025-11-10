@@ -45,8 +45,20 @@
   }
   {
     "Name": "CIA Triad",
-    "Description": "Confidentiality – prevent unauthorized access (encryption, access control). Integrity – ensure accuracy (hashing, checksums). Availability – ensure access (redundancy, backups)."
+    "Description": "Confidentiality, Integrity & Availability"
   },
+  {
+    "Name": "Confidentiality",
+    "Description": "Ensures information is only accessible to authorized individuals. Protects against unauthorized access and disclosure. Common methods include encryption, access control lists (ACLs), and multi-factor authentication (MFA)."
+  },
+  {
+    "Name": "Integrity",
+    "Description": "Ensures data remains accurate, consistent, and unaltered during storage or transmission. Protects against unauthorized modification or corruption. Common techniques include hashing, checksums, and digital signatures."
+  },
+  {
+    "Name": "Availability",
+    "Description": "Ensures systems and data are accessible to authorized users when needed. Focuses on maintaining uptime and recovery from disruptions. Common safeguards include redundancy, backups, and failover systems."
+  }
   {
     "Name": "Non-Repudiation and Integrity Proofs",
     "Description": "Non-repudiation prevents denial of actions (digital signatures, logs). Proof of Integrity verifies data unchanged (hashing). Proof of Origin confirms sender identity (authentication, signatures)."
