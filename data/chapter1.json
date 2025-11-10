@@ -42,7 +42,7 @@
   {
     "Name": "Directive Control",
     "Description": "Guides or enforces expected behavior within the organization. Examples include security policies, acceptable use policies, and posted procedures."
-  }
+  },
   {
     "Name": "CIA Triad",
     "Description": "Confidentiality, Integrity & Availability"
@@ -58,7 +58,7 @@
   {
     "Name": "Availability",
     "Description": "Ensures systems and data are accessible to authorized users when needed. Focuses on maintaining uptime and recovery from disruptions. Common safeguards include redundancy, backups, and failover systems."
-  }
+  },
   {
     "Name": "Non-Repudiation and Integrity Proofs",
     "Description": "Non-repudiation prevents denial of actions (digital signatures, logs). Proof of Integrity verifies data unchanged (hashing). Proof of Origin confirms sender identity (authentication, signatures)."
@@ -82,7 +82,7 @@
   {
     "Name": "Accounting (Auditing)",
     "Description": "Tracks and logs user activity for monitoring, compliance, and forensic analysis. Provides traceability for actions such as logins, file access, and configuration changes."
-  }
+  },
   {
     "Name": "Authentication Flow",
     "Description": "User enters credentials. Firewall or VPN forwards to AAA server. Server validates credentials. Access granted if approved."
